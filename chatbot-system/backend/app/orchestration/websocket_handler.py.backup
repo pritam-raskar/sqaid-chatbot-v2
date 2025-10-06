@@ -1,0 +1,517 @@
+"""
+WebSocket Handler for real-time chat communication.
+Manages WebSocket connections and message streaming.
+"""
+
+import json
+import asyncio
+import logging
+from typing import Dict, Optional, Set
+from fastapi import WebSocket, WebSocketDisconnect
+from datetime import datetime
+import uuid
+
+logger = logging.getLogger(__name__)
+
+
+class ConnectionManager:
+    """Manages active WebSocket connections."""
+
+    def __init__(self):
+        self.active_connections: Dict[str, WebSocket] = {}
+        self.connection_sessions: Dict[str, str] = {}  # connection_id -> session_id
+
+    async def connect(self, websocket: WebSocket, connection_id: str, session_id: str):
+        """Accept and store a new WebSocket connection."""
+        await websocket.accept()
+        self.active_connections[connection_id] = websocket
+        self.connection_sessions[connection_id] = session_id
+        logger.info(f"WebSocket connected: {connection_id} for session {session_id}")
+
+    def disconnect(self, connection_id: str):
+        """Remove a WebSocket connection."""
+        if connection_id in self.active_connections:
+            del self.active_connections[connection_id]
+            del self.connection_sessions[connection_id]
+            logger.info(f"WebSocket disconnected: {connection_id}")
+
+    async def send_message(self, connection_id: str, message: dict):
+        """Send a message to a specific connection."""
+        if connection_id in self.active_connections:
+            websocket = self.active_connections[connection_id]
+            await websocket.send_json(message)
+
+    async def broadcast(self, message: dict, exclude: Optional[str] = None):
+        """Broadcast a message to all connections except the excluded one."""
+        for connection_id, websocket in self.active_connections.items():
+            if connection_id != exclude:
+                await websocket.send_json(message)
+
+
+class WebSocketHandler:
+    """
+    Handles WebSocket connections for real-time chat.
+    Manages message processing and response streaming.
+    """
+
+    def __init__(self, session_manager, llm_provider=None, tool_registry=None):
+        """
+        Initialize WebSocket handler.
+
+        Args:
+            session_manager: SessionManager instance
+            llm_provider: LLM provider for generating responses
+            tool_registry: Tool registry with all available tools (REST, DB, SOAP)
+        """
+        self.session_manager = session_manager
+        self.llm_provider = llm_provider
+        self.tool_registry = tool_registry
+        self.connection_manager = ConnectionManager()
+        self.heartbeat_interval = 30  # seconds
+        self.message_handlers = {
+            'chat': self._handle_chat_message,
+            'ping': self._handle_ping,
+            'context_update': self._handle_context_update,
+            'filter_request': self._handle_filter_request,
+        }
+
+        # Initialize IntentRouter if tool_registry is available
+        self.intent_router = None
+        if tool_registry and llm_provider:
+            try:
+                from app.intelligence.intent_router import IntentRouter
+
+                # Get LangChain-compatible LLM from provider
+                langchain_llm = getattr(llm_provider, 'get_langchain_llm', None)
+                if langchain_llm and callable(langchain_llm):
+                    llm = langchain_llm()
+                    self.intent_router = IntentRouter(
+                        llm=llm,
+                        tool_registry=tool_registry
+                    )
+                    # Initialize agent with tools
+                    import asyncio
+                    asyncio.create_task(self.intent_router.initialize_agent())
+                    logger.info("IntentRouter initialized with tool registry")
+                else:
+                    logger.warning("LLM provider doesn't support LangChain integration")
+            except Exception as e:
+                logger.warning(f"Failed to initialize IntentRouter: {e}", exc_info=True)
+
+    async def handle_connection(self, websocket: WebSocket, session_id: str = None):
+        """
+        Handle a WebSocket connection lifecycle.
+
+        Steps:
+        1. Accept WebSocket connection
+        2. Authenticate user token
+        3. Create/retrieve session
+        4. Start message listener loop
+        5. Handle disconnection gracefully
+        """
+        connection_id = str(uuid.uuid4())
+
+        try:
+            # Step 1: Accept WebSocket connection
+            await self.connection_manager.connect(websocket, connection_id, session_id)
+
+            # Step 2: Authenticate user token (placeholder for now)
+            # In production, extract and validate JWT from query params or headers
+            authenticated = await self._authenticate_connection(websocket)
+            if not authenticated:
+                await websocket.close(code=1008, reason="Authentication failed")
+                return
+
+            # Step 3: Create/retrieve session
+            if not session_id:
+                session_id = str(uuid.uuid4())
+
+            session = await self.session_manager.get_or_create_session(session_id)
+
+            # Send welcome message
+            await self.connection_manager.send_message(connection_id, {
+                'type': 'connection_established',
+                'session_id': session_id,
+                'timestamp': datetime.utcnow().isoformat()
+            })
+
+            # Start heartbeat task
+            heartbeat_task = asyncio.create_task(
+                self._heartbeat_loop(connection_id)
+            )
+
+            # Step 4: Start message listener loop
+            await self._message_listener(websocket, connection_id, session)
+
+        except WebSocketDisconnect:
+            logger.info(f"WebSocket disconnected normally: {connection_id}")
+        except Exception as e:
+            logger.error(f"WebSocket error for {connection_id}: {e}")
+        finally:
+            # Step 5: Handle disconnection gracefully
+            self.connection_manager.disconnect(connection_id)
+            if 'heartbeat_task' in locals():
+                heartbeat_task.cancel()
+
+    async def _authenticate_connection(self, websocket: WebSocket) -> bool:
+        """
+        Authenticate the WebSocket connection.
+
+        In production, this would validate JWT tokens.
+        """
+        # Placeholder - always return True for development
+        return True
+
+    async def _message_listener(self, websocket: WebSocket, connection_id: str, session):
+        """Listen for messages from the WebSocket."""
+        while True:
+            try:
+                # Receive message from client
+                data = await websocket.receive_json()
+
+                # Process the message
+                await self.process_message(data, session, connection_id)
+
+            except WebSocketDisconnect:
+                break
+            except json.JSONDecodeError as e:
+                await self.connection_manager.send_message(connection_id, {
+                    'type': 'error',
+                    'message': f'Invalid JSON: {str(e)}'
+                })
+            except Exception as e:
+                logger.error(f"Error processing message: {e}")
+                await self.connection_manager.send_message(connection_id, {
+                    'type': 'error',
+                    'message': 'Internal server error'
+                })
+
+    async def process_message(self, message: dict, session, connection_id: str):
+        """
+        Process incoming WebSocket message.
+
+        Steps:
+        1. Parse message type and content
+        2. Add to session history
+        3. Route to appropriate handler
+        4. Stream response back
+        5. Update session state
+        """
+        # Step 1: Parse message type and content
+        message_type = message.get('type', 'chat')
+        content = message.get('content', '')
+        message_id = message.get('id', str(uuid.uuid4()))
+
+        logger.debug(f"Processing message: type={message_type}, id={message_id}")
+
+        # Step 2: Add to session history
+        if message_type == 'chat':
+            await self.session_manager.add_message(session.id, {
+                'role': 'user',
+                'content': content,
+                'timestamp': datetime.utcnow().isoformat()
+            })
+
+        # Step 3: Route to appropriate handler
+        handler = self.message_handlers.get(message_type, self._handle_unknown)
+
+        try:
+            # Step 4: Stream response back
+            response = await handler(message, session, connection_id)
+
+            # Step 5: Update session state
+            if response and message_type == 'chat':
+                await self.session_manager.add_message(session.id, {
+                    'role': 'assistant',
+                    'content': response.get('content', ''),
+                    'timestamp': datetime.utcnow().isoformat()
+                })
+
+        except Exception as e:
+            logger.error(f"Error handling {message_type} message: {e}")
+            await self.connection_manager.send_message(connection_id, {
+                'type': 'error',
+                'message': f'Failed to process {message_type} message',
+                'id': message_id
+            })
+
+    async def stream_response(self, response: str, connection_id: str, message_id: str = None):
+        """
+        Stream response to client in chunks.
+
+        Steps:
+        1. Chunk response into tokens
+        2. Send each chunk with type indicator
+        3. Handle backpressure
+        4. Send completion signal
+        """
+        # Step 1: Chunk response into tokens (simple word-based for now)
+        words = response.split()
+        chunks = []
+
+        # Create chunks of ~5 words each
+        for i in range(0, len(words), 5):
+            chunk = ' '.join(words[i:i+5])
+            if i + 5 < len(words):
+                chunk += ' '
+            chunks.append(chunk)
+
+        # Step 2: Send each chunk with type indicator
+        for i, chunk in enumerate(chunks):
+            await self.connection_manager.send_message(connection_id, {
+                'type': 'stream_chunk',
+                'content': chunk,
+                'chunk_index': i,
+                'id': message_id
+            })
+
+            # Step 3: Handle backpressure (simple delay)
+            await asyncio.sleep(0.05)  # 50ms between chunks
+
+        # Step 4: Send completion signal
+        await self.connection_manager.send_message(connection_id, {
+            'type': 'stream_complete',
+            'id': message_id
+        })
+
+    async def _handle_chat_message(self, message: dict, session, connection_id: str):
+        """Handle chat messages with intelligent routing."""
+        content = message.get('content', '')
+        message_id = message.get('id')
+        page_context = message.get('context', {})  # Parent application context
+
+        # Send acknowledgment
+        await self.connection_manager.send_message(connection_id, {
+            'type': 'message_received',
+            'id': message_id
+        })
+
+        # Check if IntentRouter is available for intelligent routing
+        if hasattr(self, 'intent_router') and self.intent_router:
+            try:
+                # Use intelligent routing with IntentRouter
+                response_text = await self._handle_with_intelligence(
+                    content=content,
+                    session=session,
+                    page_context=page_context,
+                    connection_id=connection_id,
+                    message_id=message_id
+                )
+
+                # Stream the response
+                await self.stream_response(response_text, connection_id, message_id)
+
+                return {'content': response_text}
+
+            except Exception as e:
+                logger.error(f"Intelligent routing error: {e}")
+                # Fallback to direct LLM
+                logger.info("Falling back to direct LLM call")
+
+        # Fallback: Generate response using LLM directly
+        if self.llm_provider:
+            try:
+                # Get conversation history
+                history = await self.session_manager.get_history(session.id)
+
+                # Add system prompt with database context
+                system_prompt = """You are a helpful database assistant for a Case Management system.
+
+You have access to a PostgreSQL database with the following tables in the 'info_alert' schema:
+
+1. **cm_alerts** - Alert records with columns: alert_id, alert_type_id, title, description, severity, status, created_at, assigned_to
+2. **cm_cases** - Case management records
+3. **cm_users** - User accounts and profiles
+4. **cm_alert_type** - Alert type definitions
+5. **cm_roles** - Role definitions
+6. **cm_user_roles_mapping** - User-role mappings
+
+When users ask about data, acknowledge their question and explain what information you would query from these tables. Be helpful and specific about which tables and columns would be relevant.
+
+For example, if asked "How many alerts do we have?", you should respond like: "To find the total number of alerts, I would query the cm_alerts table in the info_alert schema using: SELECT COUNT(*) FROM info_alert.cm_alerts. However, I currently don't have direct database access configured, so I cannot execute this query at the moment."
+"""
+
+                # Prepare messages for LLM with system prompt
+                messages = [
+                    {'role': 'system', 'content': system_prompt}
+                ]
+                messages.extend([
+                    {'role': msg['role'], 'content': msg['content']}
+                    for msg in history
+                ])
+                messages.append({'role': 'user', 'content': content})
+
+                # Get LLM response
+                response = await self.llm_provider.chat_completion(
+                    messages=messages,
+                    temperature=0.7
+                )
+
+                # Log the response for debugging
+                logger.info(f"LLM Response: {response.get('content', '')[:200]}...")
+
+                # Stream the response
+                await self.stream_response(
+                    response['content'],
+                    connection_id,
+                    message_id
+                )
+
+                return response
+
+            except Exception as e:
+                logger.error(f"LLM error: {e}")
+                error_response = "I apologize, but I'm having trouble generating a response right now."
+                await self.stream_response(error_response, connection_id, message_id)
+        else:
+            # No LLM provider configured - send informative error
+            logger.warning(f"No LLM provider available for message: {content[:50]}")
+            error_response = (
+                "The chatbot is currently running without an LLM provider. "
+                "Please configure an LLM provider (OpenAI, Anthropic, or Eliza) to enable chat functionality. "
+                f"You sent: '{content}'"
+            )
+            await self.stream_response(error_response, connection_id, message_id)
+            return {'content': error_response}
+
+    async def _handle_with_intelligence(
+        self,
+        content: str,
+        session,
+        page_context: dict,
+        connection_id: str,
+        message_id: str
+    ) -> str:
+        """
+        Handle message using IntentRouter and intelligent query planning
+
+        Args:
+            content: User message content
+            session: Session object
+            page_context: Context from parent application (filters, selections, etc.)
+            connection_id: WebSocket connection ID
+            message_id: Message ID
+
+        Returns:
+            Response text
+        """
+        # Get conversation history
+        history = await self.session_manager.get_history(session.id)
+
+        # Build context for routing
+        routing_context = {
+            "page_context": page_context,
+            "user_info": getattr(session, 'user_info', {}),
+            "conversation_history": history,
+            "session_id": session.id
+        }
+
+        # Enrich query with context if context enricher available
+        if hasattr(self, 'context_enricher') and self.context_enricher:
+            enriched = await self.context_enricher.enrich_query(
+                query=content,
+                session_id=session.id,
+                user_info=routing_context.get("user_info"),
+                page_context=page_context,
+                conversation_history=history
+            )
+            logger.info(f"Context enrichment: {self.context_enricher.get_context_summary(enriched)}")
+
+        # Route query through IntentRouter
+        routing_decision = await self.intent_router.route_query(
+            query=content,
+            context=routing_context
+        )
+
+        logger.info(
+            f"Routing decision: intent={routing_decision.intent}, "
+            f"confidence={routing_decision.confidence:.2f}, "
+            f"tools={routing_decision.selected_tools}"
+        )
+
+        # If confidence is low, use direct LLM
+        if routing_decision.confidence < 0.3:
+            logger.warning(f"Low routing confidence ({routing_decision.confidence}), using direct LLM")
+            messages = [{'role': msg['role'], 'content': msg['content']} for msg in history]
+            messages.append({'role': 'user', 'content': content})
+
+            response = await self.llm_provider.chat_completion(
+                messages=messages,
+                temperature=0.7
+            )
+            return response.get('content', '')
+
+        # Execute routing with agent
+        execution_result = await self.intent_router.execute_routing(
+            query=content,
+            context=routing_context
+        )
+
+        if execution_result.get('success'):
+            return execution_result.get('answer', 'No response generated')
+        else:
+            error_msg = execution_result.get('error', 'Unknown error')
+            logger.error(f"Routing execution failed: {error_msg}")
+            return f"I encountered an issue while processing your request: {error_msg}"
+
+    async def _handle_ping(self, message: dict, session, connection_id: str):
+        """Handle ping messages for connection health check."""
+        await self.connection_manager.send_message(connection_id, {
+            'type': 'pong',
+            'timestamp': datetime.utcnow().isoformat()
+        })
+
+    async def _handle_context_update(self, message: dict, session, connection_id: str):
+        """Handle context updates from the client."""
+        context = message.get('context', {})
+
+        # Update session context
+        await self.session_manager.update_context(session.id, context)
+
+        await self.connection_manager.send_message(connection_id, {
+            'type': 'context_updated',
+            'id': message.get('id')
+        })
+
+    async def _handle_filter_request(self, message: dict, session, connection_id: str):
+        """Handle filter generation requests."""
+        query = message.get('query', '')
+        message_id = message.get('id')
+
+        # This will be implemented with FilterGenerator in later steps
+        # For now, return a mock filter
+        mock_filter = {
+            'filters': [
+                {'field': 'status', 'operator': '=', 'value': 'active'}
+            ]
+        }
+
+        await self.connection_manager.send_message(connection_id, {
+            'type': 'filter_generated',
+            'filters': mock_filter,
+            'id': message_id
+        })
+
+        return mock_filter
+
+    async def _handle_unknown(self, message: dict, session, connection_id: str):
+        """Handle unknown message types."""
+        await self.connection_manager.send_message(connection_id, {
+            'type': 'error',
+            'message': f"Unknown message type: {message.get('type')}",
+            'id': message.get('id')
+        })
+
+    async def _heartbeat_loop(self, connection_id: str):
+        """Send periodic heartbeat messages to keep connection alive."""
+        try:
+            while connection_id in self.connection_manager.active_connections:
+                await asyncio.sleep(self.heartbeat_interval)
+                await self.connection_manager.send_message(connection_id, {
+                    'type': 'heartbeat',
+                    'timestamp': datetime.utcnow().isoformat()
+                })
+        except asyncio.CancelledError:
+            pass
+        except Exception as e:
+            logger.error(f"Heartbeat error: {e}")

@@ -1,0 +1,6460 @@
+[
+  {
+    "test_id": 1,
+    "question_data": {
+      "id": 1,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show me all open alerts",
+      "expected_behavior": "Should query cm_alerts with status filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "status = 'Open'",
+      "tags": [
+        "alerts",
+        "filter",
+        "status"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_1"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I've retrieved all open alerts ",
+        "chunk_index": 0,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "from the system. The results ",
+        "chunk_index": 1,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "show there are 28 open ",
+        "chunk_index": 2,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts in total. Here's a ",
+        "chunk_index": 3,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "summary of some key open ",
+        "chunk_index": 4,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts: 1. Several trade review ",
+        "chunk_index": 5,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts related to low-price securities ",
+        "chunk_index": 6,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "trading (STID1025 series) 2. Multiple ",
+        "chunk_index": 7,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "account review alerts including: - ",
+        "chunk_index": 8,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "High risk profile misalignment alerts ",
+        "chunk_index": 9,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Trust account with aggressive ",
+        "chunk_index": 10,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "trading strategy - Multiple account ",
+        "chunk_index": 11,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "risk factors requiring review The ",
+        "chunk_index": 12,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts have various priorities, with ",
+        "chunk_index": 13,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "many marked as \"High\" priority. ",
+        "chunk_index": 14,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "They are assigned to different ",
+        "chunk_index": 15,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "owners and are in different ",
+        "chunk_index": 16,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "steps of the review process. ",
+        "chunk_index": 17,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Would you like to see ",
+        "chunk_index": 18,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "more specific details about any ",
+        "chunk_index": 19,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "particular alert or would you ",
+        "chunk_index": 20,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "like to filter these results ",
+        "chunk_index": 21,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "further (e.g., by priority, type, ",
+        "chunk_index": 22,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "or date range)?",
+        "chunk_index": 23,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_1"
+      }
+    ],
+    "start_time": 1759520641.793202,
+    "session_id": "d3f57af6-b9f8-4c91-aba1-595ceadbe3bd",
+    "end_time": 1759520656.088351,
+    "result": {
+      "test_id": 1,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show me all open alerts",
+      "status": "success",
+      "response_time_seconds": 14.29,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 737,
+      "response_text": "I've retrieved all open alerts from the system. The results show there are 28 open alerts in total. Here's a summary of some key open alerts: 1. Several trade review alerts related to low-price securities trading (STID1025 series) 2. Multiple account review alerts including: - High risk profile misalignment alerts - Trust account with aggressive trading strategy - Multiple account risk factors requiring review The alerts have various priorities, with many marked as \"High\" priority. They are assigned to different owners and are in different steps of the review process. Would you like to see more specific details about any particular alert or would you like to filter these results further (e.g., by priority, type, or date range)?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:44:01",
+      "session_id": "d3f57af6-b9f8-4c91-aba1-595ceadbe3bd"
+    }
+  },
+  {
+    "test_id": 2,
+    "question_data": {
+      "id": 2,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "List alerts from today",
+      "expected_behavior": "Should query cm_alerts with date filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "create_date",
+      "tags": [
+        "alerts",
+        "date",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_2"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me correct this by ",
+        "chunk_index": 1,
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "using the correct column name ",
+        "chunk_index": 2,
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "for the timestamp field in ",
+        "chunk_index": 3,
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the alerts table.",
+        "chunk_index": 4,
+        "id": "test_2"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_2"
+      }
+    ],
+    "start_time": 1759520657.091403,
+    "session_id": "6dea89a1-5f51-482f-aa95-5a3c3c036699",
+    "end_time": 1759520665.690801,
+    "result": {
+      "test_id": 2,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "List alerts from today",
+      "status": "success",
+      "response_time_seconds": 8.6,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 124,
+      "response_text": "I apologize for the error. Let me correct this by using the correct column name for the timestamp field in the alerts table.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:44:17",
+      "session_id": "6dea89a1-5f51-482f-aa95-5a3c3c036699"
+    }
+  },
+  {
+    "test_id": 3,
+    "question_data": {
+      "id": 3,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show alerts with high severity",
+      "expected_behavior": "Should query cm_alerts with severity filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "severity",
+      "tags": [
+        "alerts",
+        "severity"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_3"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error ",
+        "chunk_index": 0,
+        "id": "test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in my first attempt. Let ",
+        "chunk_index": 1,
+        "id": "test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "me modify the query without ",
+        "chunk_index": 2,
+        "id": "test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "specifying the order:",
+        "chunk_index": 3,
+        "id": "test_3"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_3"
+      }
+    ],
+    "start_time": 1759520666.694431,
+    "session_id": "c87def73-d711-46e1-8be7-773cf1289697",
+    "end_time": 1759520675.6835468,
+    "result": {
+      "test_id": 3,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show alerts with high severity",
+      "status": "success",
+      "response_time_seconds": 8.99,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 100,
+      "response_text": "I apologize for the error in my first attempt. Let me modify the query without specifying the order:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:44:26",
+      "session_id": "c87def73-d711-46e1-8be7-773cf1289697"
+    }
+  },
+  {
+    "test_id": 4,
+    "question_data": {
+      "id": 4,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show me high priority alerts created this week",
+      "expected_behavior": "Should query cm_alerts with priority and date filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "priority AND create_date",
+      "tags": [
+        "alerts",
+        "priority",
+        "date",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_4"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Based on the query results, ",
+        "chunk_index": 0,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I can see several high-priority ",
+        "chunk_index": 1,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts created this week. Here ",
+        "chunk_index": 2,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "are the key high-priority alerts: ",
+        "chunk_index": 3,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "1. Alert ID: AML_20241120225734_LAY456789 - ",
+        "chunk_index": 4,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Priority: Critical - Details: Complex ",
+        "chunk_index": 5,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "layering scheme involving rapid fund ",
+        "chunk_index": 6,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "movement through multiple accounts and ",
+        "chunk_index": 7,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "jurisdictions - Created: 2025-09-02 - ",
+        "chunk_index": 8,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Status: Open 2. Alert ID: ",
+        "chunk_index": 9,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "AML_20241120230912_SHE567890 - Priority: High - ",
+        "chunk_index": 10,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Details: Network of shell companies ",
+        "chunk_index": 11,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with common beneficial ownership conducting ",
+        "chunk_index": 12,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "circular transactions - Created: 2025-09-02 ",
+        "chunk_index": 13,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Status: Open 3. Alert ",
+        "chunk_index": 14,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "ID: AML_20241120224512_TBM345678 - Priority: High ",
+        "chunk_index": 15,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Details: Trade-based money laundering ",
+        "chunk_index": 16,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "scheme involving over/under-invoicing and multiple ",
+        "chunk_index": 17,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "shell companies - Created: 2025-09-02 ",
+        "chunk_index": 18,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Status: Open 4. Alert ",
+        "chunk_index": 19,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "ID: AML_20241120223045_SMF789012 - Priority: Critical ",
+        "chunk_index": 20,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Details: Coordinated smurfing network ",
+        "chunk_index": 21,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "involving multiple customers making synchronized ",
+        "chunk_index": 22,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "cash deposits - Created: 2025-09-02 ",
+        "chunk_index": 23,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Status: Open These alerts ",
+        "chunk_index": 24,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "represent potentially serious compliance issues ",
+        "chunk_index": 25,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "requiring immediate attention, with deadlines ",
+        "chunk_index": 26,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "ranging from 1-5 days. All ",
+        "chunk_index": 27,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "are related to various forms ",
+        "chunk_index": 28,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "of suspected money laundering activities ",
+        "chunk_index": 29,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "through different methods (layering, shell ",
+        "chunk_index": 30,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "companies, trade-based, and smurfing). Would ",
+        "chunk_index": 31,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "you like more specific details ",
+        "chunk_index": 32,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "about any of these alerts?",
+        "chunk_index": 33,
+        "id": "test_4"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_4"
+      }
+    ],
+    "start_time": 1759520676.6868422,
+    "session_id": "32fc300f-7876-4dac-acec-aaf1a8f128ec",
+    "end_time": 1759520698.135809,
+    "result": {
+      "test_id": 4,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show me high priority alerts created this week",
+      "status": "success",
+      "response_time_seconds": 21.45,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1289,
+      "response_text": "Based on the query results, I can see several high-priority alerts created this week. Here are the key high-priority alerts: 1. Alert ID: AML_20241120225734_LAY456789 - Priority: Critical - Details: Complex layering scheme involving rapid fund movement through multiple accounts and jurisdictions - Created: 2025-09-02 - Status: Open 2. Alert ID: AML_20241120230912_SHE567890 - Priority: High - Details: Network of shell companies with common beneficial ownership conducting circular transactions - Created: 2025-09-02 - Status: Open 3. Alert ID: AML_20241120224512_TBM345678 - Priority: High - Details: Trade-based money laundering scheme involving over/under-invoicing and multiple shell companies - Created: 2025-09-02 - Status: Open 4. Alert ID: AML_20241120223045_SMF789012 - Priority: Critical - Details: Coordinated smurfing network involving multiple customers making synchronized cash deposits - Created: 2025-09-02 - Status: Open These alerts represent potentially serious compliance issues requiring immediate attention, with deadlines ranging from 1-5 days. All are related to various forms of suspected money laundering activities through different methods (layering, shell companies, trade-based, and smurfing). Would you like more specific details about any of these alerts?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:44:36",
+      "session_id": "32fc300f-7876-4dac-acec-aaf1a8f128ec"
+    }
+  },
+  {
+    "test_id": 5,
+    "question_data": {
+      "id": 5,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "List open alerts with total_score greater than 80",
+      "expected_behavior": "Should query cm_alerts with status and score filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "status = 'Open' AND total_score > 80",
+      "tags": [
+        "alerts",
+        "status",
+        "score",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_5"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Based on the query results, ",
+        "chunk_index": 0,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "here are the open alerts ",
+        "chunk_index": 1,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with total_score greater than 80: ",
+        "chunk_index": 2,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "1. AML_20241120225734_LAY456789 (Score: 97) - ",
+        "chunk_index": 3,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Complex layering scheme involving rapid ",
+        "chunk_index": 4,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "fund movement through multiple accounts ",
+        "chunk_index": 5,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "and jurisdictions 2. CustRev_20241120203456_6789124E (Score: ",
+        "chunk_index": 6,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "96) - Politically Exposed Person ",
+        "chunk_index": 7,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with complex international structure requiring ",
+        "chunk_index": 8,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "enhanced due diligence 3. AML_20241120220145_8529631H ",
+        "chunk_index": 9,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(Score: 94) - Multiple cash ",
+        "chunk_index": 10,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "deposits below reporting threshold followed ",
+        "chunk_index": 11,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "by international wire transfers 4. ",
+        "chunk_index": 12,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "AML_20241120224512_TBM345678 (Score: 93) - Trade-based ",
+        "chunk_index": 13,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "money laundering scheme involving over/under-invoicing ",
+        "chunk_index": 14,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "and shell companies 5. MFRev_20241120204512_MF789123456 ",
+        "chunk_index": 15,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(Score: 91) - Potential round-trip ",
+        "chunk_index": 16,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "trading violation in mutual fund ",
+        "chunk_index": 17,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "transactions 6. AML_20241120230912_SHE567890 (Score: 91) ",
+        "chunk_index": 18,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Network of shell companies ",
+        "chunk_index": 19,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with common beneficial ownership conducting ",
+        "chunk_index": 20,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "circular transactions 7. CustRev_20241120195824_3693577A (Score: ",
+        "chunk_index": 21,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "92) - High-risk customer profile ",
+        "chunk_index": 22,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with unusual transaction patterns 8. ",
+        "chunk_index": 23,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "AML_20241120223045_SMF789012 (Score: 89) - Coordinated ",
+        "chunk_index": 24,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "smurfing network with synchronized cash ",
+        "chunk_index": 25,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "deposits across branches 9. AccRev_20241120195724_3247540001 ",
+        "chunk_index": 26,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(Score: 88) - Trust Account ",
+        "chunk_index": 27,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with aggressive speculative trading strategy ",
+        "chunk_index": 28,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "10. AccRev_20241120195723_1000000001 (Score: 88) - ",
+        "chunk_index": 29,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "High risk profile misalignment with ",
+        "chunk_index": 30,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "capital preservation objective The alerts ",
+        "chunk_index": 31,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "span various types including AML ",
+        "chunk_index": 32,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "violations, customer reviews, mutual fund ",
+        "chunk_index": 33,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "trading violations, and account risk ",
+        "chunk_index": 34,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "reviews, with scores ranging from ",
+        "chunk_index": 35,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "88 to 97.",
+        "chunk_index": 36,
+        "id": "test_5"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_5"
+      }
+    ],
+    "start_time": 1759520699.136896,
+    "session_id": "bbe3fea7-dc98-4b05-83a7-fba534a26652",
+    "end_time": 1759520723.694046,
+    "result": {
+      "test_id": 5,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "List open alerts with total_score greater than 80",
+      "status": "success",
+      "response_time_seconds": 24.56,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1527,
+      "response_text": "Based on the query results, here are the open alerts with total_score greater than 80: 1. AML_20241120225734_LAY456789 (Score: 97) - Complex layering scheme involving rapid fund movement through multiple accounts and jurisdictions 2. CustRev_20241120203456_6789124E (Score: 96) - Politically Exposed Person with complex international structure requiring enhanced due diligence 3. AML_20241120220145_8529631H (Score: 94) - Multiple cash deposits below reporting threshold followed by international wire transfers 4. AML_20241120224512_TBM345678 (Score: 93) - Trade-based money laundering scheme involving over/under-invoicing and shell companies 5. MFRev_20241120204512_MF789123456 (Score: 91) - Potential round-trip trading violation in mutual fund transactions 6. AML_20241120230912_SHE567890 (Score: 91) - Network of shell companies with common beneficial ownership conducting circular transactions 7. CustRev_20241120195824_3693577A (Score: 92) - High-risk customer profile with unusual transaction patterns 8. AML_20241120223045_SMF789012 (Score: 89) - Coordinated smurfing network with synchronized cash deposits across branches 9. AccRev_20241120195724_3247540001 (Score: 88) - Trust Account with aggressive speculative trading strategy 10. AccRev_20241120195723_1000000001 (Score: 88) - High risk profile misalignment with capital preservation objective The alerts span various types including AML violations, customer reviews, mutual fund trading violations, and account risk reviews, with scores ranging from 88 to 97.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:44:59",
+      "session_id": "bbe3fea7-dc98-4b05-83a7-fba534a26652"
+    }
+  },
+  {
+    "test_id": 6,
+    "question_data": {
+      "id": 6,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show alerts for owner OWNER25",
+      "expected_behavior": "Should query cm_alerts with owner_id filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "owner_id = 'OWNER25'",
+      "tags": [
+        "alerts",
+        "owner",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_6"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Error processing request: Client error ",
+        "chunk_index": 0,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "'429 Too Many Requests' for ",
+        "chunk_index": 1,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "url 'https://api.anthropic.com/v1/messages' For more information ",
+        "chunk_index": 2,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+        "chunk_index": 3,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_6"
+      }
+    ],
+    "start_time": 1759520724.6971672,
+    "session_id": "008d4d62-2837-4e26-bbe5-03f4437877ce",
+    "end_time": 1759520730.9641962,
+    "result": {
+      "test_id": 6,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show alerts for owner OWNER25",
+      "status": "success",
+      "response_time_seconds": 6.27,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 199,
+      "response_text": "Error processing request: Client error '429 Too Many Requests' for url 'https://api.anthropic.com/v1/messages' For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:45:24",
+      "session_id": "008d4d62-2837-4e26-bbe5-03f4437877ce"
+    }
+  },
+  {
+    "test_id": 7,
+    "question_data": {
+      "id": 7,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "List trade review alerts that are in progress",
+      "expected_behavior": "Should query cm_alerts with alert_type and status filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_type_id AND status",
+      "tags": [
+        "alerts",
+        "type",
+        "status",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_7"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Error processing request: Client error ",
+        "chunk_index": 0,
+        "id": "test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "'429 Too Many Requests' for ",
+        "chunk_index": 1,
+        "id": "test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "url 'https://api.anthropic.com/v1/messages' For more information ",
+        "chunk_index": 2,
+        "id": "test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+        "chunk_index": 3,
+        "id": "test_7"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_7"
+      }
+    ],
+    "start_time": 1759520731.967991,
+    "session_id": "a3093cd4-6784-4811-84df-0e3b8f5ce0c5",
+    "end_time": 1759520740.663978,
+    "result": {
+      "test_id": 7,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "List trade review alerts that are in progress",
+      "status": "success",
+      "response_time_seconds": 8.69,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 199,
+      "response_text": "Error processing request: Client error '429 Too Many Requests' for url 'https://api.anthropic.com/v1/messages' For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:45:31",
+      "session_id": "a3093cd4-6784-4811-84df-0e3b8f5ce0c5"
+    }
+  },
+  {
+    "test_id": 8,
+    "question_data": {
+      "id": 8,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Show me alerts that were escalated in the last 30 days with critical severity",
+      "expected_behavior": "Should query cm_alerts with date range and severity filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "last_update_date AND severity",
+      "tags": [
+        "alerts",
+        "date",
+        "severity",
+        "escalation"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_8"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_8"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Error processing request: Client error ",
+        "chunk_index": 0,
+        "id": "test_8"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "'429 Too Many Requests' for ",
+        "chunk_index": 1,
+        "id": "test_8"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "url 'https://api.anthropic.com/v1/messages' For more information ",
+        "chunk_index": 2,
+        "id": "test_8"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+        "chunk_index": 3,
+        "id": "test_8"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_8"
+      }
+    ],
+    "start_time": 1759520741.670096,
+    "session_id": "33d9e38f-3efe-427f-9efe-827878374ad5",
+    "end_time": 1759520750.591852,
+    "result": {
+      "test_id": 8,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Show me alerts that were escalated in the last 30 days with critical severity",
+      "status": "success",
+      "response_time_seconds": 8.92,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 199,
+      "response_text": "Error processing request: Client error '429 Too Many Requests' for url 'https://api.anthropic.com/v1/messages' For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:45:41",
+      "session_id": "33d9e38f-3efe-427f-9efe-827878374ad5"
+    }
+  },
+  {
+    "test_id": 9,
+    "question_data": {
+      "id": 9,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Find alerts created between Nov 1 and Nov 30, 2024 with status Open or Acknowledged",
+      "expected_behavior": "Should query cm_alerts with date range and multiple status filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "create_date BETWEEN AND status IN",
+      "tags": [
+        "alerts",
+        "date_range",
+        "status",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_9"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_9"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Error processing request: Client error ",
+        "chunk_index": 0,
+        "id": "test_9"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "'429 Too Many Requests' for ",
+        "chunk_index": 1,
+        "id": "test_9"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "url 'https://api.anthropic.com/v1/messages' For more information ",
+        "chunk_index": 2,
+        "id": "test_9"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+        "chunk_index": 3,
+        "id": "test_9"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_9"
+      }
+    ],
+    "start_time": 1759520751.5946681,
+    "session_id": "7fce126a-c2f1-4b92-a60f-190b97c9a8de",
+    "end_time": 1759520759.072303,
+    "result": {
+      "test_id": 9,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Find alerts created between Nov 1 and Nov 30, 2024 with status Open or Acknowledged",
+      "status": "success",
+      "response_time_seconds": 7.48,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 199,
+      "response_text": "Error processing request: Client error '429 Too Many Requests' for url 'https://api.anthropic.com/v1/messages' For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:45:51",
+      "session_id": "7fce126a-c2f1-4b92-a60f-190b97c9a8de"
+    }
+  },
+  {
+    "test_id": 10,
+    "question_data": {
+      "id": 10,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Show me alerts with multiple scenarios and total_score less than 70",
+      "expected_behavior": "Should query cm_alerts with has_multiple_scenario and score filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "has_multiple_scenario = true AND total_score < 70",
+      "tags": [
+        "alerts",
+        "scenarios",
+        "score",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_10"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Error processing request: Client error ",
+        "chunk_index": 0,
+        "id": "test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "'429 Too Many Requests' for ",
+        "chunk_index": 1,
+        "id": "test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "url 'https://api.anthropic.com/v1/messages' For more information ",
+        "chunk_index": 2,
+        "id": "test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+        "chunk_index": 3,
+        "id": "test_10"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_10"
+      }
+    ],
+    "start_time": 1759520760.074233,
+    "session_id": "5dc4974e-e94c-46be-b690-4db7121e0e7c",
+    "end_time": 1759520768.62769,
+    "result": {
+      "test_id": 10,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Show me alerts with multiple scenarios and total_score less than 70",
+      "status": "success",
+      "response_time_seconds": 8.55,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 199,
+      "response_text": "Error processing request: Client error '429 Too Many Requests' for url 'https://api.anthropic.com/v1/messages' For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:46:00",
+      "session_id": "5dc4974e-e94c-46be-b690-4db7121e0e7c"
+    }
+  },
+  {
+    "test_id": 11,
+    "question_data": {
+      "id": 11,
+      "category": "alert_details",
+      "complexity": "simple",
+      "question": "Show details for alert STID1025_ACC102445",
+      "expected_behavior": "Should query specific alert by alert_id",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id = 'STID1025_ACC102445'",
+      "tags": [
+        "alerts",
+        "details",
+        "alert_id"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_11"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I've retrieved the details for ",
+        "chunk_index": 0,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert STID1025_ACC102445. Here are the ",
+        "chunk_index": 1,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "key details: 1. Status: Open ",
+        "chunk_index": 2,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2. Creation Date: November 14, ",
+        "chunk_index": 3,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2024 3. Last Update: February ",
+        "chunk_index": 4,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "11, 2025 4. Alert Type: ",
+        "chunk_index": 5,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "tradereview 5. Focus: Trade 6. ",
+        "chunk_index": 6,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Focal Entity: STID1025 7. Region: ",
+        "chunk_index": 7,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "REG1 8. Group: GROUP1 9. ",
+        "chunk_index": 8,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Owner: OWNER25 (Owner Name) 10. ",
+        "chunk_index": 9,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Alert Step: Ready (Step ID: ",
+        "chunk_index": 10,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "70) 11. Details: \"Low price ",
+        "chunk_index": 11,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "security was traded by account ",
+        "chunk_index": 12,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "ACC1025\" 12. Total Score: 63 ",
+        "chunk_index": 13,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "13. Business Date: September 5, ",
+        "chunk_index": 14,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2024 The alert is currently ",
+        "chunk_index": 15,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "active, has a case created ",
+        "chunk_index": 16,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "for it, and is consolidated. ",
+        "chunk_index": 17,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "It belongs to organization ID ",
+        "chunk_index": 18,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "125 (ORG1 family). The alert ",
+        "chunk_index": 19,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "is in an \"Open\" status ",
+        "chunk_index": 20,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "and is at the \"Ready\" ",
+        "chunk_index": 21,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "step in its workflow. Would ",
+        "chunk_index": 22,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "you like any specific aspect ",
+        "chunk_index": 23,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "of this alert explained in ",
+        "chunk_index": 24,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "more detail?",
+        "chunk_index": 25,
+        "id": "test_11"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_11"
+      }
+    ],
+    "start_time": 1759520769.6305642,
+    "session_id": "dc0a3f1b-20c8-4b3b-8221-993ec487d713",
+    "end_time": 1759520780.036223,
+    "result": {
+      "test_id": 11,
+      "category": "alert_details",
+      "complexity": "simple",
+      "question": "Show details for alert STID1025_ACC102445",
+      "status": "success",
+      "response_time_seconds": 10.4,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 738,
+      "response_text": "I've retrieved the details for alert STID1025_ACC102445. Here are the key details: 1. Status: Open 2. Creation Date: November 14, 2024 3. Last Update: February 11, 2025 4. Alert Type: tradereview 5. Focus: Trade 6. Focal Entity: STID1025 7. Region: REG1 8. Group: GROUP1 9. Owner: OWNER25 (Owner Name) 10. Alert Step: Ready (Step ID: 70) 11. Details: \"Low price security was traded by account ACC1025\" 12. Total Score: 63 13. Business Date: September 5, 2024 The alert is currently active, has a case created for it, and is consolidated. It belongs to organization ID 125 (ORG1 family). The alert is in an \"Open\" status and is at the \"Ready\" step in its workflow. Would you like any specific aspect of this alert explained in more detail?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:46:09",
+      "session_id": "dc0a3f1b-20c8-4b3b-8221-993ec487d713"
+    }
+  },
+  {
+    "test_id": 12,
+    "question_data": {
+      "id": 12,
+      "category": "alert_details",
+      "complexity": "simple",
+      "question": "Get information about alert AccRev_20241120195723_1000000000",
+      "expected_behavior": "Should query specific alert by alert_id",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id = 'AccRev_20241120195723_1000000000'",
+      "tags": [
+        "alerts",
+        "details",
+        "alert_id"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_12"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I've retrieved the detailed information ",
+        "chunk_index": 0,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "for alert AccRev_20241120195723_1000000000. Here are ",
+        "chunk_index": 1,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the key details: 1. Status: ",
+        "chunk_index": 2,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Open 2. Priority: High 3. ",
+        "chunk_index": 3,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Creation Date: January 3, 2025 ",
+        "chunk_index": 4,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "4. Last Update: September 22, ",
+        "chunk_index": 5,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2025 5. Alert Type: Account ",
+        "chunk_index": 6,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Review 6. Focus: Account 7. ",
+        "chunk_index": 7,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Owner: System Owner 8. Alert ",
+        "chunk_index": 8,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Step: Ready The alert is ",
+        "chunk_index": 9,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "related to an account review ",
+        "chunk_index": 10,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with the following concerns: - ",
+        "chunk_index": 11,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "High risk profile misalignment with ",
+        "chunk_index": 12,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "capital preservation objective - Multiple ",
+        "chunk_index": 13,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "risk factors identified across several ",
+        "chunk_index": 14,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "scenarios including: - Portfolio concentration ",
+        "chunk_index": 15,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "issues - Investment objective misalignment ",
+        "chunk_index": 16,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Excessive trading activity - ",
+        "chunk_index": 17,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Unusual international transaction patterns - ",
+        "chunk_index": 18,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Risk profile/objective mismatch - High ",
+        "chunk_index": 19,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "cross-border activity - Documentation review ",
+        "chunk_index": 20,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "requirements Customer/Account Information: - Customer ",
+        "chunk_index": 21,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Name: Michele Parker - Account ",
+        "chunk_index": 22,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Name: International Trading Account - ",
+        "chunk_index": 23,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Representative: Kathy Holmes - Branch: ",
+        "chunk_index": 24,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Branch003 The alert has a ",
+        "chunk_index": 25,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "due date of November 23, ",
+        "chunk_index": 26,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2024 (3 days from the ",
+        "chunk_index": 27,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "business date) and involves multiple ",
+        "chunk_index": 28,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "scenario models for comprehensive review. ",
+        "chunk_index": 29,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Would you like any specific ",
+        "chunk_index": 30,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "aspect of this alert explained ",
+        "chunk_index": 31,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in more detail?",
+        "chunk_index": 32,
+        "id": "test_12"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_12"
+      }
+    ],
+    "start_time": 1759520781.03877,
+    "session_id": "f29f3a57-f54c-4512-b99c-5cbe0bdc966b",
+    "end_time": 1759520796.0689878,
+    "result": {
+      "test_id": 12,
+      "category": "alert_details",
+      "complexity": "simple",
+      "question": "Get information about alert AccRev_20241120195723_1000000000",
+      "status": "success",
+      "response_time_seconds": 15.03,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1133,
+      "response_text": "I've retrieved the detailed information for alert AccRev_20241120195723_1000000000. Here are the key details: 1. Status: Open 2. Priority: High 3. Creation Date: January 3, 2025 4. Last Update: September 22, 2025 5. Alert Type: Account Review 6. Focus: Account 7. Owner: System Owner 8. Alert Step: Ready The alert is related to an account review with the following concerns: - High risk profile misalignment with capital preservation objective - Multiple risk factors identified across several scenarios including: - Portfolio concentration issues - Investment objective misalignment - Excessive trading activity - Unusual international transaction patterns - Risk profile/objective mismatch - High cross-border activity - Documentation review requirements Customer/Account Information: - Customer Name: Michele Parker - Account Name: International Trading Account - Representative: Kathy Holmes - Branch: Branch003 The alert has a due date of November 23, 2024 (3 days from the business date) and involves multiple scenario models for comprehensive review. Would you like any specific aspect of this alert explained in more detail?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:46:21",
+      "session_id": "f29f3a57-f54c-4512-b99c-5cbe0bdc966b"
+    }
+  },
+  {
+    "test_id": 13,
+    "question_data": {
+      "id": 13,
+      "category": "alert_details",
+      "complexity": "simple",
+      "question": "Display alert STID1021_TRD1020",
+      "expected_behavior": "Should query specific alert by alert_id",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id = 'STID1021_TRD1020'",
+      "tags": [
+        "alerts",
+        "details",
+        "alert_id"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_13"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I've retrieved the complete details ",
+        "chunk_index": 0,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "for alert STID1021_TRD1020. Here are ",
+        "chunk_index": 1,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the key details: - Status: ",
+        "chunk_index": 2,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Open - Priority: High - ",
+        "chunk_index": 3,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Alert Type: Trade Review - ",
+        "chunk_index": 4,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Created Date: August 7, 2025 ",
+        "chunk_index": 5,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Due Date: September 10, ",
+        "chunk_index": 6,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2024 (Due in 5 Days) ",
+        "chunk_index": 7,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Owner: Owner Name (OWNER21) ",
+        "chunk_index": 8,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Details: Low price security ",
+        "chunk_index": 9,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "was traded by account ACC1021 ",
+        "chunk_index": 10,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Customer Information: - Customer Name: ",
+        "chunk_index": 11,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Victor Turner - Account: Victor ",
+        "chunk_index": 12,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Turner Corporate Fund (ACC1021) Representative ",
+        "chunk_index": 13,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Information: - Representative: Lucas Gray ",
+        "chunk_index": 14,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(ADV22097) - Branch: Branch022 Alert ",
+        "chunk_index": 15,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Reason: - Type: Trade Scenario ",
+        "chunk_index": 16,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Name: Low Priced Securities ",
+        "chunk_index": 17,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Description: Price is low ",
+        "chunk_index": 18,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Score: 69 Trade Details: ",
+        "chunk_index": 19,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Trade ID: STID1021 - ",
+        "chunk_index": 20,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Price: $1.1 - Quantity: 130 ",
+        "chunk_index": 21,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Direction: SELL - Trade ",
+        "chunk_index": 22,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Date: September 5, 2024 The ",
+        "chunk_index": 23,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert is currently in the ",
+        "chunk_index": 24,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\"Ready\" step and has been ",
+        "chunk_index": 25,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "marked as high priority. It's ",
+        "chunk_index": 26,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "an active alert that has ",
+        "chunk_index": 27,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "resulted in case creation and ",
+        "chunk_index": 28,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "is being handled by the ",
+        "chunk_index": 29,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Trade Review Group in the ",
+        "chunk_index": 30,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "US region. Would you like ",
+        "chunk_index": 31,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "any specific aspect of this ",
+        "chunk_index": 32,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert explained in more detail?",
+        "chunk_index": 33,
+        "id": "test_13"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_13"
+      }
+    ],
+    "start_time": 1759520797.071318,
+    "session_id": "dd050c72-026b-4093-b247-77a664c19bb2",
+    "end_time": 1759520811.711997,
+    "result": {
+      "test_id": 13,
+      "category": "alert_details",
+      "complexity": "simple",
+      "question": "Display alert STID1021_TRD1020",
+      "status": "success",
+      "response_time_seconds": 14.64,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1007,
+      "response_text": "I've retrieved the complete details for alert STID1021_TRD1020. Here are the key details: - Status: Open - Priority: High - Alert Type: Trade Review - Created Date: August 7, 2025 - Due Date: September 10, 2024 (Due in 5 Days) - Owner: Owner Name (OWNER21) - Details: Low price security was traded by account ACC1021 Customer Information: - Customer Name: Victor Turner - Account: Victor Turner Corporate Fund (ACC1021) Representative Information: - Representative: Lucas Gray (ADV22097) - Branch: Branch022 Alert Reason: - Type: Trade Scenario - Name: Low Priced Securities - Description: Price is low - Score: 69 Trade Details: - Trade ID: STID1021 - Price: $1.1 - Quantity: 130 - Direction: SELL - Trade Date: September 5, 2024 The alert is currently in the \"Ready\" step and has been marked as high priority. It's an active alert that has resulted in case creation and is being handled by the Trade Review Group in the US region. Would you like any specific aspect of this alert explained in more detail?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:46:37",
+      "session_id": "dd050c72-026b-4093-b247-77a664c19bb2"
+    }
+  },
+  {
+    "test_id": 14,
+    "question_data": {
+      "id": 14,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Summarize alert AML_20241120225734_LAY456789 for me",
+      "expected_behavior": "Should query specific alert by alert_id and provide comprehensive summary",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id = 'AML_20241120225734_LAY456789'",
+      "tags": [
+        "alerts",
+        "details",
+        "alert_id",
+        "summary"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_14"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Based on the query results, ",
+        "chunk_index": 0,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I'll provide a summary of ",
+        "chunk_index": 1,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert AML_20241120225734_LAY456789: Key Alert Details: ",
+        "chunk_index": 2,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Status: Open - Priority: ",
+        "chunk_index": 3,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Critical - Created: September 2, ",
+        "chunk_index": 4,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2025 - Due Date: November ",
+        "chunk_index": 5,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "21, 2024 (1 Day) - ",
+        "chunk_index": 6,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Owner: John Doe - Focus: ",
+        "chunk_index": 7,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "AML (Anti-Money Laundering) - Total ",
+        "chunk_index": 8,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Risk Score: 97 (Very High) ",
+        "chunk_index": 9,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Alert Description: This is a ",
+        "chunk_index": 10,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "critical AML alert involving a ",
+        "chunk_index": 11,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "complex layering scheme. The alert ",
+        "chunk_index": 12,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "was triggered for customer Alexander ",
+        "chunk_index": 13,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Petrov, a politically exposed person ",
+        "chunk_index": 14,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(PEP), involving suspicious fund movements ",
+        "chunk_index": 15,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "through multiple accounts. Key Suspicious ",
+        "chunk_index": 16,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Activities: - Approximately $15.8M moved ",
+        "chunk_index": 17,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "through 4 interconnected accounts over ",
+        "chunk_index": 18,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "a 14-day period - Complex ",
+        "chunk_index": 19,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "wire transfer patterns involving multiple ",
+        "chunk_index": 20,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "jurisdictions (Cyprus, Monaco, Cayman Islands) ",
+        "chunk_index": 21,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Initial $5M deposit multiplied ",
+        "chunk_index": 22,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "through leveraged trading positions - ",
+        "chunk_index": 23,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Transactions structured to obscure the ",
+        "chunk_index": 24,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "money trail Risk Factors: - ",
+        "chunk_index": 25,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Customer is a confirmed PEP ",
+        "chunk_index": 26,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with diplomatic passport and Russian ",
+        "chunk_index": 27,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "political connections - Very high ",
+        "chunk_index": 28,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "customer and geographic risk ratings ",
+        "chunk_index": 29,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Beneficial ownership of multiple ",
+        "chunk_index": 30,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "shell companies identified - Enhanced ",
+        "chunk_index": 31,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "due diligence required Alert Scenarios ",
+        "chunk_index": 32,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Triggered: 1. Rapid Fund Movement ",
+        "chunk_index": 33,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Detection (Score: 32/35) 2. Layering ",
+        "chunk_index": 34,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Activity Pattern (Score: 33/35) 3. ",
+        "chunk_index": 35,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Transaction Complexity Analysis (Score: 32/35) ",
+        "chunk_index": 36,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Current Status: - Alert step: ",
+        "chunk_index": 37,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Approved by BM (Business Manager) ",
+        "chunk_index": 38,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- SAR (Suspicious Activity Report) ",
+        "chunk_index": 39,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "has been filed - SAR ",
+        "chunk_index": 40,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "filing deadline: November 25, 2024 ",
+        "chunk_index": 41,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Case has been created ",
+        "chunk_index": 42,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "from this alert - Requires ",
+        "chunk_index": 43,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "immediate escalation to senior management ",
+        "chunk_index": 44,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "The alert represents a highly ",
+        "chunk_index": 45,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "sophisticated potential money laundering scheme ",
+        "chunk_index": 46,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "requiring immediate attention and investigation ",
+        "chunk_index": 47,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "due to its complexity, high-risk ",
+        "chunk_index": 48,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "factors, and involvement of a ",
+        "chunk_index": 49,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "politically exposed person.",
+        "chunk_index": 50,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_14"
+      }
+    ],
+    "start_time": 1759520812.714376,
+    "session_id": "12ca4d37-4042-450a-9ed3-e4c97176b96f",
+    "end_time": 1759520832.650223,
+    "result": {
+      "test_id": 14,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Summarize alert AML_20241120225734_LAY456789 for me",
+      "status": "success",
+      "response_time_seconds": 19.93,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1754,
+      "response_text": "Based on the query results, I'll provide a summary of alert AML_20241120225734_LAY456789: Key Alert Details: - Status: Open - Priority: Critical - Created: September 2, 2025 - Due Date: November 21, 2024 (1 Day) - Owner: John Doe - Focus: AML (Anti-Money Laundering) - Total Risk Score: 97 (Very High) Alert Description: This is a critical AML alert involving a complex layering scheme. The alert was triggered for customer Alexander Petrov, a politically exposed person (PEP), involving suspicious fund movements through multiple accounts. Key Suspicious Activities: - Approximately $15.8M moved through 4 interconnected accounts over a 14-day period - Complex wire transfer patterns involving multiple jurisdictions (Cyprus, Monaco, Cayman Islands) - Initial $5M deposit multiplied through leveraged trading positions - Transactions structured to obscure the money trail Risk Factors: - Customer is a confirmed PEP with diplomatic passport and Russian political connections - Very high customer and geographic risk ratings - Beneficial ownership of multiple shell companies identified - Enhanced due diligence required Alert Scenarios Triggered: 1. Rapid Fund Movement Detection (Score: 32/35) 2. Layering Activity Pattern (Score: 33/35) 3. Transaction Complexity Analysis (Score: 32/35) Current Status: - Alert step: Approved by BM (Business Manager) - SAR (Suspicious Activity Report) has been filed - SAR filing deadline: November 25, 2024 - Case has been created from this alert - Requires immediate escalation to senior management The alert represents a highly sophisticated potential money laundering scheme requiring immediate attention and investigation due to its complexity, high-risk factors, and involvement of a politically exposed person.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:46:52",
+      "session_id": "12ca4d37-4042-450a-9ed3-e4c97176b96f"
+    }
+  },
+  {
+    "test_id": 15,
+    "question_data": {
+      "id": 15,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Give me a comprehensive analysis of alert STID1025_ACC102445",
+      "expected_behavior": "Should query specific alert and provide detailed analysis",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id = 'STID1025_ACC102445'",
+      "tags": [
+        "alerts",
+        "analysis",
+        "alert_id"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_15"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_15"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me also get the ",
+        "chunk_index": 0,
+        "id": "test_15"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert type details to understand ",
+        "chunk_index": 1,
+        "id": "test_15"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "more about this kind of ",
+        "chunk_index": 2,
+        "id": "test_15"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert:",
+        "chunk_index": 3,
+        "id": "test_15"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_15"
+      }
+    ],
+    "start_time": 1759520833.653462,
+    "session_id": "37c09b69-d3df-4822-a9e4-994c1124248c",
+    "end_time": 1759520845.106122,
+    "result": {
+      "test_id": 15,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Give me a comprehensive analysis of alert STID1025_ACC102445",
+      "status": "success",
+      "response_time_seconds": 11.45,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 83,
+      "response_text": "Let me also get the alert type details to understand more about this kind of alert:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:47:13",
+      "session_id": "37c09b69-d3df-4822-a9e4-994c1124248c"
+    }
+  },
+  {
+    "test_id": 16,
+    "question_data": {
+      "id": 16,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "What are the key details of alert with id AccRev_20241120195723_1000000000",
+      "expected_behavior": "Should query specific alert and extract key information",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id = 'AccRev_20241120195723_1000000000'",
+      "tags": [
+        "alerts",
+        "details",
+        "alert_id"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_16"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Based on the query results, ",
+        "chunk_index": 0,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "here are the key details ",
+        "chunk_index": 1,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "of the alert: 1. Basic ",
+        "chunk_index": 2,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Information: - Alert ID: AccRev_20241120195723_1000000000 ",
+        "chunk_index": 3,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Type: Account Review - ",
+        "chunk_index": 4,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Status: Open - Priority: High ",
+        "chunk_index": 5,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Creation Date: Jan 3, ",
+        "chunk_index": 6,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2025 - Last Update: Sep ",
+        "chunk_index": 7,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "22, 2025 - Due in: ",
+        "chunk_index": 8,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "3 Days (Deadline: Nov 23, ",
+        "chunk_index": 9,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2024) 2. Account/Customer Details: - ",
+        "chunk_index": 10,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Account Name: International Trading Account ",
+        "chunk_index": 11,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Customer Name: Michele Parker ",
+        "chunk_index": 12,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Customer ID: 215D8DA6 - ",
+        "chunk_index": 13,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Account Representative: Kathy Holmes (ID: ",
+        "chunk_index": 14,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "ADV78901) - Branch: Branch003 3. ",
+        "chunk_index": 15,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Alert Details: - Total Risk ",
+        "chunk_index": 16,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Score: 88 - Main Issue: ",
+        "chunk_index": 17,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\"High risk profile misalignment with ",
+        "chunk_index": 18,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "capital preservation objective\" - Focus: ",
+        "chunk_index": 19,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Account - Region: US - ",
+        "chunk_index": 20,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Alert Group: Account Review Group ",
+        "chunk_index": 21,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "4. Multiple Scenarios Triggered: - ",
+        "chunk_index": 22,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Portfolio Concentration Review (High concentration ",
+        "chunk_index": 23,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in specific asset classes) - ",
+        "chunk_index": 24,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Investment Objective Alignment (Trading activity ",
+        "chunk_index": 25,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "misaligned with capital preservation objective) ",
+        "chunk_index": 26,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Trading Volume Analysis (Excessive ",
+        "chunk_index": 27,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "trading relative to account size) ",
+        "chunk_index": 28,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Account Activity Pattern (Unusual ",
+        "chunk_index": 29,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "patterns in international transactions) - ",
+        "chunk_index": 30,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Risk Profile Assessment (High risk ",
+        "chunk_index": 31,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "tolerance vs conservative objective) - ",
+        "chunk_index": 32,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Cross-Border Activity (High volume of ",
+        "chunk_index": 33,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "international transactions) - Documentation Completeness ",
+        "chunk_index": 34,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(International trading documentation review) 5. ",
+        "chunk_index": 35,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Current Status: - Step Name: ",
+        "chunk_index": 36,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Ready - Step ID: 70 ",
+        "chunk_index": 37,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Is Active: True - ",
+        "chunk_index": 38,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Is Case Created: False - ",
+        "chunk_index": 39,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Owner: System Owner (OWNER1) The ",
+        "chunk_index": 40,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert appears to be highlighting ",
+        "chunk_index": 41,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "significant concerns about the alignment ",
+        "chunk_index": 42,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "between the account's stated objective ",
+        "chunk_index": 43,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(Capital Preservation) and actual trading ",
+        "chunk_index": 44,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "patterns, with multiple risk factors ",
+        "chunk_index": 45,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "including high-risk activities and international ",
+        "chunk_index": 46,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "transactions.",
+        "chunk_index": 47,
+        "id": "test_16"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_16"
+      }
+    ],
+    "start_time": 1759520846.107282,
+    "session_id": "0d1374af-0c0d-4f92-8e2f-5b558183e2a6",
+    "end_time": 1759520862.910976,
+    "result": {
+      "test_id": 16,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "What are the key details of alert with id AccRev_20241120195723_1000000000",
+      "status": "success",
+      "response_time_seconds": 16.8,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1642,
+      "response_text": "Based on the query results, here are the key details of the alert: 1. Basic Information: - Alert ID: AccRev_20241120195723_1000000000 - Type: Account Review - Status: Open - Priority: High - Creation Date: Jan 3, 2025 - Last Update: Sep 22, 2025 - Due in: 3 Days (Deadline: Nov 23, 2024) 2. Account/Customer Details: - Account Name: International Trading Account - Customer Name: Michele Parker - Customer ID: 215D8DA6 - Account Representative: Kathy Holmes (ID: ADV78901) - Branch: Branch003 3. Alert Details: - Total Risk Score: 88 - Main Issue: \"High risk profile misalignment with capital preservation objective\" - Focus: Account - Region: US - Alert Group: Account Review Group 4. Multiple Scenarios Triggered: - Portfolio Concentration Review (High concentration in specific asset classes) - Investment Objective Alignment (Trading activity misaligned with capital preservation objective) - Trading Volume Analysis (Excessive trading relative to account size) - Account Activity Pattern (Unusual patterns in international transactions) - Risk Profile Assessment (High risk tolerance vs conservative objective) - Cross-Border Activity (High volume of international transactions) - Documentation Completeness (International trading documentation review) 5. Current Status: - Step Name: Ready - Step ID: 70 - Is Active: True - Is Case Created: False - Owner: System Owner (OWNER1) The alert appears to be highlighting significant concerns about the alignment between the account's stated objective (Capital Preservation) and actual trading patterns, with multiple risk factors including high-risk activities and international transactions.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:47:26",
+      "session_id": "0d1374af-0c0d-4f92-8e2f-5b558183e2a6"
+    }
+  },
+  {
+    "test_id": 17,
+    "question_data": {
+      "id": 17,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Explain the alert STID1021_TRD1020 including all scenarios",
+      "expected_behavior": "Should query alert and explain scenario details",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id = 'STID1021_TRD1020'",
+      "tags": [
+        "alerts",
+        "scenarios",
+        "alert_id",
+        "explanation"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_17"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_17"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Now, let's look at actual ",
+        "chunk_index": 0,
+        "id": "test_17"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts with this ID:",
+        "chunk_index": 1,
+        "id": "test_17"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_17"
+      }
+    ],
+    "start_time": 1759520863.9144142,
+    "session_id": "3e1cb0d9-23e5-4b02-b29e-ee254b225a06",
+    "end_time": 1759520875.52048,
+    "result": {
+      "test_id": 17,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Explain the alert STID1021_TRD1020 including all scenarios",
+      "status": "success",
+      "response_time_seconds": 11.61,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 46,
+      "response_text": "Now, let's look at actual alerts with this ID:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:47:43",
+      "session_id": "3e1cb0d9-23e5-4b02-b29e-ee254b225a06"
+    }
+  },
+  {
+    "test_id": 18,
+    "question_data": {
+      "id": 18,
+      "category": "alert_details",
+      "complexity": "high",
+      "question": "Compare alerts STID1025_ACC102445 and AML_20241120225734_LAY456789",
+      "expected_behavior": "Should query both alerts and provide comparison",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id IN",
+      "tags": [
+        "alerts",
+        "comparison",
+        "multiple_alerts"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_18"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_18"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me try searching with ",
+        "chunk_index": 0,
+        "id": "test_18"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "a different approach in case ",
+        "chunk_index": 1,
+        "id": "test_18"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the alert IDs are stored ",
+        "chunk_index": 2,
+        "id": "test_18"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in a different format or ",
+        "chunk_index": 3,
+        "id": "test_18"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "column:",
+        "chunk_index": 4,
+        "id": "test_18"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_18"
+      }
+    ],
+    "start_time": 1759520876.5225458,
+    "session_id": "aa0ce6cc-1b5f-4798-be20-b1d896172e52",
+    "end_time": 1759520886.256672,
+    "result": {
+      "test_id": 18,
+      "category": "alert_details",
+      "complexity": "high",
+      "question": "Compare alerts STID1025_ACC102445 and AML_20241120225734_LAY456789",
+      "status": "success",
+      "response_time_seconds": 9.73,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 112,
+      "response_text": "Let me try searching with a different approach in case the alert IDs are stored in a different format or column:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:47:56",
+      "session_id": "aa0ce6cc-1b5f-4798-be20-b1d896172e52"
+    }
+  },
+  {
+    "test_id": 19,
+    "question_data": {
+      "id": 19,
+      "category": "alert_details",
+      "complexity": "high",
+      "question": "Show me the full history and details of alert STID1025_ACC102445 including related entities",
+      "expected_behavior": "Should query alert with comprehensive details",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id = 'STID1025_ACC102445'",
+      "tags": [
+        "alerts",
+        "history",
+        "details",
+        "entities"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_19"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_19"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me also get the ",
+        "chunk_index": 0,
+        "id": "test_19"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert type details since this ",
+        "chunk_index": 1,
+        "id": "test_19"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "is a tradereview type alert:",
+        "chunk_index": 2,
+        "id": "test_19"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_19"
+      }
+    ],
+    "start_time": 1759520887.259785,
+    "session_id": "ab9953db-1b39-4b8b-afb0-5ff5beca0f9b",
+    "end_time": 1759520897.755265,
+    "result": {
+      "test_id": 19,
+      "category": "alert_details",
+      "complexity": "high",
+      "question": "Show me the full history and details of alert STID1025_ACC102445 including related entities",
+      "status": "success",
+      "response_time_seconds": 10.49,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 78,
+      "response_text": "Let me also get the alert type details since this is a tradereview type alert:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:48:07",
+      "session_id": "ab9953db-1b39-4b8b-afb0-5ff5beca0f9b"
+    }
+  },
+  {
+    "test_id": 20,
+    "question_data": {
+      "id": 20,
+      "category": "alert_details",
+      "complexity": "high",
+      "question": "Analyze the risk factors and scenarios for alert AML_20241120225734_LAY456789",
+      "expected_behavior": "Should query alert and analyze risk/scenarios",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id = 'AML_20241120225734_LAY456789'",
+      "tags": [
+        "alerts",
+        "risk",
+        "scenarios",
+        "analysis"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_20"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_20"
+      },
+      {
+        "type": "heartbeat",
+        "timestamp": "2025-10-03T19:48:48.768084"
+      },
+      {
+        "type": "heartbeat",
+        "timestamp": "2025-10-03T19:49:18.769312"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize, but I cannot ",
+        "chunk_index": 0,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "analyze a specific alert without ",
+        "chunk_index": 1,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "more context or details about ",
+        "chunk_index": 2,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the alert AML_20241120225734_LAY456789. To properly ",
+        "chunk_index": 3,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "assess risk factors and scenarios, ",
+        "chunk_index": 4,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I would need additional information ",
+        "chunk_index": 5,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "such as: 1. The specific ",
+        "chunk_index": 6,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "financial institution or context 2. ",
+        "chunk_index": 7,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "The type of transaction or ",
+        "chunk_index": 8,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "activity triggering the alert 3. ",
+        "chunk_index": 9,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Customer details 4. Transaction characteristics ",
+        "chunk_index": 10,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "5. Specific red flags or ",
+        "chunk_index": 11,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "unusual patterns If you can ",
+        "chunk_index": 12,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "provide more context about this ",
+        "chunk_index": 13,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "particular AML (Anti-Money Laundering) alert, ",
+        "chunk_index": 14,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I'd be happy to help ",
+        "chunk_index": 15,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "you analyze its potential risk ",
+        "chunk_index": 16,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "factors and scenarios. In general, ",
+        "chunk_index": 17,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "when analyzing AML alerts, key ",
+        "chunk_index": 18,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "considerations typically include: - Transaction ",
+        "chunk_index": 19,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "amount and frequency - Customer ",
+        "chunk_index": 20,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "profile and history - Source ",
+        "chunk_index": 21,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "and destination of funds - ",
+        "chunk_index": 22,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Geographical risk factors - Unusual ",
+        "chunk_index": 23,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "or suspicious transaction patterns Would ",
+        "chunk_index": 24,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "you like to share more ",
+        "chunk_index": 25,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "details about this specific alert?",
+        "chunk_index": 26,
+        "id": "test_20"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_20"
+      }
+    ],
+    "start_time": 1759520898.7597399,
+    "session_id": "d0068271-b157-4436-a5ab-13345d35e74b",
+    "end_time": 1759520970.005076,
+    "result": {
+      "test_id": 20,
+      "category": "alert_details",
+      "complexity": "high",
+      "question": "Analyze the risk factors and scenarios for alert AML_20241120225734_LAY456789",
+      "status": "success",
+      "response_time_seconds": 71.24,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 900,
+      "response_text": "I apologize, but I cannot analyze a specific alert without more context or details about the alert AML_20241120225734_LAY456789. To properly assess risk factors and scenarios, I would need additional information such as: 1. The specific financial institution or context 2. The type of transaction or activity triggering the alert 3. Customer details 4. Transaction characteristics 5. Specific red flags or unusual patterns If you can provide more context about this particular AML (Anti-Money Laundering) alert, I'd be happy to help you analyze its potential risk factors and scenarios. In general, when analyzing AML alerts, key considerations typically include: - Transaction amount and frequency - Customer profile and history - Source and destination of funds - Geographical risk factors - Unusual or suspicious transaction patterns Would you like to share more details about this specific alert?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:48:18",
+      "session_id": "d0068271-b157-4436-a5ab-13345d35e74b"
+    }
+  },
+  {
+    "test_id": 21,
+    "question_data": {
+      "id": 21,
+      "category": "alert_analysis",
+      "complexity": "simple",
+      "question": "How many alerts are open?",
+      "expected_behavior": "Should count alerts with Open status",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "status = 'Open'",
+      "tags": [
+        "alerts",
+        "count",
+        "aggregation"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_21"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_21"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "There are currently 28 open ",
+        "chunk_index": 0,
+        "id": "test_21"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts in the system.",
+        "chunk_index": 1,
+        "id": "test_21"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_21"
+      }
+    ],
+    "start_time": 1759520971.009622,
+    "session_id": "9e58ae31-a5ef-4885-b4d8-9b4275dcd117",
+    "end_time": 1759520978.681876,
+    "result": {
+      "test_id": 21,
+      "category": "alert_analysis",
+      "complexity": "simple",
+      "question": "How many alerts are open?",
+      "status": "success",
+      "response_time_seconds": 7.67,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 49,
+      "response_text": "There are currently 28 open alerts in the system.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:49:31",
+      "session_id": "9e58ae31-a5ef-4885-b4d8-9b4275dcd117"
+    }
+  },
+  {
+    "test_id": 22,
+    "question_data": {
+      "id": 22,
+      "category": "alert_analysis",
+      "complexity": "simple",
+      "question": "What's the average alert score?",
+      "expected_behavior": "Should calculate average total_score",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "",
+      "tags": [
+        "alerts",
+        "average",
+        "score",
+        "aggregation"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_22"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_22"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_22"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "It seems I made an ",
+        "chunk_index": 1,
+        "id": "test_22"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "assumption about the column name. ",
+        "chunk_index": 2,
+        "id": "test_22"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me check the actual ",
+        "chunk_index": 3,
+        "id": "test_22"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "structure of the alerts table ",
+        "chunk_index": 4,
+        "id": "test_22"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "by querying all columns first.",
+        "chunk_index": 5,
+        "id": "test_22"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_22"
+      }
+    ],
+    "start_time": 1759520979.684292,
+    "session_id": "325e3ae4-0d4b-4dc8-bcce-06ec36697835",
+    "end_time": 1759520987.7038348,
+    "result": {
+      "test_id": 22,
+      "category": "alert_analysis",
+      "complexity": "simple",
+      "question": "What's the average alert score?",
+      "status": "success",
+      "response_time_seconds": 8.02,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 164,
+      "response_text": "I apologize for the error. It seems I made an assumption about the column name. Let me check the actual structure of the alerts table by querying all columns first.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:49:39",
+      "session_id": "325e3ae4-0d4b-4dc8-bcce-06ec36697835"
+    }
+  },
+  {
+    "test_id": 23,
+    "question_data": {
+      "id": 23,
+      "category": "alert_analysis",
+      "complexity": "medium",
+      "question": "Show alert distribution by status",
+      "expected_behavior": "Should group alerts by status and count",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "GROUP BY status",
+      "tags": [
+        "alerts",
+        "distribution",
+        "grouping",
+        "status"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_23"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Based on the query results, ",
+        "chunk_index": 0,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "here's the distribution of alerts ",
+        "chunk_index": 1,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "by status: - Open alerts: ",
+        "chunk_index": 2,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "28 - Closed alerts: 1 ",
+        "chunk_index": 3,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "This shows that the majority ",
+        "chunk_index": 4,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "of alerts are currently in ",
+        "chunk_index": 5,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "an \"Open\" status, with only ",
+        "chunk_index": 6,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "one alert marked as \"Closed\". ",
+        "chunk_index": 7,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "This might indicate that there ",
+        "chunk_index": 8,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "are many active alerts that ",
+        "chunk_index": 9,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "need attention.",
+        "chunk_index": 10,
+        "id": "test_23"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_23"
+      }
+    ],
+    "start_time": 1759520988.7070432,
+    "session_id": "001e7831-d46a-4776-a7c3-fcfe89304c30",
+    "end_time": 1759520997.8657238,
+    "result": {
+      "test_id": 23,
+      "category": "alert_analysis",
+      "complexity": "medium",
+      "question": "Show alert distribution by status",
+      "status": "success",
+      "response_time_seconds": 9.16,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 298,
+      "response_text": "Based on the query results, here's the distribution of alerts by status: - Open alerts: 28 - Closed alerts: 1 This shows that the majority of alerts are currently in an \"Open\" status, with only one alert marked as \"Closed\". This might indicate that there are many active alerts that need attention.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:49:48",
+      "session_id": "001e7831-d46a-4776-a7c3-fcfe89304c30"
+    }
+  },
+  {
+    "test_id": 24,
+    "question_data": {
+      "id": 24,
+      "category": "alert_analysis",
+      "complexity": "medium",
+      "question": "What's the trend of alerts created this month?",
+      "expected_behavior": "Should query alerts by date and show trend",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "create_date",
+      "tags": [
+        "alerts",
+        "trend",
+        "date",
+        "analysis"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_24"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_24"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_24"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me modify the query ",
+        "chunk_index": 1,
+        "id": "test_24"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to use the correct column ",
+        "chunk_index": 2,
+        "id": "test_24"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "names.",
+        "chunk_index": 3,
+        "id": "test_24"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_24"
+      }
+    ],
+    "start_time": 1759520998.8683252,
+    "session_id": "68e94680-e134-4ef3-9450-6ccc37a45bf5",
+    "end_time": 1759521010.686496,
+    "result": {
+      "test_id": 24,
+      "category": "alert_analysis",
+      "complexity": "medium",
+      "question": "What's the trend of alerts created this month?",
+      "status": "success",
+      "response_time_seconds": 11.82,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 83,
+      "response_text": "I apologize for the error. Let me modify the query to use the correct column names.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:49:58",
+      "session_id": "68e94680-e134-4ef3-9450-6ccc37a45bf5"
+    }
+  },
+  {
+    "test_id": 25,
+    "question_data": {
+      "id": 25,
+      "category": "alert_analysis",
+      "complexity": "medium",
+      "question": "Show me alert count by alert type",
+      "expected_behavior": "Should group alerts by alert_type_id and count",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "GROUP BY alert_type_id",
+      "tags": [
+        "alerts",
+        "count",
+        "grouping",
+        "type"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_25"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_25"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_25"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "It seems the alert type ",
+        "chunk_index": 1,
+        "id": "test_25"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "is stored as an ID ",
+        "chunk_index": 2,
+        "id": "test_25"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in the alerts table. Let ",
+        "chunk_index": 3,
+        "id": "test_25"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "me modify the query to ",
+        "chunk_index": 4,
+        "id": "test_25"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "join with the alert_type table ",
+        "chunk_index": 5,
+        "id": "test_25"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to get the proper alert ",
+        "chunk_index": 6,
+        "id": "test_25"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "type names:",
+        "chunk_index": 7,
+        "id": "test_25"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_25"
+      }
+    ],
+    "start_time": 1759521011.689108,
+    "session_id": "4df90769-26cc-4122-98f4-faaa799f3c0a",
+    "end_time": 1759521023.1889029,
+    "result": {
+      "test_id": 25,
+      "category": "alert_analysis",
+      "complexity": "medium",
+      "question": "Show me alert count by alert type",
+      "status": "success",
+      "response_time_seconds": 11.5,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 184,
+      "response_text": "I apologize for the error. It seems the alert type is stored as an ID in the alerts table. Let me modify the query to join with the alert_type table to get the proper alert type names:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:50:11",
+      "session_id": "4df90769-26cc-4122-98f4-faaa799f3c0a"
+    }
+  },
+  {
+    "test_id": 26,
+    "question_data": {
+      "id": 26,
+      "category": "alert_analysis",
+      "complexity": "high",
+      "question": "Analyze alert patterns for the last quarter grouped by severity and owner",
+      "expected_behavior": "Should query alerts with date filter and group by multiple fields",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "create_date AND GROUP BY severity, owner_id",
+      "tags": [
+        "alerts",
+        "patterns",
+        "grouping",
+        "analysis"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_26"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_26"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_26"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "It seems the column names ",
+        "chunk_index": 1,
+        "id": "test_26"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "might be different in the ",
+        "chunk_index": 2,
+        "id": "test_26"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "database. Let me modify the ",
+        "chunk_index": 3,
+        "id": "test_26"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "query to use the correct ",
+        "chunk_index": 4,
+        "id": "test_26"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "column names:",
+        "chunk_index": 5,
+        "id": "test_26"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_26"
+      }
+    ],
+    "start_time": 1759521024.191728,
+    "session_id": "03698029-ae81-48ea-aa94-48fa79280336",
+    "end_time": 1759521035.584926,
+    "result": {
+      "test_id": 26,
+      "category": "alert_analysis",
+      "complexity": "high",
+      "question": "Analyze alert patterns for the last quarter grouped by severity and owner",
+      "status": "success",
+      "response_time_seconds": 11.39,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 145,
+      "response_text": "I apologize for the error. It seems the column names might be different in the database. Let me modify the query to use the correct column names:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:50:24",
+      "session_id": "03698029-ae81-48ea-aa94-48fa79280336"
+    }
+  },
+  {
+    "test_id": 27,
+    "question_data": {
+      "id": 27,
+      "category": "alert_analysis",
+      "complexity": "high",
+      "question": "Show correlation between alert scores and resolution time",
+      "expected_behavior": "Should analyze relationship between total_score and time metrics",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "",
+      "tags": [
+        "alerts",
+        "correlation",
+        "score",
+        "time",
+        "analysis"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_27"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_27"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Now let's get the case ",
+        "chunk_index": 0,
+        "id": "test_27"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "information:",
+        "chunk_index": 1,
+        "id": "test_27"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_27"
+      }
+    ],
+    "start_time": 1759521036.5877178,
+    "session_id": "2a2c705f-d757-43e0-929b-908a977662fd",
+    "end_time": 1759521046.6076832,
+    "result": {
+      "test_id": 27,
+      "category": "alert_analysis",
+      "complexity": "high",
+      "question": "Show correlation between alert scores and resolution time",
+      "status": "success",
+      "response_time_seconds": 10.02,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 35,
+      "response_text": "Now let's get the case information:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:50:36",
+      "session_id": "2a2c705f-d757-43e0-929b-908a977662fd"
+    }
+  },
+  {
+    "test_id": 28,
+    "question_data": {
+      "id": 28,
+      "category": "alert_analysis",
+      "complexity": "high",
+      "question": "Identify alerts with unusual patterns in the last 30 days",
+      "expected_behavior": "Should query recent alerts and identify anomalies",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "create_date",
+      "tags": [
+        "alerts",
+        "anomaly",
+        "patterns",
+        "analysis"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_28"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_28"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_28"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me correct the query ",
+        "chunk_index": 1,
+        "id": "test_28"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "using the proper column names:",
+        "chunk_index": 2,
+        "id": "test_28"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_28"
+      }
+    ],
+    "start_time": 1759521047.611189,
+    "session_id": "25ee48f2-fa1f-4603-a060-838612d53f46",
+    "end_time": 1759521059.807734,
+    "result": {
+      "test_id": 28,
+      "category": "alert_analysis",
+      "complexity": "high",
+      "question": "Identify alerts with unusual patterns in the last 30 days",
+      "status": "success",
+      "response_time_seconds": 12.2,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 82,
+      "response_text": "I apologize for the error. Let me correct the query using the proper column names:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:50:47",
+      "session_id": "25ee48f2-fa1f-4603-a060-838612d53f46"
+    }
+  },
+  {
+    "test_id": 29,
+    "question_data": {
+      "id": 29,
+      "category": "cases",
+      "complexity": "simple",
+      "question": "Show me all open cases",
+      "expected_behavior": "Should query cm_cases with Open status",
+      "expected_tools": [
+        "query_postgresql_cm_cases"
+      ],
+      "expected_filters": "status = 'Open'",
+      "tags": [
+        "cases",
+        "filter",
+        "status"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_29"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_29"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error ",
+        "chunk_index": 0,
+        "id": "test_29"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with the PostgreSQL query. Let ",
+        "chunk_index": 1,
+        "id": "test_29"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "me try using the REST ",
+        "chunk_index": 2,
+        "id": "test_29"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "API search function instead, which ",
+        "chunk_index": 3,
+        "id": "test_29"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "is also designed for this ",
+        "chunk_index": 4,
+        "id": "test_29"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "purpose.",
+        "chunk_index": 5,
+        "id": "test_29"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_29"
+      }
+    ],
+    "start_time": 1759521060.811264,
+    "session_id": "16df5d02-b422-4cce-81c0-3a8175267b81",
+    "end_time": 1759521071.108396,
+    "result": {
+      "test_id": 29,
+      "category": "cases",
+      "complexity": "simple",
+      "question": "Show me all open cases",
+      "status": "success",
+      "response_time_seconds": 10.3,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 148,
+      "response_text": "I apologize for the error with the PostgreSQL query. Let me try using the REST API search function instead, which is also designed for this purpose.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:51:00",
+      "session_id": "16df5d02-b422-4cce-81c0-3a8175267b81"
+    }
+  },
+  {
+    "test_id": 30,
+    "question_data": {
+      "id": 30,
+      "category": "cases",
+      "complexity": "simple",
+      "question": "List cases created today",
+      "expected_behavior": "Should query cm_cases with today's date",
+      "expected_tools": [
+        "query_postgresql_cm_cases"
+      ],
+      "expected_filters": "create_date",
+      "tags": [
+        "cases",
+        "date",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_30"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_30"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_30"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me try using the ",
+        "chunk_index": 1,
+        "id": "test_30"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "REST API search function instead, ",
+        "chunk_index": 2,
+        "id": "test_30"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "which is also designed for ",
+        "chunk_index": 3,
+        "id": "test_30"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "searching cases.",
+        "chunk_index": 4,
+        "id": "test_30"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_30"
+      }
+    ],
+    "start_time": 1759521072.112727,
+    "session_id": "c588bb4b-dc3e-4a7b-9428-c9944e869e7d",
+    "end_time": 1759521081.5790431,
+    "result": {
+      "test_id": 30,
+      "category": "cases",
+      "complexity": "simple",
+      "question": "List cases created today",
+      "status": "success",
+      "response_time_seconds": 9.46,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 125,
+      "response_text": "I apologize for the error. Let me try using the REST API search function instead, which is also designed for searching cases.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:51:12",
+      "session_id": "c588bb4b-dc3e-4a7b-9428-c9944e869e7d"
+    }
+  },
+  {
+    "test_id": 31,
+    "question_data": {
+      "id": 31,
+      "category": "cases",
+      "complexity": "medium",
+      "question": "Show cases with high priority that are overdue",
+      "expected_behavior": "Should query cm_cases with priority and due date filters",
+      "expected_tools": [
+        "query_postgresql_cm_cases"
+      ],
+      "expected_filters": "priority AND due_date",
+      "tags": [
+        "cases",
+        "priority",
+        "overdue",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_31"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_31"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the database ",
+        "chunk_index": 0,
+        "id": "test_31"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "error. Let me try using ",
+        "chunk_index": 1,
+        "id": "test_31"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the REST API search function ",
+        "chunk_index": 2,
+        "id": "test_31"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "instead, which should also give ",
+        "chunk_index": 3,
+        "id": "test_31"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "us this information.",
+        "chunk_index": 4,
+        "id": "test_31"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_31"
+      }
+    ],
+    "start_time": 1759521082.5820532,
+    "session_id": "605c9428-1d7e-48ff-85d4-3877584185b6",
+    "end_time": 1759521093.4615092,
+    "result": {
+      "test_id": 31,
+      "category": "cases",
+      "complexity": "medium",
+      "question": "Show cases with high priority that are overdue",
+      "status": "success",
+      "response_time_seconds": 10.88,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 134,
+      "response_text": "I apologize for the database error. Let me try using the REST API search function instead, which should also give us this information.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:51:22",
+      "session_id": "605c9428-1d7e-48ff-85d4-3877584185b6"
+    }
+  },
+  {
+    "test_id": 32,
+    "question_data": {
+      "id": 32,
+      "category": "cases",
+      "complexity": "medium",
+      "question": "List cases assigned to specific users",
+      "expected_behavior": "Should query cm_cases with assigned_to filter",
+      "expected_tools": [
+        "query_postgresql_cm_cases"
+      ],
+      "expected_filters": "assigned_to",
+      "tags": [
+        "cases",
+        "assignment",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_32"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I'll help you list cases ",
+        "chunk_index": 0,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "assigned to specific users. To ",
+        "chunk_index": 1,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "do this, I'll use the ",
+        "chunk_index": 2,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "`rest_search_cases` function to find cases ",
+        "chunk_index": 3,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "based on user assignments. However, ",
+        "chunk_index": 4,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I'll need you to specify ",
+        "chunk_index": 5,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "which users you want to ",
+        "chunk_index": 6,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "see cases for. Could you ",
+        "chunk_index": 7,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "provide me with: 1. The ",
+        "chunk_index": 8,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "names or user IDs of ",
+        "chunk_index": 9,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the specific users 2. Any ",
+        "chunk_index": 10,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "additional filters you might want ",
+        "chunk_index": 11,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(like status, priority, date range) ",
+        "chunk_index": 12,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "For example, would you like ",
+        "chunk_index": 13,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to see: - Cases assigned ",
+        "chunk_index": 14,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to John Doe - Open ",
+        "chunk_index": 15,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "cases assigned to the support ",
+        "chunk_index": 16,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "team - High-priority cases assigned ",
+        "chunk_index": 17,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to specific team members Once ",
+        "chunk_index": 18,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "you provide more details, I ",
+        "chunk_index": 19,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "can help you retrieve the ",
+        "chunk_index": 20,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "exact list of cases you're ",
+        "chunk_index": 21,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "looking for.",
+        "chunk_index": 22,
+        "id": "test_32"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_32"
+      }
+    ],
+    "start_time": 1759521094.464798,
+    "session_id": "ae3ee705-d799-477c-be17-a5bd51c223b7",
+    "end_time": 1759521104.447836,
+    "result": {
+      "test_id": 32,
+      "category": "cases",
+      "complexity": "medium",
+      "question": "List cases assigned to specific users",
+      "status": "success",
+      "response_time_seconds": 9.98,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 633,
+      "response_text": "I'll help you list cases assigned to specific users. To do this, I'll use the `rest_search_cases` function to find cases based on user assignments. However, I'll need you to specify which users you want to see cases for. Could you provide me with: 1. The names or user IDs of the specific users 2. Any additional filters you might want (like status, priority, date range) For example, would you like to see: - Cases assigned to John Doe - Open cases assigned to the support team - High-priority cases assigned to specific team members Once you provide more details, I can help you retrieve the exact list of cases you're looking for.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:51:34",
+      "session_id": "ae3ee705-d799-477c-be17-a5bd51c223b7"
+    }
+  },
+  {
+    "test_id": 33,
+    "question_data": {
+      "id": 33,
+      "category": "cases",
+      "complexity": "high",
+      "question": "Show me cases that have been reassigned more than twice",
+      "expected_behavior": "Should query cases with reassignment count analysis",
+      "expected_tools": [
+        "query_postgresql_cm_cases"
+      ],
+      "expected_filters": "reassignment_count OR history",
+      "tags": [
+        "cases",
+        "reassignment",
+        "analysis"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_33"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_33"
+      },
+      {
+        "type": "heartbeat",
+        "timestamp": "2025-10-03T19:52:15.455193"
+      },
+      {
+        "type": "heartbeat",
+        "timestamp": "2025-10-03T19:52:45.456399"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I'll help you with that. ",
+        "chunk_index": 0,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "However, I want to clarify ",
+        "chunk_index": 1,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "a few things: 1. Are ",
+        "chunk_index": 2,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "you referring to cases in ",
+        "chunk_index": 3,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "a specific system or database? ",
+        "chunk_index": 4,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2. Do you want me ",
+        "chunk_index": 5,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to show you an example ",
+        "chunk_index": 6,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "query to retrieve such cases? ",
+        "chunk_index": 7,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "3. Would you like to ",
+        "chunk_index": 8,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "see the actual case details ",
+        "chunk_index": 9,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "or just a count of ",
+        "chunk_index": 10,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "cases? Without more context, I ",
+        "chunk_index": 11,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "can provide a generic SQL ",
+        "chunk_index": 12,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "query that might help you ",
+        "chunk_index": 13,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "find cases reassigned more than ",
+        "chunk_index": 14,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "twice: ```sql SELECT case_id, COUNT(reassignment_id) ",
+        "chunk_index": 15,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "as reassignment_count FROM case_reassignments GROUP ",
+        "chunk_index": 16,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "BY case_id HAVING COUNT(reassignment_id) > ",
+        "chunk_index": 17,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2 ``` Would you like ",
+        "chunk_index": 18,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "me to elaborate on this ",
+        "chunk_index": 19,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "or provide more specific guidance ",
+        "chunk_index": 20,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "based on your particular system?",
+        "chunk_index": 21,
+        "id": "test_33"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_33"
+      }
+    ],
+    "start_time": 1759521105.451631,
+    "session_id": "8a512779-241c-4771-ada9-1245320226e3",
+    "end_time": 1759521174.912438,
+    "result": {
+      "test_id": 33,
+      "category": "cases",
+      "complexity": "high",
+      "question": "Show me cases that have been reassigned more than twice",
+      "status": "success",
+      "response_time_seconds": 69.46,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 643,
+      "response_text": "I'll help you with that. However, I want to clarify a few things: 1. Are you referring to cases in a specific system or database? 2. Do you want me to show you an example query to retrieve such cases? 3. Would you like to see the actual case details or just a count of cases? Without more context, I can provide a generic SQL query that might help you find cases reassigned more than twice: ```sql SELECT case_id, COUNT(reassignment_id) as reassignment_count FROM case_reassignments GROUP BY case_id HAVING COUNT(reassignment_id) > 2 ``` Would you like me to elaborate on this or provide more specific guidance based on your particular system?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:51:45",
+      "session_id": "8a512779-241c-4771-ada9-1245320226e3"
+    }
+  },
+  {
+    "test_id": 34,
+    "question_data": {
+      "id": 34,
+      "category": "cases",
+      "complexity": "high",
+      "question": "Find cases with the longest resolution time grouped by case type",
+      "expected_behavior": "Should analyze resolution times with grouping",
+      "expected_tools": [
+        "query_postgresql_cm_cases"
+      ],
+      "expected_filters": "GROUP BY case_type",
+      "tags": [
+        "cases",
+        "resolution_time",
+        "grouping",
+        "analysis"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_34"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_34"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error ",
+        "chunk_index": 0,
+        "id": "test_34"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in my first attempt. Let ",
+        "chunk_index": 1,
+        "id": "test_34"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "me modify the query to ",
+        "chunk_index": 2,
+        "id": "test_34"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "use the correct column names ",
+        "chunk_index": 3,
+        "id": "test_34"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "from the cases table.",
+        "chunk_index": 4,
+        "id": "test_34"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_34"
+      }
+    ],
+    "start_time": 1759521175.916369,
+    "session_id": "f4364677-b512-4710-aff5-b4fefa49c3a2",
+    "end_time": 1759521186.250864,
+    "result": {
+      "test_id": 34,
+      "category": "cases",
+      "complexity": "high",
+      "question": "Find cases with the longest resolution time grouped by case type",
+      "status": "success",
+      "response_time_seconds": 10.33,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 124,
+      "response_text": "I apologize for the error in my first attempt. Let me modify the query to use the correct column names from the cases table.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:52:55",
+      "session_id": "f4364677-b512-4710-aff5-b4fefa49c3a2"
+    }
+  },
+  {
+    "test_id": 35,
+    "question_data": {
+      "id": 35,
+      "category": "alert_types",
+      "complexity": "simple",
+      "question": "List all alert types",
+      "expected_behavior": "Should query cm_alert_type table",
+      "expected_tools": [
+        "query_postgresql_cm_alert_type"
+      ],
+      "expected_filters": "",
+      "tags": [
+        "alert_types",
+        "list"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_35"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Here are all the alert ",
+        "chunk_index": 0,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "types currently defined in the ",
+        "chunk_index": 1,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "system: 1. Mutual Fund Review ",
+        "chunk_index": 2,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2. Trade Review 3. Account ",
+        "chunk_index": 3,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Review 4. Customer Review 5. ",
+        "chunk_index": 4,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Advisor Review 6. UI Testing ",
+        "chunk_index": 5,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "145 7. Customer Rev 8. ",
+        "chunk_index": 6,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Test1 9. AML (Anti-Money Laundering) ",
+        "chunk_index": 7,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "10. Data_01 Each alert type ",
+        "chunk_index": 8,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "has associated metadata including: - ",
+        "chunk_index": 9,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "A unique ID - Creation ",
+        "chunk_index": 10,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "timestamp - Description - Type ",
+        "chunk_index": 11,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "name and slug - Active ",
+        "chunk_index": 12,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "status - Last update timestamp ",
+        "chunk_index": 13,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(if applicable) Most of these ",
+        "chunk_index": 14,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert types are active (is_active: ",
+        "chunk_index": 15,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "True), except for Data_01 which ",
+        "chunk_index": 16,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "is marked as inactive. Some ",
+        "chunk_index": 17,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "appear to be production alert ",
+        "chunk_index": 18,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "types (like Mutual Fund Review, ",
+        "chunk_index": 19,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Trade Review, Account Review) while ",
+        "chunk_index": 20,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "others seem to be test ",
+        "chunk_index": 21,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "entries (like uitesting145, test1). Would ",
+        "chunk_index": 22,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "you like more specific information ",
+        "chunk_index": 23,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "about any of these alert ",
+        "chunk_index": 24,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "types?",
+        "chunk_index": 25,
+        "id": "test_35"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_35"
+      }
+    ],
+    "start_time": 1759521187.253717,
+    "session_id": "a7485dd8-8d1a-4a73-8326-8dbf93fe8232",
+    "end_time": 1759521198.102439,
+    "result": {
+      "test_id": 35,
+      "category": "alert_types",
+      "complexity": "simple",
+      "question": "List all alert types",
+      "status": "success",
+      "response_time_seconds": 10.85,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 756,
+      "response_text": "Here are all the alert types currently defined in the system: 1. Mutual Fund Review 2. Trade Review 3. Account Review 4. Customer Review 5. Advisor Review 6. UI Testing 145 7. Customer Rev 8. Test1 9. AML (Anti-Money Laundering) 10. Data_01 Each alert type has associated metadata including: - A unique ID - Creation timestamp - Description - Type name and slug - Active status - Last update timestamp (if applicable) Most of these alert types are active (is_active: True), except for Data_01 which is marked as inactive. Some appear to be production alert types (like Mutual Fund Review, Trade Review, Account Review) while others seem to be test entries (like uitesting145, test1). Would you like more specific information about any of these alert types?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:53:07",
+      "session_id": "a7485dd8-8d1a-4a73-8326-8dbf93fe8232"
+    }
+  },
+  {
+    "test_id": 36,
+    "question_data": {
+      "id": 36,
+      "category": "alert_types",
+      "complexity": "simple",
+      "question": "Show me trade review alerts",
+      "expected_behavior": "Should filter alerts by tradereview type",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_type_id = 'tradereview'",
+      "tags": [
+        "alerts",
+        "type",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_36"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Based on the query results, ",
+        "chunk_index": 0,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I can see several trade ",
+        "chunk_index": 1,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "review alerts. Let me summarize ",
+        "chunk_index": 2,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the key ones: 1. AML_20241120225734_LAY456789 ",
+        "chunk_index": 3,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(Critical Priority) - Details: Complex ",
+        "chunk_index": 4,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "layering scheme involving rapid fund ",
+        "chunk_index": 5,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "movement through multiple accounts and ",
+        "chunk_index": 6,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "jurisdictions - Status: Open - ",
+        "chunk_index": 7,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Score: 97 - Involves multiple ",
+        "chunk_index": 8,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "scenarios including rapid fund movement ",
+        "chunk_index": 9,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "and layering activity patterns 2. ",
+        "chunk_index": 10,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "AML_20241120231456_CIB678901 (Medium Priority) - Details: ",
+        "chunk_index": 11,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Cash-intensive restaurant business showing suspicious ",
+        "chunk_index": 12,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "deposit patterns - Status: Open ",
+        "chunk_index": 13,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Score: 78 - Involves ",
+        "chunk_index": 14,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "analysis of cash business revenue ",
+        "chunk_index": 15,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "anomalies 3. AML_20241120230912_SHE567890 (High Priority) ",
+        "chunk_index": 16,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Details: Network of shell ",
+        "chunk_index": 17,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "companies with common beneficial ownership ",
+        "chunk_index": 18,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "conducting circular transactions - Status: ",
+        "chunk_index": 19,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Open - Score: 91 - ",
+        "chunk_index": 20,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Involves shell company indicators and ",
+        "chunk_index": 21,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "beneficial ownership obscurity 4. AML_20241120224512_TBM345678 ",
+        "chunk_index": 22,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(High Priority) - Details: Trade-based ",
+        "chunk_index": 23,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "money laundering scheme involving over/under-invoicing ",
+        "chunk_index": 24,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Status: Open - Score: ",
+        "chunk_index": 25,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "93 - Involves trade-based money ",
+        "chunk_index": 26,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "laundering patterns Would you like ",
+        "chunk_index": 27,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "more detailed information about any ",
+        "chunk_index": 28,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "of these specific alerts?",
+        "chunk_index": 29,
+        "id": "test_36"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_36"
+      }
+    ],
+    "start_time": 1759521199.106854,
+    "session_id": "3b511e09-a249-4a8f-a268-28f50c86e2e9",
+    "end_time": 1759521218.741056,
+    "result": {
+      "test_id": 36,
+      "category": "alert_types",
+      "complexity": "simple",
+      "question": "Show me trade review alerts",
+      "status": "success",
+      "response_time_seconds": 19.63,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1119,
+      "response_text": "Based on the query results, I can see several trade review alerts. Let me summarize the key ones: 1. AML_20241120225734_LAY456789 (Critical Priority) - Details: Complex layering scheme involving rapid fund movement through multiple accounts and jurisdictions - Status: Open - Score: 97 - Involves multiple scenarios including rapid fund movement and layering activity patterns 2. AML_20241120231456_CIB678901 (Medium Priority) - Details: Cash-intensive restaurant business showing suspicious deposit patterns - Status: Open - Score: 78 - Involves analysis of cash business revenue anomalies 3. AML_20241120230912_SHE567890 (High Priority) - Details: Network of shell companies with common beneficial ownership conducting circular transactions - Status: Open - Score: 91 - Involves shell company indicators and beneficial ownership obscurity 4. AML_20241120224512_TBM345678 (High Priority) - Details: Trade-based money laundering scheme involving over/under-invoicing - Status: Open - Score: 93 - Involves trade-based money laundering patterns Would you like more detailed information about any of these specific alerts?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:53:19",
+      "session_id": "3b511e09-a249-4a8f-a268-28f50c86e2e9"
+    }
+  },
+  {
+    "test_id": 37,
+    "question_data": {
+      "id": 37,
+      "category": "alert_types",
+      "complexity": "medium",
+      "question": "Which alert type has the most open alerts?",
+      "expected_behavior": "Should group and count alerts by type",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "GROUP BY alert_type_id",
+      "tags": [
+        "alerts",
+        "type",
+        "aggregation",
+        "grouping"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_37"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_37"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_37"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "It seems the column is ",
+        "chunk_index": 1,
+        "id": "test_37"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "named \"alert_type_id\" instead of \"alert_type\". ",
+        "chunk_index": 2,
+        "id": "test_37"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me modify the query ",
+        "chunk_index": 3,
+        "id": "test_37"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to join with the alert_type ",
+        "chunk_index": 4,
+        "id": "test_37"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "table to get the proper ",
+        "chunk_index": 5,
+        "id": "test_37"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "names:",
+        "chunk_index": 6,
+        "id": "test_37"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_37"
+      }
+    ],
+    "start_time": 1759521219.744805,
+    "session_id": "1ca13062-87db-496c-ab31-e514f65375c7",
+    "end_time": 1759521230.832812,
+    "result": {
+      "test_id": 37,
+      "category": "alert_types",
+      "complexity": "medium",
+      "question": "Which alert type has the most open alerts?",
+      "status": "success",
+      "response_time_seconds": 11.09,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 179,
+      "response_text": "I apologize for the error. It seems the column is named \"alert_type_id\" instead of \"alert_type\". Let me modify the query to join with the alert_type table to get the proper names:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:53:39",
+      "session_id": "1ca13062-87db-496c-ab31-e514f65375c7"
+    }
+  },
+  {
+    "test_id": 38,
+    "question_data": {
+      "id": 38,
+      "category": "alert_types",
+      "complexity": "medium",
+      "question": "Show alert type distribution for the last month",
+      "expected_behavior": "Should group alerts by type with date filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "create_date AND GROUP BY alert_type_id",
+      "tags": [
+        "alerts",
+        "type",
+        "distribution",
+        "date"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_38"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_38"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_38"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "It seems the column name ",
+        "chunk_index": 1,
+        "id": "test_38"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "is \"alert_type_id\" rather than \"alert_type\". ",
+        "chunk_index": 2,
+        "id": "test_38"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me modify the query ",
+        "chunk_index": 3,
+        "id": "test_38"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to join with the alert_type ",
+        "chunk_index": 4,
+        "id": "test_38"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "table to get the actual ",
+        "chunk_index": 5,
+        "id": "test_38"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert type names:",
+        "chunk_index": 6,
+        "id": "test_38"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_38"
+      }
+    ],
+    "start_time": 1759521231.836821,
+    "session_id": "d3205f61-b0d3-4a74-b7c9-72c8a467a727",
+    "end_time": 1759521243.24058,
+    "result": {
+      "test_id": 38,
+      "category": "alert_types",
+      "complexity": "medium",
+      "question": "Show alert type distribution for the last month",
+      "status": "success",
+      "response_time_seconds": 11.4,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 190,
+      "response_text": "I apologize for the error. It seems the column name is \"alert_type_id\" rather than \"alert_type\". Let me modify the query to join with the alert_type table to get the actual alert type names:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:53:51",
+      "session_id": "d3205f61-b0d3-4a74-b7c9-72c8a467a727"
+    }
+  },
+  {
+    "test_id": 39,
+    "question_data": {
+      "id": 39,
+      "category": "users",
+      "complexity": "simple",
+      "question": "Show all users",
+      "expected_behavior": "Should query cm_users table",
+      "expected_tools": [
+        "query_postgresql_cm_users"
+      ],
+      "expected_filters": "",
+      "tags": [
+        "users",
+        "list"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_39"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Here are all the users ",
+        "chunk_index": 0,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in the system. The results ",
+        "chunk_index": 1,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "show each user's: - Login ",
+        "chunk_index": 2,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "name - First, middle, and ",
+        "chunk_index": 3,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "last name - Email address ",
+        "chunk_index": 4,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(where available) - User ID ",
+        "chunk_index": 5,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Active status All users ",
+        "chunk_index": 6,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "shown are currently active in ",
+        "chunk_index": 7,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the system (user_is_active: True). The ",
+        "chunk_index": 8,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "list includes various types of ",
+        "chunk_index": 9,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "users including administrators and regular ",
+        "chunk_index": 10,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "users. Would you like any ",
+        "chunk_index": 11,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "specific information about any of ",
+        "chunk_index": 12,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "these users or would you ",
+        "chunk_index": 13,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "like me to filter the ",
+        "chunk_index": 14,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "results in a particular way?",
+        "chunk_index": 15,
+        "id": "test_39"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_39"
+      }
+    ],
+    "start_time": 1759521244.2438982,
+    "session_id": "8f2d74be-429a-48e2-a3e0-52439f17264b",
+    "end_time": 1759521255.280694,
+    "result": {
+      "test_id": 39,
+      "category": "users",
+      "complexity": "simple",
+      "question": "Show all users",
+      "status": "success",
+      "response_time_seconds": 11.04,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 460,
+      "response_text": "Here are all the users in the system. The results show each user's: - Login name - First, middle, and last name - Email address (where available) - User ID - Active status All users shown are currently active in the system (user_is_active: True). The list includes various types of users including administrators and regular users. Would you like any specific information about any of these users or would you like me to filter the results in a particular way?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:54:04",
+      "session_id": "8f2d74be-429a-48e2-a3e0-52439f17264b"
+    }
+  },
+  {
+    "test_id": 40,
+    "question_data": {
+      "id": 40,
+      "category": "users",
+      "complexity": "simple",
+      "question": "List users in the system",
+      "expected_behavior": "Should query cm_users table",
+      "expected_tools": [
+        "query_postgresql_cm_users"
+      ],
+      "expected_filters": "",
+      "tags": [
+        "users",
+        "list"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_40"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_40"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I notice the REST API ",
+        "chunk_index": 0,
+        "id": "test_40"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "call had an error. Let ",
+        "chunk_index": 1,
+        "id": "test_40"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "me try using the PostgreSQL ",
+        "chunk_index": 2,
+        "id": "test_40"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "query instead, which should give ",
+        "chunk_index": 3,
+        "id": "test_40"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "us the same information from ",
+        "chunk_index": 4,
+        "id": "test_40"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the users table.",
+        "chunk_index": 5,
+        "id": "test_40"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_40"
+      }
+    ],
+    "start_time": 1759521256.2845519,
+    "session_id": "1a2a2407-5046-4afb-ad1d-747293cecb93",
+    "end_time": 1759521266.5904078,
+    "result": {
+      "test_id": 40,
+      "category": "users",
+      "complexity": "simple",
+      "question": "List users in the system",
+      "status": "success",
+      "response_time_seconds": 10.3,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 151,
+      "response_text": "I notice the REST API call had an error. Let me try using the PostgreSQL query instead, which should give us the same information from the users table.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:54:16",
+      "session_id": "1a2a2407-5046-4afb-ad1d-747293cecb93"
+    }
+  },
+  {
+    "test_id": 41,
+    "question_data": {
+      "id": 41,
+      "category": "users",
+      "complexity": "medium",
+      "question": "Show users who own more than 5 alerts",
+      "expected_behavior": "Should count alerts per user and filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "GROUP BY owner_id HAVING COUNT > 5",
+      "tags": [
+        "users",
+        "alerts",
+        "aggregation"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_41"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_41"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error ",
+        "chunk_index": 0,
+        "id": "test_41"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in my first attempt. Let ",
+        "chunk_index": 1,
+        "id": "test_41"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "me modify the query to ",
+        "chunk_index": 2,
+        "id": "test_41"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "get this information another way:",
+        "chunk_index": 3,
+        "id": "test_41"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_41"
+      }
+    ],
+    "start_time": 1759521267.593154,
+    "session_id": "d3303d7e-d90b-4a19-a975-c2507adad44a",
+    "end_time": 1759521278.993828,
+    "result": {
+      "test_id": 41,
+      "category": "users",
+      "complexity": "medium",
+      "question": "Show users who own more than 5 alerts",
+      "status": "success",
+      "response_time_seconds": 11.4,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 107,
+      "response_text": "I apologize for the error in my first attempt. Let me modify the query to get this information another way:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:54:27",
+      "session_id": "d3303d7e-d90b-4a19-a975-c2507adad44a"
+    }
+  },
+  {
+    "test_id": 42,
+    "question_data": {
+      "id": 42,
+      "category": "users",
+      "complexity": "medium",
+      "question": "List users with alerts assigned to them",
+      "expected_behavior": "Should query users who are alert owners",
+      "expected_tools": [
+        "query_postgresql_cm_users",
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "owner_id",
+      "tags": [
+        "users",
+        "alerts",
+        "assignment"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_42"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_42"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_42"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me modify the query ",
+        "chunk_index": 1,
+        "id": "test_42"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to use the correct column ",
+        "chunk_index": 2,
+        "id": "test_42"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "names from the alerts table.",
+        "chunk_index": 3,
+        "id": "test_42"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_42"
+      }
+    ],
+    "start_time": 1759521279.9966679,
+    "session_id": "bc8748ea-1a83-4e63-84c1-edbf80022c57",
+    "end_time": 1759521290.241985,
+    "result": {
+      "test_id": 42,
+      "category": "users",
+      "complexity": "medium",
+      "question": "List users with alerts assigned to them",
+      "status": "success",
+      "response_time_seconds": 10.24,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 105,
+      "response_text": "I apologize for the error. Let me modify the query to use the correct column names from the alerts table.",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:54:39",
+      "session_id": "bc8748ea-1a83-4e63-84c1-edbf80022c57"
+    }
+  },
+  {
+    "test_id": 43,
+    "question_data": {
+      "id": 43,
+      "category": "users",
+      "complexity": "high",
+      "question": "Show users with the highest average alert resolution time",
+      "expected_behavior": "Should calculate average resolution time per user",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "GROUP BY owner_id",
+      "tags": [
+        "users",
+        "resolution_time",
+        "aggregation",
+        "analysis"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_43"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_43"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_43"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me modify the query ",
+        "chunk_index": 1,
+        "id": "test_43"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to join with the users ",
+        "chunk_index": 2,
+        "id": "test_43"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "table to get more meaningful ",
+        "chunk_index": 3,
+        "id": "test_43"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "information:",
+        "chunk_index": 4,
+        "id": "test_43"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_43"
+      }
+    ],
+    "start_time": 1759521291.2474072,
+    "session_id": "515b9cb8-7ac7-4725-b6b2-210e75c2fc7d",
+    "end_time": 1759521304.319963,
+    "result": {
+      "test_id": 43,
+      "category": "users",
+      "complexity": "high",
+      "question": "Show users with the highest average alert resolution time",
+      "status": "success",
+      "response_time_seconds": 13.07,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 115,
+      "response_text": "I apologize for the error. Let me modify the query to join with the users table to get more meaningful information:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:54:51",
+      "session_id": "515b9cb8-7ac7-4725-b6b2-210e75c2fc7d"
+    }
+  },
+  {
+    "test_id": 44,
+    "question_data": {
+      "id": 44,
+      "category": "users",
+      "complexity": "high",
+      "question": "Find users who have handled critical alerts in the last 30 days",
+      "expected_behavior": "Should filter users by alert severity and date",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "severity AND create_date AND owner_id",
+      "tags": [
+        "users",
+        "alerts",
+        "severity",
+        "date"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_44"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_44"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Now, let's query the alerts ",
+        "chunk_index": 0,
+        "id": "test_44"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "table to find critical alerts ",
+        "chunk_index": 1,
+        "id": "test_44"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "from the last 30 days ",
+        "chunk_index": 2,
+        "id": "test_44"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "and their handlers:",
+        "chunk_index": 3,
+        "id": "test_44"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_44"
+      }
+    ],
+    "start_time": 1759521305.322449,
+    "session_id": "67ba3512-5d00-4165-9a21-8aaf18da470e",
+    "end_time": 1759521317.2789881,
+    "result": {
+      "test_id": 44,
+      "category": "users",
+      "complexity": "high",
+      "question": "Find users who have handled critical alerts in the last 30 days",
+      "status": "success",
+      "response_time_seconds": 11.96,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 99,
+      "response_text": "Now, let's query the alerts table to find critical alerts from the last 30 days and their handlers:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:55:05",
+      "session_id": "67ba3512-5d00-4165-9a21-8aaf18da470e"
+    }
+  },
+  {
+    "test_id": 45,
+    "question_data": {
+      "id": 45,
+      "category": "user_roles",
+      "complexity": "simple",
+      "question": "Show all user roles",
+      "expected_behavior": "Should query cm_roles table",
+      "expected_tools": [
+        "query_postgresql_cm_roles"
+      ],
+      "expected_filters": "",
+      "tags": [
+        "roles",
+        "list"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_45"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Here are all the user ",
+        "chunk_index": 0,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "roles defined in the system: ",
+        "chunk_index": 1,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "1. Admin (role_id: 100) 2. ",
+        "chunk_index": 2,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Super User (role_id: 1) - ",
+        "chunk_index": 3,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Can edit the app 3. ",
+        "chunk_index": 4,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Compliance Supervisor (role_id: 34) 4. ",
+        "chunk_index": 5,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Associate Manager (role_id: 6) - ",
+        "chunk_index": 6,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "North West region 5. Branch ",
+        "chunk_index": 7,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Manager (role_id: 3) 6. Dummy ",
+        "chunk_index": 8,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Role Test (role_id: 101) - ",
+        "chunk_index": 9,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Test role 7. Analyst (role_id: ",
+        "chunk_index": 10,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2) - Business Analyst 8. ",
+        "chunk_index": 11,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Alert Details Designer Intern (role_id: ",
+        "chunk_index": 12,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "102) - Has admin access ",
+        "chunk_index": 13,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to alert module Each role ",
+        "chunk_index": 14,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "has a unique role identifier ",
+        "chunk_index": 15,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "and description defining its purpose ",
+        "chunk_index": 16,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "and responsibilities in the system. ",
+        "chunk_index": 17,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Would you like more specific ",
+        "chunk_index": 18,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "information about any of these ",
+        "chunk_index": 19,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "roles or see who is ",
+        "chunk_index": 20,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "assigned to particular roles?",
+        "chunk_index": 21,
+        "id": "test_45"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_45"
+      }
+    ],
+    "start_time": 1759521318.283159,
+    "session_id": "a3bf5d65-02e3-4410-9130-57f796eb4b89",
+    "end_time": 1759521330.5378811,
+    "result": {
+      "test_id": 45,
+      "category": "user_roles",
+      "complexity": "simple",
+      "question": "Show all user roles",
+      "status": "success",
+      "response_time_seconds": 12.25,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 638,
+      "response_text": "Here are all the user roles defined in the system: 1. Admin (role_id: 100) 2. Super User (role_id: 1) - Can edit the app 3. Compliance Supervisor (role_id: 34) 4. Associate Manager (role_id: 6) - North West region 5. Branch Manager (role_id: 3) 6. Dummy Role Test (role_id: 101) - Test role 7. Analyst (role_id: 2) - Business Analyst 8. Alert Details Designer Intern (role_id: 102) - Has admin access to alert module Each role has a unique role identifier and description defining its purpose and responsibilities in the system. Would you like more specific information about any of these roles or see who is assigned to particular roles?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:55:18",
+      "session_id": "a3bf5d65-02e3-4410-9130-57f796eb4b89"
+    }
+  },
+  {
+    "test_id": 46,
+    "question_data": {
+      "id": 46,
+      "category": "user_roles",
+      "complexity": "simple",
+      "question": "List available roles in the system",
+      "expected_behavior": "Should query cm_roles table",
+      "expected_tools": [
+        "query_postgresql_cm_roles"
+      ],
+      "expected_filters": "",
+      "tags": [
+        "roles",
+        "list"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_46"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Here are all the roles ",
+        "chunk_index": 0,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "currently defined in the system: ",
+        "chunk_index": 1,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "1. Admin - System administrator ",
+        "chunk_index": 2,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "role 2. Super - Super ",
+        "chunk_index": 3,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "user with app editing privileges ",
+        "chunk_index": 4,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "3. Compliance Supervisor 4. Associate ",
+        "chunk_index": 5,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Manager (North West) 5. Branch ",
+        "chunk_index": 6,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Manager 6. Dummy role test ",
+        "chunk_index": 7,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(appears to be a test ",
+        "chunk_index": 8,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "role) 7. Analyst (Business Analyst) ",
+        "chunk_index": 9,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "8. Alert Details Designer Intern ",
+        "chunk_index": 10,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Specific role for alert ",
+        "chunk_index": 11,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "designer intern with admin alert ",
+        "chunk_index": 12,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "module access Each role has ",
+        "chunk_index": 13,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "a unique role ID and ",
+        "chunk_index": 14,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "associated description defining its purpose ",
+        "chunk_index": 15,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "and permissions in the system. ",
+        "chunk_index": 16,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "These roles represent different levels ",
+        "chunk_index": 17,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "of access and responsibilities within ",
+        "chunk_index": 18,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the system. Would you like ",
+        "chunk_index": 19,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to know more details about ",
+        "chunk_index": 20,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "any specific role or see ",
+        "chunk_index": 21,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "what users are assigned to ",
+        "chunk_index": 22,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "these roles?",
+        "chunk_index": 23,
+        "id": "test_46"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_46"
+      }
+    ],
+    "start_time": 1759521331.541379,
+    "session_id": "4610bd33-b272-4e35-9572-2335c12c8dff",
+    "end_time": 1759521342.8214788,
+    "result": {
+      "test_id": 46,
+      "category": "user_roles",
+      "complexity": "simple",
+      "question": "List available roles in the system",
+      "status": "success",
+      "response_time_seconds": 11.28,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 708,
+      "response_text": "Here are all the roles currently defined in the system: 1. Admin - System administrator role 2. Super - Super user with app editing privileges 3. Compliance Supervisor 4. Associate Manager (North West) 5. Branch Manager 6. Dummy role test (appears to be a test role) 7. Analyst (Business Analyst) 8. Alert Details Designer Intern - Specific role for alert designer intern with admin alert module access Each role has a unique role ID and associated description defining its purpose and permissions in the system. These roles represent different levels of access and responsibilities within the system. Would you like to know more details about any specific role or see what users are assigned to these roles?",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:55:31",
+      "session_id": "4610bd33-b272-4e35-9572-2335c12c8dff"
+    }
+  },
+  {
+    "test_id": 47,
+    "question_data": {
+      "id": 47,
+      "category": "user_roles",
+      "complexity": "medium",
+      "question": "Show users with Business Manager role",
+      "expected_behavior": "Should join users and roles tables",
+      "expected_tools": [
+        "query_postgresql_cm_users",
+        "query_postgresql_cm_user_roles_mapping"
+      ],
+      "expected_filters": "role",
+      "tags": [
+        "users",
+        "roles",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_47"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_47"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Now, I'll query the user-roles ",
+        "chunk_index": 0,
+        "id": "test_47"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "mapping and join it with ",
+        "chunk_index": 1,
+        "id": "test_47"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the users table to get ",
+        "chunk_index": 2,
+        "id": "test_47"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the user information for those ",
+        "chunk_index": 3,
+        "id": "test_47"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with the Business Manager role:",
+        "chunk_index": 4,
+        "id": "test_47"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_47"
+      }
+    ],
+    "start_time": 1759521343.824756,
+    "session_id": "537df56c-7bb5-4115-84ba-b3639f923bbe",
+    "end_time": 1759521356.608257,
+    "result": {
+      "test_id": 47,
+      "category": "user_roles",
+      "complexity": "medium",
+      "question": "Show users with Business Manager role",
+      "status": "success",
+      "response_time_seconds": 12.78,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 141,
+      "response_text": "Now, I'll query the user-roles mapping and join it with the users table to get the user information for those with the Business Manager role:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:55:43",
+      "session_id": "537df56c-7bb5-4115-84ba-b3639f923bbe"
+    }
+  },
+  {
+    "test_id": 48,
+    "question_data": {
+      "id": 48,
+      "category": "user_roles",
+      "complexity": "medium",
+      "question": "List all roles and their user counts",
+      "expected_behavior": "Should group users by role and count",
+      "expected_tools": [
+        "query_postgresql_cm_user_roles_mapping"
+      ],
+      "expected_filters": "GROUP BY role_id",
+      "tags": [
+        "roles",
+        "users",
+        "aggregation"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_48"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_48"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_48"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me modify the query ",
+        "chunk_index": 1,
+        "id": "test_48"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to use just the existing ",
+        "chunk_index": 2,
+        "id": "test_48"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "columns:",
+        "chunk_index": 3,
+        "id": "test_48"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_48"
+      }
+    ],
+    "start_time": 1759521357.6113138,
+    "session_id": "df45e5be-9538-4f0b-b018-1bb56e3b2a6e",
+    "end_time": 1759521366.617878,
+    "result": {
+      "test_id": 48,
+      "category": "user_roles",
+      "complexity": "medium",
+      "question": "List all roles and their user counts",
+      "status": "success",
+      "response_time_seconds": 9.01,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 84,
+      "response_text": "I apologize for the error. Let me modify the query to use just the existing columns:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:55:57",
+      "session_id": "df45e5be-9538-4f0b-b018-1bb56e3b2a6e"
+    }
+  },
+  {
+    "test_id": 49,
+    "question_data": {
+      "id": 49,
+      "category": "user_roles",
+      "complexity": "high",
+      "question": "Show role distribution across active users with alert ownership",
+      "expected_behavior": "Should join users, roles, and alerts tables",
+      "expected_tools": [
+        "query_postgresql_cm_users",
+        "query_postgresql_cm_user_roles_mapping",
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "is_active AND owner_id",
+      "tags": [
+        "roles",
+        "users",
+        "alerts",
+        "distribution"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_49"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_49"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_49"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me adjust the query ",
+        "chunk_index": 1,
+        "id": "test_49"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to use the correct column ",
+        "chunk_index": 2,
+        "id": "test_49"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "names:",
+        "chunk_index": 3,
+        "id": "test_49"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_49"
+      }
+    ],
+    "start_time": 1759521367.622078,
+    "session_id": "cbcca3e4-a934-4c0e-ba65-15f42dfded18",
+    "end_time": 1759521378.411359,
+    "result": {
+      "test_id": 49,
+      "category": "user_roles",
+      "complexity": "high",
+      "question": "Show role distribution across active users with alert ownership",
+      "status": "success",
+      "response_time_seconds": 10.79,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 83,
+      "response_text": "I apologize for the error. Let me adjust the query to use the correct column names:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:56:07",
+      "session_id": "cbcca3e4-a934-4c0e-ba65-15f42dfded18"
+    }
+  },
+  {
+    "test_id": 50,
+    "question_data": {
+      "id": 50,
+      "category": "user_roles",
+      "complexity": "high",
+      "question": "Find users who have multiple roles and their alert handling statistics",
+      "expected_behavior": "Should analyze users with multiple role mappings and their alert metrics",
+      "expected_tools": [
+        "query_postgresql_cm_user_roles_mapping",
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "GROUP BY user_id HAVING COUNT(role_id) > 1",
+      "tags": [
+        "roles",
+        "users",
+        "alerts",
+        "statistics",
+        "analysis"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_50"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_50"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Now, let's get the user ",
+        "chunk_index": 0,
+        "id": "test_50"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "details and their alert handling ",
+        "chunk_index": 1,
+        "id": "test_50"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "statistics:",
+        "chunk_index": 2,
+        "id": "test_50"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_50"
+      }
+    ],
+    "start_time": 1759521379.415425,
+    "session_id": "145ea8eb-e8e1-4f88-b23b-9c245fbe47ab",
+    "end_time": 1759521393.0012789,
+    "result": {
+      "test_id": 50,
+      "category": "user_roles",
+      "complexity": "high",
+      "question": "Find users who have multiple roles and their alert handling statistics",
+      "status": "success",
+      "response_time_seconds": 13.58,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 68,
+      "response_text": "Now, let's get the user details and their alert handling statistics:",
+      "error_message": "",
+      "timestamp": "2025-10-03 15:56:19",
+      "session_id": "145ea8eb-e8e1-4f88-b23b-9c245fbe47ab"
+    }
+  }
+]

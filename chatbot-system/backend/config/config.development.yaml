@@ -1,0 +1,21 @@
+# Development Environment Configuration
+# Overrides base config.yaml
+
+api:
+  debug: true
+  cors_origins:
+    - "*"  # Allow all origins in development
+
+eliza:
+  environment: "QA"
+
+logging:
+  level: "DEBUG"
+  file: "logs/dev.log"
+
+redis:
+  ttl: 300  # Shorter cache in development
+
+security:
+  rate_limit:
+    requests_per_minute: 1000  # Higher limit for testing

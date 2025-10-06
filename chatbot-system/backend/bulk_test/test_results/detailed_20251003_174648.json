@@ -1,0 +1,926 @@
+[
+  {
+    "test_id": 1,
+    "question_data": {
+      "id": 1,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show me all open alerts",
+      "expected_behavior": "Should query cm_alerts with status filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "status = 'Open'",
+      "tags": [
+        "alerts",
+        "filter",
+        "status"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_1"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I've retrieved all open alerts ",
+        "chunk_index": 0,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "from the system. The results ",
+        "chunk_index": 1,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "show there are 28 open ",
+        "chunk_index": 2,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts in total. Here's a ",
+        "chunk_index": 3,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "summary of some key open ",
+        "chunk_index": 4,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts: 1. Several trade review ",
+        "chunk_index": 5,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts related to low-price securities ",
+        "chunk_index": 6,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "trading (STID1025 series) 2. Multiple ",
+        "chunk_index": 7,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "account review alerts including: - ",
+        "chunk_index": 8,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "High risk profile misalignment alerts ",
+        "chunk_index": 9,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Trust account compliance issues ",
+        "chunk_index": 10,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Investment objective alignment concerns ",
+        "chunk_index": 11,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Multiple risk factor alerts ",
+        "chunk_index": 12,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Each alert contains detailed information ",
+        "chunk_index": 13,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "including: - Alert ID - ",
+        "chunk_index": 14,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Creation date - Total risk ",
+        "chunk_index": 15,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "score - Focus area (Trade/Account) ",
+        "chunk_index": 16,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Priority level (where specified) ",
+        "chunk_index": 17,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Details of the alert ",
+        "chunk_index": 18,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Owner information - Due ",
+        "chunk_index": 19,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "dates (where applicable) Would you ",
+        "chunk_index": 20,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "like me to focus on ",
+        "chunk_index": 21,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "any particular aspect of these ",
+        "chunk_index": 22,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts or provide more specific ",
+        "chunk_index": 23,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "details about certain types of ",
+        "chunk_index": 24,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts?",
+        "chunk_index": 25,
+        "id": "test_1"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_1"
+      }
+    ],
+    "start_time": 1759528009.8923242,
+    "session_id": "44911ccd-c459-4493-9b33-c18888c30b3b",
+    "end_time": 1759528024.263808,
+    "result": {
+      "test_id": 1,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show me all open alerts",
+      "status": "success",
+      "validation_status": "valid",
+      "response_time_seconds": 14.37,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 789,
+      "response_text": "I've retrieved all open alerts from the system. The results show there are 28 open alerts in total. Here's a summary of some key open alerts: 1. Several trade review alerts related to low-price securities trading (STID1025 series) 2. Multiple account review alerts including: - High risk profile misalignment alerts - Trust account compliance issues - Investment objective alignment concerns - Multiple risk factor alerts Each alert contains detailed information including: - Alert ID - Creation date - Total risk score - Focus area (Trade/Account) - Priority level (where specified) - Details of the alert - Owner information - Due dates (where applicable) Would you like me to focus on any particular aspect of these alerts or provide more specific details about certain types of alerts?",
+      "validation_notes": "Response appears valid",
+      "error_message": "",
+      "timestamp": "2025-10-03 17:46:49",
+      "session_id": "44911ccd-c459-4493-9b33-c18888c30b3b"
+    }
+  },
+  {
+    "test_id": 2,
+    "question_data": {
+      "id": 2,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "List alerts from today",
+      "expected_behavior": "Should query cm_alerts with date filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "create_date",
+      "tags": [
+        "alerts",
+        "date",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_2"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me correct this by ",
+        "chunk_index": 1,
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "using the correct column name ",
+        "chunk_index": 2,
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "for the timestamp field in ",
+        "chunk_index": 3,
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the alerts table.",
+        "chunk_index": 4,
+        "id": "test_2"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_2"
+      }
+    ],
+    "start_time": 1759528025.266291,
+    "session_id": "19833d87-2869-4ba2-a8ee-962403267b43",
+    "end_time": 1759528034.0387242,
+    "result": {
+      "test_id": 2,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "List alerts from today",
+      "status": "content_error",
+      "validation_status": "schema_error",
+      "response_time_seconds": 8.77,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 124,
+      "response_text": "I apologize for the error. Let me correct this by using the correct column name for the timestamp field in the alerts table.",
+      "validation_notes": "Database schema error: column name",
+      "error_message": "",
+      "timestamp": "2025-10-03 17:47:05",
+      "session_id": "19833d87-2869-4ba2-a8ee-962403267b43"
+    }
+  },
+  {
+    "test_id": 3,
+    "question_data": {
+      "id": 3,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show alerts with high severity",
+      "expected_behavior": "Should query cm_alerts with severity filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "severity",
+      "tags": [
+        "alerts",
+        "severity"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_3"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error ",
+        "chunk_index": 0,
+        "id": "test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in my first attempt. Let ",
+        "chunk_index": 1,
+        "id": "test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "me modify the query without ",
+        "chunk_index": 2,
+        "id": "test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "specifying the order:",
+        "chunk_index": 3,
+        "id": "test_3"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_3"
+      }
+    ],
+    "start_time": 1759528035.040138,
+    "session_id": "82a7b70c-2922-42d3-b901-193c0ac07d74",
+    "end_time": 1759528043.935874,
+    "result": {
+      "test_id": 3,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show alerts with high severity",
+      "status": "content_error",
+      "validation_status": "error_detected",
+      "response_time_seconds": 8.89,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 100,
+      "response_text": "I apologize for the error in my first attempt. Let me modify the query without specifying the order:",
+      "validation_notes": "Error message detected: 'I apologize for the error'",
+      "error_message": "",
+      "timestamp": "2025-10-03 17:47:15",
+      "session_id": "82a7b70c-2922-42d3-b901-193c0ac07d74"
+    }
+  },
+  {
+    "test_id": 6,
+    "question_data": {
+      "id": 6,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show alerts for owner OWNER25",
+      "expected_behavior": "Should query cm_alerts with owner_id filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "owner_id = 'OWNER25'",
+      "tags": [
+        "alerts",
+        "owner",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_6"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I see there are 29 ",
+        "chunk_index": 0,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts associated with owner OWNER25. ",
+        "chunk_index": 1,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "The alerts shown are primarily ",
+        "chunk_index": 2,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "related to trade reviews and ",
+        "chunk_index": 3,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "account reviews. Here are some ",
+        "chunk_index": 4,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "key details about these alerts: ",
+        "chunk_index": 5,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "1. Most of the alerts ",
+        "chunk_index": 6,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "are currently in \"Open\" status ",
+        "chunk_index": 7,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2. Many are related to ",
+        "chunk_index": 8,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "trade reviews for low-priced securities ",
+        "chunk_index": 9,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "3. The alerts have various ",
+        "chunk_index": 10,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert IDs and are associated ",
+        "chunk_index": 11,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with different accounts 4. They ",
+        "chunk_index": 12,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "contain details about trades, risk ",
+        "chunk_index": 13,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "scores, and business dates 5. ",
+        "chunk_index": 14,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Several alerts have high total ",
+        "chunk_index": 15,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "scores (around 63-88) indicating significant ",
+        "chunk_index": 16,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "risk levels Would you like ",
+        "chunk_index": 17,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to see more specific information ",
+        "chunk_index": 18,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "about any particular alert or ",
+        "chunk_index": 19,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "would you like to filter ",
+        "chunk_index": 20,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "these results further by additional ",
+        "chunk_index": 21,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "criteria (such as status, date ",
+        "chunk_index": 22,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "range, or alert type)?",
+        "chunk_index": 23,
+        "id": "test_6"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_6"
+      }
+    ],
+    "start_time": 1759528044.937313,
+    "session_id": "c1a2de31-cbfa-4059-a42a-a80eba0aec51",
+    "end_time": 1759528057.6397781,
+    "result": {
+      "test_id": 6,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show alerts for owner OWNER25",
+      "status": "success",
+      "validation_status": "valid",
+      "response_time_seconds": 12.7,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 729,
+      "response_text": "I see there are 29 alerts associated with owner OWNER25. The alerts shown are primarily related to trade reviews and account reviews. Here are some key details about these alerts: 1. Most of the alerts are currently in \"Open\" status 2. Many are related to trade reviews for low-priced securities 3. The alerts have various alert IDs and are associated with different accounts 4. They contain details about trades, risk scores, and business dates 5. Several alerts have high total scores (around 63-88) indicating significant risk levels Would you like to see more specific information about any particular alert or would you like to filter these results further by additional criteria (such as status, date range, or alert type)?",
+      "validation_notes": "Response appears valid",
+      "error_message": "",
+      "timestamp": "2025-10-03 17:47:24",
+      "session_id": "c1a2de31-cbfa-4059-a42a-a80eba0aec51"
+    }
+  },
+  {
+    "test_id": 14,
+    "question_data": {
+      "id": 14,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Summarize alert AML_20241120225734_LAY456789 for me",
+      "expected_behavior": "Should query specific alert by alert_id and provide comprehensive summary",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_id = 'AML_20241120225734_LAY456789'",
+      "tags": [
+        "alerts",
+        "details",
+        "alert_id",
+        "summary"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_14"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Based on the query results, ",
+        "chunk_index": 0,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I'll provide a summary of ",
+        "chunk_index": 1,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alert AML_20241120225734_LAY456789: Key Alert Details: ",
+        "chunk_index": 2,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Status: Open - Priority: ",
+        "chunk_index": 3,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Critical - Created: September 2, ",
+        "chunk_index": 4,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2025 - Due Date: November ",
+        "chunk_index": 5,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "21, 2024 (1 Day) - ",
+        "chunk_index": 6,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Owner: John Doe - Focus: ",
+        "chunk_index": 7,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "AML (Anti-Money Laundering) - Total ",
+        "chunk_index": 8,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Risk Score: 97 (Very High) ",
+        "chunk_index": 9,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Alert Description: This is a ",
+        "chunk_index": 10,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "critical AML alert involving a ",
+        "chunk_index": 11,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "complex layering scheme. The alert ",
+        "chunk_index": 12,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "was triggered for customer Alexander ",
+        "chunk_index": 13,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Petrov, a politically exposed person ",
+        "chunk_index": 14,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(PEP), involving suspicious fund movements ",
+        "chunk_index": 15,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "through multiple accounts. Key Suspicious ",
+        "chunk_index": 16,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Activities: 1. Approximately $15.8M moved ",
+        "chunk_index": 17,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "through 4 interconnected accounts over ",
+        "chunk_index": 18,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "a 14-day period 2. Complex ",
+        "chunk_index": 19,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "wire transfer patterns involving multiple ",
+        "chunk_index": 20,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "jurisdictions (Cyprus, Monaco, Cayman Islands) ",
+        "chunk_index": 21,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "3. Initial $5M deposit multiplied ",
+        "chunk_index": 22,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "through leveraged trading positions 4. ",
+        "chunk_index": 23,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Transactions structured to obscure the ",
+        "chunk_index": 24,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "money trail Risk Factors: - ",
+        "chunk_index": 25,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Customer is a confirmed PEP ",
+        "chunk_index": 26,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with diplomatic passport and Russian ",
+        "chunk_index": 27,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "political connections - Very high ",
+        "chunk_index": 28,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "customer and geographic risk ratings ",
+        "chunk_index": 29,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Beneficial ownership of multiple ",
+        "chunk_index": 30,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "shell companies identified - Enhanced ",
+        "chunk_index": 31,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "due diligence required Current Status: ",
+        "chunk_index": 32,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Alert step: Approved by ",
+        "chunk_index": 33,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "BM (Business Manager) - A ",
+        "chunk_index": 34,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Suspicious Activity Report (SAR) has ",
+        "chunk_index": 35,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "been filed - SAR filing ",
+        "chunk_index": 36,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "deadline: November 25, 2024 - ",
+        "chunk_index": 37,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Case has been created from ",
+        "chunk_index": 38,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "this alert The alert has ",
+        "chunk_index": 39,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "triggered three scenarios: 1. Rapid ",
+        "chunk_index": 40,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Fund Movement Detection (Score: 32/35) ",
+        "chunk_index": 41,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2. Layering Activity Pattern (Score: ",
+        "chunk_index": 42,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "33/35) 3. Transaction Complexity Analysis ",
+        "chunk_index": 43,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(Score: 32/35) This alert requires ",
+        "chunk_index": 44,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "immediate attention due to its ",
+        "chunk_index": 45,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "critical nature and the involvement ",
+        "chunk_index": 46,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "of a high-risk PEP customer ",
+        "chunk_index": 47,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with complex transaction patterns consistent ",
+        "chunk_index": 48,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "with professional money laundering operations.",
+        "chunk_index": 49,
+        "id": "test_14"
+      },
+      {
+        "type": "stream_complete",
+        "id": "test_14"
+      }
+    ],
+    "start_time": 1759528058.641501,
+    "session_id": "f56a79d6-4348-4564-875c-10069e5341b5",
+    "end_time": 1759528079.033064,
+    "result": {
+      "test_id": 14,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Summarize alert AML_20241120225734_LAY456789 for me",
+      "status": "success",
+      "validation_status": "valid",
+      "response_time_seconds": 20.39,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1711,
+      "response_text": "Based on the query results, I'll provide a summary of alert AML_20241120225734_LAY456789: Key Alert Details: - Status: Open - Priority: Critical - Created: September 2, 2025 - Due Date: November 21, 2024 (1 Day) - Owner: John Doe - Focus: AML (Anti-Money Laundering) - Total Risk Score: 97 (Very High) Alert Description: This is a critical AML alert involving a complex layering scheme. The alert was triggered for customer Alexander Petrov, a politically exposed person (PEP), involving suspicious fund movements through multiple accounts. Key Suspicious Activities: 1. Approximately $15.8M moved through 4 interconnected accounts over a 14-day period 2. Complex wire transfer patterns involving multiple jurisdictions (Cyprus, Monaco, Cayman Islands) 3. Initial $5M deposit multiplied through leveraged trading positions 4. Transactions structured to obscure the money trail Risk Factors: - Customer is a confirmed PEP with diplomatic passport and Russian political connections - Very high customer and geographic risk ratings - Beneficial ownership of multiple shell companies identified - Enhanced due diligence required Current Status: - Alert step: Approved by BM (Business Manager) - A Suspicious Activity Report (SAR) has been filed - SAR filing deadline: November 25, 2024 - Case has been created from this alert The alert has triggered three scenarios: 1. Rapid Fund Movement Detection (Score: 32/35) 2. Layering Activity Pattern (Score: 33/35) 3. Transaction Complexity Analysis (Score: 32/35) This alert requires immediate attention due to its critical nature and the involvement of a high-risk PEP customer with complex transaction patterns consistent with professional money laundering operations.",
+      "validation_notes": "Response appears valid",
+      "error_message": "",
+      "timestamp": "2025-10-03 17:47:38",
+      "session_id": "f56a79d6-4348-4564-875c-10069e5341b5"
+    }
+  }
+]

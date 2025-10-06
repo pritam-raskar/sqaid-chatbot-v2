@@ -1,0 +1,161 @@
+test_id,category,complexity,question,status,validation_status,response_time_seconds,tool_used,filter_applied,response_length,response_text,validation_notes,error_message,timestamp,session_id
+1,alert_summary,simple,Show me all open alerts,success,valid,14.04,,,667,"Based on the query results, there are currently no open alerts in the system. Here's what this means: 
+| Status | Count | 
+|--------|-------| 
+| Open | 0 | 
+ANALYSIS: 
+• Current State: The alerts table shows zero open alerts at this time 
+• Coverage: This query checked specifically for alerts with 'open' status 
+• Completeness: The search included all standard alert fields including ID, type, priority, and ownership 
+• Temporal: This represents the current state as of the query execution time 
+Note: This is a point-in-time snapshot showing no open alerts currently in the system. Historical or closed alerts may exist but were not part of this specific query. 
+",Response appears valid,,2025-10-05 19:35:17,616d43f9-bdee-4db8-a2f2-928ffb9f5e1a
+2,alert_summary,simple,List alerts from today,content_error,error_detected,9.25,,,84,"Let me try querying without the date filter to see if there are any recent alerts. 
+",Error message detected: 'Let me try',,2025-10-05 19:35:32,bb31d6b5-5507-4f2c-9f35-36f9bb7b5a4f
+3,alert_summary,simple,Show alerts with high severity,success,valid,22.45,,,1802,"Here are the 10 most recent high severity alerts: 
+1. Alert ID: AML_20241120225734_LAY456789
+   - Focal Entity: LAY456789
+   - Owner: John Doe
+   - Status: Open
+   - Created: 2025-09-02
+2. Alert ID: AML_20241120231456_CIB678901
+   - Focal Entity: CIB678901
+   - Owner: John Doe
+   - Status: Open
+   - Created: 2025-09-02
+3. Alert ID: AML_20241120230912_SHE567890
+   - Focal Entity: SHE567890
+   - Owner: John Doe
+   - Status: Open
+   - Created: 2025-09-02
+4. Alert ID: AML_20241120224512_TBM345678
+   - Focal Entity: TBM345678
+   - Owner: John Doe
+   - Status: Open
+   - Created: 2025-09-02
+5. Alert ID: AML_20241120223045_SMF789012
+   - Focal Entity: SMF789012
+   - Owner: John Doe
+   - Status: Open
+   - Created: 2025-09-02
+6. Alert ID: AML_20241120221328_5738291I
+   - Focal Entity: 5738291I
+   - Owner: John Doe
+   - Status: Closed
+   - Created: 2025-08-31
+7. Alert ID: AML_20241120220145_8529631H
+   - Focal Entity: 8529631H
+   - Owner: John Doe
+   - Status: Open
+   - Created: 2025-08-31
+8. Alert ID: MFRev_20241120205634_MF987654321
+   - Focal Entity: MF987654321
+   - Owner: Suitability Compliance Officer
+   - Status: Open
+   - Created: 2025-08-07
+9. Alert ID: MFRev_20241120204512_MF789123456
+   - Focal Entity: MF789123456
+   - Owner: Fund Compliance Officer
+   - Status: Open
+   - Created: 2025-08-07
+10. Alert ID: CustRev_20241120203456_6789124E 
+    - Focal Entity: 6789124E
+    - Owner: AML Officer
+    - Status: Open
+    - Created: 2025-08-07
+Summary of these high severity alerts: 
+- 9 alerts are Open, 1 is Closed
+- Most alerts are owned by John Doe
+- All alerts have a business date of November 20, 2024
+- The alerts span different types including AML, MFRev (Mutual Fund Review), and CustRev (Customer Review)
+Let me get the total count of high severity alerts to provide context. 
+",Response appears valid,,2025-10-05 19:35:43,4f75a30e-b645-4fbc-a3a6-a321b0944079
+4,alert_summary,medium,Show me high priority alerts created this week,content_error,error_detected,9.13,,,79,"I apologize for the error. Let me modify the query to use the correct syntax. 
+",Error message detected: 'I apologize for the error',,2025-10-05 19:36:06,d8098772-4253-43f1-9a47-c02c6b71044a
+5,alert_summary,medium,List open alerts with total_score greater than 80,success,valid,11.83,,,463,"Based on the query results, there are currently no open alerts with a total score greater than 80 in the system. 
+This could mean either: 
+1. All high-scoring alerts have been resolved and closed
+2. Current open alerts have scores below the 80 threshold
+Would you like to: 
+- Check alerts with a lower score threshold
+- Include closed alerts in the search
+- View alerts from a specific time period
+Please let me know if you'd like to modify the search criteria. 
+",Response appears valid,,2025-10-05 19:36:16,241af36c-f833-496e-b4f4-3a1c754275ed
+6,alert_summary,medium,Show alerts for owner OWNER25,success,valid,16.71,,,1524,"Here are the alerts assigned to OWNER25: 
+1. Alert ID: STID1025_ACC102445
+   - Status: Open
+   - Step: Ready
+   - Create Date: 2024-11-14
+   - Total Score: 63
+   - Details: Low price security was traded by account ACC1025
+2. Alert ID: STID1025_ACC102446
+   - Status: Open
+   - Step: Ready
+   - Create Date: 2024-11-14
+   - Total Score: 63
+   - Details: Low price security was traded by account ACC1025
+3. Alert ID: STID1025_ACC102449
+   - Status: Open
+   - Step: Ready
+   - Create Date: 2024-11-14
+   - Total Score: 63
+   - Details: Low price security was traded by account ACC1025
+4. Alert ID: STID1025_ACC102499
+   - Status: Open
+   - Step: Ready
+   - Create Date: 2024-11-14
+   - Total Score: 63
+   - Details: Low price security was traded by account ACC1025
+5. Alert ID: STID1025_ACC102500
+   - Status: Open
+   - Step: Ready
+   - Create Date: 2024-11-14
+   - Total Score: 63
+   - Details: Low price security was traded by account ACC1025
+6. Alert ID: STID1025_ACC102447
+   - Status: Open
+   - Step: Ready
+   - Create Date: 2024-11-14
+   - Total Score: 63
+   - Details: Low price security was traded by account ACC1025
+Summary: 
+- Total Alerts: 6
+- All alerts are currently Open and in Ready step
+- All alerts have a total score of 63
+- All alerts are related to low price security trading in account ACC1025
+- All alerts were created on November 14, 2024
+Common characteristics: 
+- Alert Region: REG1
+- Alert Group: GROUP1
+- Organization: ORG1 (ID: 125)
+- Focus: Trade
+- Alert Type: tradereview
+- Focal Entity: STID1025
+",Response appears valid,,2025-10-05 19:36:29,ac4f945d-26ef-4145-846d-aa5db34a7596
+7,alert_summary,medium,List trade review alerts that are in progress,content_error,error_detected,10.8,,,228,"Based on the query results, there are currently no trade review alerts in progress (with 'Open' status) in the system. 
+Let me modify the query to check for any trade review alerts regardless of status to provide more context: 
+",Error message detected: 'Let me modify the query',,2025-10-05 19:36:47,05f252e4-d206-47b0-8ed0-19a309bfc947
+8,alert_summary,high,Show me alerts that were escalated in the last 30 days with critical severity,content_error,error_detected,11.48,,,84,"I apologize for the error in my query. Let me modify it to use the correct syntax. 
+",Error message detected: 'I apologize for the error',,2025-10-05 19:36:58,e317f8bd-c665-400c-aef3-7349741038f7
+9,alert_summary,high,"Find alerts created between Nov 1 and Nov 30, 2024 with status Open or Acknowledged",content_error,error_detected,12.95,,,95,"I apologize for the error in my query. Let me modify the query to correctly fetch the alerts. 
+",Error message detected: 'I apologize for the error',,2025-10-05 19:37:11,7b884d4c-4a5c-43d3-a04e-2aaedaaea0ed
+10,alert_summary,high,Show me alerts with multiple scenarios and total_score less than 70,success,valid,23.0,,,1348,"Here are the alerts with multiple scenarios and total score less than 70: 
+| Alert ID | Focal Entity | Total Score | Priority | Status | Created At | 
+|----------|--------------|-------------|----------|---------|------------| 
+| STID1025_ACC102445 | STID1025 | 63 | None | Open | 2024-11-14 | 
+| STID1025_ACC102446 | STID1025 | 63 | None | Open | 2024-11-14 | 
+| STID1025_ACC102449 | STID1025 | 63 | None | Open | 2024-11-14 | 
+| STID1025_ACC102499 | STID1025 | 63 | priorityValue | Open | 2024-11-14 | 
+| STID1025_ACC102500 | STID1025 | 63 | priorityValue | Open | 2024-11-14 | 
+| STID1025_ACC102447 | STID1025 | 63 | None | Open | 2024-11-14 | 
+| STID1021_ACC1021 | STID1021 | 69 | High | Open | 2025-01-03 | 
+| STID1021_TRD1020 | STID1021 | 69 | High | Open | 2025-08-07 | 
+ANALYSIS: 
+• Distribution: Found 8 total alerts matching the criteria 
+• Score Distribution: 6 alerts (75%) have score of 63, 2 alerts (25%) have score of 69 
+• Entity Concentration: STID1025 accounts for 6 alerts (75%), STID1021 accounts for 2 alerts (25%) 
+• Priority Pattern: 4 alerts (50%) have no priority set, 2 (25%) are marked as ""priorityValue"", and 2 (25%) are ""High"" priority 
+• Temporal: All alerts for STID1025 were created on the same day (2024-11-14), while STID1021 alerts span from January to August 2025 
+• Status: 100% of alerts are in ""Open"" status 
+",Response appears valid,,2025-10-05 19:37:25,df903a06-1f82-444b-90e4-e29c384be826

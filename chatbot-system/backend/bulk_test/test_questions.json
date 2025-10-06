@@ -1,0 +1,504 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show me all open alerts",
+      "expected_behavior": "Should query cm_alerts with status filter",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "status = 'Open'",
+      "tags": ["alerts", "filter", "status"]
+    },
+    {
+      "id": 2,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "List alerts from today",
+      "expected_behavior": "Should query cm_alerts with date filter",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "create_date",
+      "tags": ["alerts", "date", "filter"]
+    },
+    {
+      "id": 3,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show alerts with high severity",
+      "expected_behavior": "Should query cm_alerts with severity filter",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "severity",
+      "tags": ["alerts", "severity"]
+    },
+    {
+      "id": 4,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show me high priority alerts created this week",
+      "expected_behavior": "Should query cm_alerts with priority and date filters",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "priority AND create_date",
+      "tags": ["alerts", "priority", "date", "filter"]
+    },
+    {
+      "id": 5,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "List open alerts with total_score greater than 80",
+      "expected_behavior": "Should query cm_alerts with status and score filters",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "status = 'Open' AND total_score > 80",
+      "tags": ["alerts", "status", "score", "filter"]
+    },
+    {
+      "id": 6,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show alerts for owner OWNER25",
+      "expected_behavior": "Should query cm_alerts with owner_id filter",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "owner_id = 'OWNER25'",
+      "tags": ["alerts", "owner", "filter"]
+    },
+    {
+      "id": 7,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "List trade review alerts that are in progress",
+      "expected_behavior": "Should query cm_alerts with alert_type and status filters",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_type_id AND status",
+      "tags": ["alerts", "type", "status", "filter"]
+    },
+    {
+      "id": 8,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Show me alerts that were escalated in the last 30 days with critical severity",
+      "expected_behavior": "Should query cm_alerts with date range and severity filters",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "last_update_date AND severity",
+      "tags": ["alerts", "date", "severity", "escalation"]
+    },
+    {
+      "id": 9,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Find alerts created between Nov 1 and Nov 30, 2024 with status Open or Acknowledged",
+      "expected_behavior": "Should query cm_alerts with date range and multiple status filters",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "create_date BETWEEN AND status IN",
+      "tags": ["alerts", "date_range", "status", "filter"]
+    },
+    {
+      "id": 10,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Show me alerts with multiple scenarios and total_score less than 70",
+      "expected_behavior": "Should query cm_alerts with has_multiple_scenario and score filters",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "has_multiple_scenario = true AND total_score < 70",
+      "tags": ["alerts", "scenarios", "score", "filter"]
+    },
+    {
+      "id": 11,
+      "category": "alert_details",
+      "complexity": "simple",
+      "question": "Show details for alert STID1025_ACC102445",
+      "expected_behavior": "Should query specific alert by alert_id",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_id = 'STID1025_ACC102445'",
+      "tags": ["alerts", "details", "alert_id"]
+    },
+    {
+      "id": 12,
+      "category": "alert_details",
+      "complexity": "simple",
+      "question": "Get information about alert AccRev_20241120195723_1000000000",
+      "expected_behavior": "Should query specific alert by alert_id",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_id = 'AccRev_20241120195723_1000000000'",
+      "tags": ["alerts", "details", "alert_id"]
+    },
+    {
+      "id": 13,
+      "category": "alert_details",
+      "complexity": "simple",
+      "question": "Display alert STID1021_TRD1020",
+      "expected_behavior": "Should query specific alert by alert_id",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_id = 'STID1021_TRD1020'",
+      "tags": ["alerts", "details", "alert_id"]
+    },
+    {
+      "id": 14,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Summarize alert AML_20241120225734_LAY456789 for me",
+      "expected_behavior": "Should query specific alert by alert_id and provide comprehensive summary",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_id = 'AML_20241120225734_LAY456789'",
+      "tags": ["alerts", "details", "alert_id", "summary"]
+    },
+    {
+      "id": 15,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Give me a comprehensive analysis of alert STID1025_ACC102445",
+      "expected_behavior": "Should query specific alert and provide detailed analysis",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_id = 'STID1025_ACC102445'",
+      "tags": ["alerts", "analysis", "alert_id"]
+    },
+    {
+      "id": 16,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "What are the key details of alert with id AccRev_20241120195723_1000000000",
+      "expected_behavior": "Should query specific alert and extract key information",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_id = 'AccRev_20241120195723_1000000000'",
+      "tags": ["alerts", "details", "alert_id"]
+    },
+    {
+      "id": 17,
+      "category": "alert_details",
+      "complexity": "medium",
+      "question": "Explain the alert STID1021_TRD1020 including all scenarios",
+      "expected_behavior": "Should query alert and explain scenario details",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_id = 'STID1021_TRD1020'",
+      "tags": ["alerts", "scenarios", "alert_id", "explanation"]
+    },
+    {
+      "id": 18,
+      "category": "alert_details",
+      "complexity": "high",
+      "question": "Compare alerts STID1025_ACC102445 and AML_20241120225734_LAY456789",
+      "expected_behavior": "Should query both alerts and provide comparison",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_id IN",
+      "tags": ["alerts", "comparison", "multiple_alerts"]
+    },
+    {
+      "id": 19,
+      "category": "alert_details",
+      "complexity": "high",
+      "question": "Show me the full history and details of alert STID1025_ACC102445 including related entities",
+      "expected_behavior": "Should query alert with comprehensive details",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_id = 'STID1025_ACC102445'",
+      "tags": ["alerts", "history", "details", "entities"]
+    },
+    {
+      "id": 20,
+      "category": "alert_details",
+      "complexity": "high",
+      "question": "Analyze the risk factors and scenarios for alert AML_20241120225734_LAY456789",
+      "expected_behavior": "Should query alert and analyze risk/scenarios",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_id = 'AML_20241120225734_LAY456789'",
+      "tags": ["alerts", "risk", "scenarios", "analysis"]
+    },
+    {
+      "id": 21,
+      "category": "alert_analysis",
+      "complexity": "simple",
+      "question": "How many alerts are open?",
+      "expected_behavior": "Should count alerts with Open status",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "status = 'Open'",
+      "tags": ["alerts", "count", "aggregation"]
+    },
+    {
+      "id": 22,
+      "category": "alert_analysis",
+      "complexity": "simple",
+      "question": "What's the average alert score?",
+      "expected_behavior": "Should calculate average total_score",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "",
+      "tags": ["alerts", "average", "score", "aggregation"]
+    },
+    {
+      "id": 23,
+      "category": "alert_analysis",
+      "complexity": "medium",
+      "question": "Show alert distribution by status",
+      "expected_behavior": "Should group alerts by status and count",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "GROUP BY status",
+      "tags": ["alerts", "distribution", "grouping", "status"]
+    },
+    {
+      "id": 24,
+      "category": "alert_analysis",
+      "complexity": "medium",
+      "question": "What's the trend of alerts created this month?",
+      "expected_behavior": "Should query alerts by date and show trend",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "create_date",
+      "tags": ["alerts", "trend", "date", "analysis"]
+    },
+    {
+      "id": 25,
+      "category": "alert_analysis",
+      "complexity": "medium",
+      "question": "Show me alert count by alert type",
+      "expected_behavior": "Should group alerts by alert_type_id and count",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "GROUP BY alert_type_id",
+      "tags": ["alerts", "count", "grouping", "type"]
+    },
+    {
+      "id": 26,
+      "category": "alert_analysis",
+      "complexity": "high",
+      "question": "Analyze alert patterns for the last quarter grouped by severity and owner",
+      "expected_behavior": "Should query alerts with date filter and group by multiple fields",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "create_date AND GROUP BY severity, owner_id",
+      "tags": ["alerts", "patterns", "grouping", "analysis"]
+    },
+    {
+      "id": 27,
+      "category": "alert_analysis",
+      "complexity": "high",
+      "question": "Show correlation between alert scores and resolution time",
+      "expected_behavior": "Should analyze relationship between total_score and time metrics",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "",
+      "tags": ["alerts", "correlation", "score", "time", "analysis"]
+    },
+    {
+      "id": 28,
+      "category": "alert_analysis",
+      "complexity": "high",
+      "question": "Identify alerts with unusual patterns in the last 30 days",
+      "expected_behavior": "Should query recent alerts and identify anomalies",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "create_date",
+      "tags": ["alerts", "anomaly", "patterns", "analysis"]
+    },
+    {
+      "id": 29,
+      "category": "cases",
+      "complexity": "simple",
+      "question": "Show me all open cases",
+      "expected_behavior": "Should query cm_cases with Open status",
+      "expected_tools": ["query_postgresql_cm_cases"],
+      "expected_filters": "status = 'Open'",
+      "tags": ["cases", "filter", "status"]
+    },
+    {
+      "id": 30,
+      "category": "cases",
+      "complexity": "simple",
+      "question": "List cases created today",
+      "expected_behavior": "Should query cm_cases with today's date",
+      "expected_tools": ["query_postgresql_cm_cases"],
+      "expected_filters": "create_date",
+      "tags": ["cases", "date", "filter"]
+    },
+    {
+      "id": 31,
+      "category": "cases",
+      "complexity": "medium",
+      "question": "Show cases with high priority that are overdue",
+      "expected_behavior": "Should query cm_cases with priority and due date filters",
+      "expected_tools": ["query_postgresql_cm_cases"],
+      "expected_filters": "priority AND due_date",
+      "tags": ["cases", "priority", "overdue", "filter"]
+    },
+    {
+      "id": 32,
+      "category": "cases",
+      "complexity": "medium",
+      "question": "List cases assigned to specific users",
+      "expected_behavior": "Should query cm_cases with assigned_to filter",
+      "expected_tools": ["query_postgresql_cm_cases"],
+      "expected_filters": "assigned_to",
+      "tags": ["cases", "assignment", "filter"]
+    },
+    {
+      "id": 33,
+      "category": "cases",
+      "complexity": "high",
+      "question": "Show me cases that have been reassigned more than twice",
+      "expected_behavior": "Should query cases with reassignment count analysis",
+      "expected_tools": ["query_postgresql_cm_cases"],
+      "expected_filters": "reassignment_count OR history",
+      "tags": ["cases", "reassignment", "analysis"]
+    },
+    {
+      "id": 34,
+      "category": "cases",
+      "complexity": "high",
+      "question": "Find cases with the longest resolution time grouped by case type",
+      "expected_behavior": "Should analyze resolution times with grouping",
+      "expected_tools": ["query_postgresql_cm_cases"],
+      "expected_filters": "GROUP BY case_type",
+      "tags": ["cases", "resolution_time", "grouping", "analysis"]
+    },
+    {
+      "id": 35,
+      "category": "alert_types",
+      "complexity": "simple",
+      "question": "List all alert types",
+      "expected_behavior": "Should query cm_alert_type table",
+      "expected_tools": ["query_postgresql_cm_alert_type"],
+      "expected_filters": "",
+      "tags": ["alert_types", "list"]
+    },
+    {
+      "id": 36,
+      "category": "alert_types",
+      "complexity": "simple",
+      "question": "Show me trade review alerts",
+      "expected_behavior": "Should filter alerts by tradereview type",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "alert_type_id = 'tradereview'",
+      "tags": ["alerts", "type", "filter"]
+    },
+    {
+      "id": 37,
+      "category": "alert_types",
+      "complexity": "medium",
+      "question": "Which alert type has the most open alerts?",
+      "expected_behavior": "Should group and count alerts by type",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "GROUP BY alert_type_id",
+      "tags": ["alerts", "type", "aggregation", "grouping"]
+    },
+    {
+      "id": 38,
+      "category": "alert_types",
+      "complexity": "medium",
+      "question": "Show alert type distribution for the last month",
+      "expected_behavior": "Should group alerts by type with date filter",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "create_date AND GROUP BY alert_type_id",
+      "tags": ["alerts", "type", "distribution", "date"]
+    },
+    {
+      "id": 39,
+      "category": "users",
+      "complexity": "simple",
+      "question": "Show all users",
+      "expected_behavior": "Should query cm_users table",
+      "expected_tools": ["query_postgresql_cm_users"],
+      "expected_filters": "",
+      "tags": ["users", "list"]
+    },
+    {
+      "id": 40,
+      "category": "users",
+      "complexity": "simple",
+      "question": "List users in the system",
+      "expected_behavior": "Should query cm_users table",
+      "expected_tools": ["query_postgresql_cm_users"],
+      "expected_filters": "",
+      "tags": ["users", "list"]
+    },
+    {
+      "id": 41,
+      "category": "users",
+      "complexity": "medium",
+      "question": "Show users who own more than 5 alerts",
+      "expected_behavior": "Should count alerts per user and filter",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "GROUP BY owner_id HAVING COUNT > 5",
+      "tags": ["users", "alerts", "aggregation"]
+    },
+    {
+      "id": 42,
+      "category": "users",
+      "complexity": "medium",
+      "question": "List users with alerts assigned to them",
+      "expected_behavior": "Should query users who are alert owners",
+      "expected_tools": ["query_postgresql_cm_users", "query_postgresql_cm_alerts"],
+      "expected_filters": "owner_id",
+      "tags": ["users", "alerts", "assignment"]
+    },
+    {
+      "id": 43,
+      "category": "users",
+      "complexity": "high",
+      "question": "Show users with the highest average alert resolution time",
+      "expected_behavior": "Should calculate average resolution time per user",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "GROUP BY owner_id",
+      "tags": ["users", "resolution_time", "aggregation", "analysis"]
+    },
+    {
+      "id": 44,
+      "category": "users",
+      "complexity": "high",
+      "question": "Find users who have handled critical alerts in the last 30 days",
+      "expected_behavior": "Should filter users by alert severity and date",
+      "expected_tools": ["query_postgresql_cm_alerts"],
+      "expected_filters": "severity AND create_date AND owner_id",
+      "tags": ["users", "alerts", "severity", "date"]
+    },
+    {
+      "id": 45,
+      "category": "user_roles",
+      "complexity": "simple",
+      "question": "Show all user roles",
+      "expected_behavior": "Should query cm_roles table",
+      "expected_tools": ["query_postgresql_cm_roles"],
+      "expected_filters": "",
+      "tags": ["roles", "list"]
+    },
+    {
+      "id": 46,
+      "category": "user_roles",
+      "complexity": "simple",
+      "question": "List available roles in the system",
+      "expected_behavior": "Should query cm_roles table",
+      "expected_tools": ["query_postgresql_cm_roles"],
+      "expected_filters": "",
+      "tags": ["roles", "list"]
+    },
+    {
+      "id": 47,
+      "category": "user_roles",
+      "complexity": "medium",
+      "question": "Show users with Business Manager role",
+      "expected_behavior": "Should join users and roles tables",
+      "expected_tools": ["query_postgresql_cm_users", "query_postgresql_cm_user_roles_mapping"],
+      "expected_filters": "role",
+      "tags": ["users", "roles", "filter"]
+    },
+    {
+      "id": 48,
+      "category": "user_roles",
+      "complexity": "medium",
+      "question": "List all roles and their user counts",
+      "expected_behavior": "Should group users by role and count",
+      "expected_tools": ["query_postgresql_cm_user_roles_mapping"],
+      "expected_filters": "GROUP BY role_id",
+      "tags": ["roles", "users", "aggregation"]
+    },
+    {
+      "id": 49,
+      "category": "user_roles",
+      "complexity": "high",
+      "question": "Show role distribution across active users with alert ownership",
+      "expected_behavior": "Should join users, roles, and alerts tables",
+      "expected_tools": ["query_postgresql_cm_users", "query_postgresql_cm_user_roles_mapping", "query_postgresql_cm_alerts"],
+      "expected_filters": "is_active AND owner_id",
+      "tags": ["roles", "users", "alerts", "distribution"]
+    },
+    {
+      "id": 50,
+      "category": "user_roles",
+      "complexity": "high",
+      "question": "Find users who have multiple roles and their alert handling statistics",
+      "expected_behavior": "Should analyze users with multiple role mappings and their alert metrics",
+      "expected_tools": ["query_postgresql_cm_user_roles_mapping", "query_postgresql_cm_alerts"],
+      "expected_filters": "GROUP BY user_id HAVING COUNT(role_id) > 1",
+      "tags": ["roles", "users", "alerts", "statistics", "analysis"]
+    }
+  ]
+}

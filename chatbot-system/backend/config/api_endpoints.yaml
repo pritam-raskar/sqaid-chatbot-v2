@@ -1,0 +1,291 @@
+# API Endpoint Configuration for Chatbot
+# Define all REST endpoints that the chatbot can access
+# See: ENDPOINT_CONFIGURATION_GUIDE.md for detailed documentation
+
+endpoints:
+  # ========================================================================
+  # CASE MANAGEMENT ENDPOINTS
+  # ========================================================================
+
+  - name: "search_cases"
+    description: "Search for cases, tickets, bugs, or issues based on criteria like status, priority, assigned user, date range, or keywords. Use this when user wants to find, list, or filter cases."
+    url: "${BASE_URL}/api/v1/cases/search"
+    method: "POST"
+    requires_auth: true
+
+    # Parameter metadata for FilterGenerator (natural language support)
+    parameter_metadata:
+      status:
+        type: "string"
+        possible_values: ["open", "closed", "pending", "in_progress", "resolved"]
+        case_sensitive: false
+        description: "Case status filter"
+      priority:
+        type: "string"
+        possible_values: ["low", "medium", "high", "critical"]
+        case_sensitive: false
+        description: "Priority level filter"
+      assigned_to:
+        type: "string"
+        description: "User ID or email of person assigned to the case"
+      date_from:
+        type: "date"
+        description: "Start date for case search (YYYY-MM-DD)"
+      date_to:
+        type: "date"
+        description: "End date for case search (YYYY-MM-DD)"
+      keyword:
+        type: "string"
+        description: "Search keyword in title or description"
+      limit:
+        type: "integer"
+        description: "Maximum number of results"
+        default: 50
+
+    parameters:
+      - name: "status"
+        type: "string"
+        description: "Case status (open, closed, pending, in_progress, resolved)"
+        required: false
+        in: "body"
+      - name: "priority"
+        type: "string"
+        description: "Case priority (low, medium, high, critical)"
+        required: false
+        in: "body"
+      - name: "assigned_to"
+        type: "string"
+        description: "User ID, email, or name of person assigned to the case"
+        required: false
+        in: "body"
+      - name: "date_from"
+        type: "date"
+        description: "Start date for case search (YYYY-MM-DD)"
+        required: false
+        in: "body"
+      - name: "date_to"
+        type: "date"
+        description: "End date for case search (YYYY-MM-DD)"
+        required: false
+        in: "body"
+      - name: "keyword"
+        type: "string"
+        description: "Search keyword in title or description"
+        required: false
+        in: "body"
+      - name: "limit"
+        type: "integer"
+        description: "Maximum number of results"
+        required: false
+        default: 50
+        in: "body"
+    response_format:
+      type: "array"
+      item_schema:
+        case_id: "string"
+        title: "string"
+        status: "string"
+        priority: "string"
+        assigned_to: "string"
+        created_at: "datetime"
+
+  - name: "get_case_details"
+    description: "Get detailed information about a specific case by ID, including full description, comments, attachments, and history. Use this when user asks about a specific case."
+    url: "${BASE_URL}/api/v1/cases/{case_id}"
+    method: "GET"
+    requires_auth: true
+
+    # Parameter metadata for FilterGenerator (natural language support)
+    parameter_metadata:
+      case_id:
+        type: "string"
+        description: "Unique case identifier or case number"
+        required: true
+      include_comments:
+        type: "boolean"
+        description: "Include case comments"
+        default: true
+      include_history:
+        type: "boolean"
+        description: "Include case history"
+        default: false
+
+    parameters:
+      - name: "case_id"
+        type: "string"
+        description: "Unique case identifier or case number"
+        required: true
+        in: "path"
+      - name: "include_comments"
+        type: "boolean"
+        description: "Include case comments"
+        required: false
+        default: true
+        in: "query"
+      - name: "include_history"
+        type: "boolean"
+        description: "Include case history"
+        required: false
+        default: false
+        in: "query"
+    response_format:
+      type: "object"
+      schema:
+        case_id: "string"
+        title: "string"
+        description: "string"
+        status: "string"
+        priority: "string"
+        assigned_to: "string"
+        created_at: "datetime"
+        updated_at: "datetime"
+        comments: "array"
+        history: "array"
+
+  - name: "create_case"
+    description: "Create a new case, ticket, bug report, or issue with title and description. Use this when user wants to create, submit, or report a new case."
+    url: "${BASE_URL}/api/v1/cases"
+    method: "POST"
+    requires_auth: true
+    parameters:
+      - name: "title"
+        type: "string"
+        description: "Case title or summary"
+        required: true
+        in: "body"
+      - name: "description"
+        type: "string"
+        description: "Detailed case description"
+        required: true
+        in: "body"
+      - name: "priority"
+        type: "string"
+        description: "Case priority (low, medium, high, critical)"
+        required: false
+        default: "medium"
+        in: "body"
+      - name: "assigned_to"
+        type: "string"
+        description: "User ID or email to assign the case to"
+        required: false
+        in: "body"
+      - name: "category"
+        type: "string"
+        description: "Case category or type"
+        required: false
+        in: "body"
+
+  - name: "update_case"
+    description: "Update an existing case with new information, change status, priority, or assignment. Use this when user wants to modify, update, or change a case."
+    url: "${BASE_URL}/api/v1/cases/{case_id}"
+    method: "PUT"
+    requires_auth: true
+    parameters:
+      - name: "case_id"
+        type: "string"
+        description: "Case ID to update"
+        required: true
+        in: "path"
+      - name: "status"
+        type: "string"
+        description: "New case status"
+        required: false
+        in: "body"
+      - name: "priority"
+        type: "string"
+        description: "New priority level"
+        required: false
+        in: "body"
+      - name: "assigned_to"
+        type: "string"
+        description: "New assignee user ID or email"
+        required: false
+        in: "body"
+
+  # ========================================================================
+  # USER MANAGEMENT ENDPOINTS
+  # ========================================================================
+
+  - name: "get_user_info"
+    description: "Get user information, profile, or details by user ID, email, or name. Use this when user asks about a person, team member, or wants to look up user information."
+    url: "${BASE_URL}/api/v1/users/{user_id}"
+    method: "GET"
+    requires_auth: true
+    parameters:
+      - name: "user_id"
+        type: "string"
+        description: "User ID, email address, or username"
+        required: true
+        in: "path"
+    response_format:
+      type: "object"
+      schema:
+        user_id: "string"
+        name: "string"
+        email: "string"
+        department: "string"
+        role: "string"
+
+  - name: "list_users"
+    description: "Get list of all users or search users by name, email, department, or role. Use this when user wants to find users or see team members."
+    url: "${BASE_URL}/api/v1/users"
+    method: "GET"
+    requires_auth: true
+    parameters:
+      - name: "search"
+        type: "string"
+        description: "Search query for name, email, or username"
+        required: false
+        in: "query"
+      - name: "department"
+        type: "string"
+        description: "Filter by department"
+        required: false
+        in: "query"
+      - name: "role"
+        type: "string"
+        description: "Filter by role"
+        required: false
+        in: "query"
+
+  # ========================================================================
+  # STATISTICS & REPORTING ENDPOINTS
+  # ========================================================================
+
+  - name: "get_case_statistics"
+    description: "Get statistics, metrics, counts, or analytics about cases such as total cases, open cases, closed cases, by priority, or by status. Use this for dashboard data or reporting."
+    url: "${BASE_URL}/api/v1/statistics/cases"
+    method: "GET"
+    requires_auth: true
+    parameters:
+      - name: "date_from"
+        type: "date"
+        description: "Start date for statistics"
+        required: false
+        in: "query"
+      - name: "date_to"
+        type: "date"
+        description: "End date for statistics"
+        required: false
+        in: "query"
+      - name: "group_by"
+        type: "string"
+        description: "Group results by: status, priority, assignee, category"
+        required: false
+        in: "query"
+
+# Authentication Configuration
+authentication:
+  type: "bearer"  # Options: bearer, basic, api_key, oauth2
+  token_env_var: "API_AUTH_TOKEN"  # Environment variable containing token
+  header_name: "Authorization"  # Header name for auth
+  token_prefix: "Bearer"  # Prefix for token (e.g., "Bearer <token>")
+
+# Base URL Configuration
+base_url_env_var: "API_BASE_URL"  # Environment variable for base URL
+default_base_url: "http://localhost:8000"  # Fallback base URL
+
+# Global Settings
+timeout: 30  # Request timeout in seconds
+retry_attempts: 3
+retry_delay: 1  # Seconds between retries

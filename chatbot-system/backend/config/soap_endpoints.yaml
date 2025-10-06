@@ -1,0 +1,109 @@
+# SOAP Endpoint Configuration
+# Define SOAP operations that the chatbot can access
+
+soap_endpoints:
+  - name: "get_customer_details"
+    description: "Get customer information, profile, account details by customer ID, email, or phone number. Use this when user asks about customer data, account information, or customer lookup."
+    wsdl_url: "${SOAP_WSDL_URL}"
+    operation: "GetCustomerDetails"
+    namespace: "http://example.com/customer/service"
+    requires_auth: true
+
+    # Parameter metadata for FilterGenerator (natural language support)
+    parameter_metadata:
+      customerId:
+        type: "string"
+        description: "Customer ID, email address, or phone number"
+        required: true
+      includeHistory:
+        type: "boolean"
+        description: "Include transaction and interaction history"
+        default: false
+
+    parameters:
+      - name: "customerId"
+        type: "string"
+        description: "Customer ID, email address, or phone number"
+        required: true
+      - name: "includeHistory"
+        type: "boolean"
+        description: "Include transaction and interaction history"
+        required: false
+        default: false
+    response_format:
+      type: "object"
+      schema:
+        customerId: "string"
+        name: "string"
+        email: "string"
+        phone: "string"
+        status: "string"
+
+  - name: "process_payment"
+    description: "Process payment transaction for customer invoices, orders, or bills. Use this when user wants to make payment, pay invoice, or process transaction."
+    wsdl_url: "${SOAP_WSDL_URL}"
+    operation: "ProcessPayment"
+    namespace: "http://example.com/payment/service"
+    requires_auth: true
+
+    # Parameter metadata for FilterGenerator (natural language support)
+    parameter_metadata:
+      accountId:
+        type: "string"
+        description: "Account ID or invoice number"
+        required: true
+      amount:
+        type: "number"
+        description: "Payment amount in dollars"
+        required: true
+      paymentMethod:
+        type: "string"
+        possible_values: ["credit_card", "bank_transfer", "check"]
+        description: "Payment method"
+        default: "credit_card"
+
+    parameters:
+      - name: "accountId"
+        type: "string"
+        description: "Account ID or invoice number"
+        required: true
+      - name: "amount"
+        type: "decimal"
+        description: "Payment amount in dollars"
+        required: true
+      - name: "paymentMethod"
+        type: "string"
+        description: "Payment method (credit_card, bank_transfer, check)"
+        required: false
+        default: "credit_card"
+
+  - name: "validate_account"
+    description: "Validate customer account status, check if account is active, suspended, or closed. Use this when verifying account status or checking account validity."
+    wsdl_url: "${SOAP_WSDL_URL}"
+    operation: "ValidateAccount"
+    namespace: "http://example.com/validation/service"
+    requires_auth: true
+    parameters:
+      - name: "accountNumber"
+        type: "string"
+        description: "Account number to validate"
+        required: true
+
+# Authentication Configuration
+authentication:
+  type: "basic"  # Options: basic, wsse, custom
+  username_env_var: "SOAP_AUTH_USERNAME"
+  password_env_var: "SOAP_AUTH_PASSWORD"
+
+  # For WSSE security
+  # type: "wsse"
+  # username_env_var: "SOAP_USERNAME"
+  # password_env_var: "SOAP_PASSWORD"
+  # password_type: "PasswordText"  # or PasswordDigest
+
+# Global SOAP Settings
+default_wsdl_url: "${SOAP_WSDL_URL}"
+timeout: 60  # SOAP calls can be slower
+retry_attempts: 2
+retry_delay: 2
+soap_version: "1.1"  # or "1.2"

@@ -1,0 +1,121 @@
+// Chat Container styles
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  height: 900px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  user-select: none;
+
+  &.resizing {
+    transition: none;
+  }
+
+  // Resize handles
+  .resize-handle {
+    position: absolute;
+    z-index: 10;
+
+    &.resize-handle-left {
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 8px;
+      cursor: ew-resize;
+
+      &:hover {
+        background: rgba(59, 130, 246, 0.1);
+      }
+    }
+
+    &.resize-handle-top {
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      cursor: ns-resize;
+
+      &:hover {
+        background: rgba(59, 130, 246, 0.1);
+      }
+    }
+
+    &.resize-handle-corner {
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      cursor: nwse-resize;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 2px;
+        top: 2px;
+        width: 12px;
+        height: 12px;
+        background: linear-gradient(135deg,
+          transparent 0%,
+          transparent 46%,
+          rgba(156, 163, 175, 0.5) 46%,
+          rgba(156, 163, 175, 0.5) 54%,
+          transparent 54%,
+          transparent 100%
+        );
+      }
+
+      &:hover::after {
+        background: linear-gradient(135deg,
+          transparent 0%,
+          transparent 46%,
+          rgba(59, 130, 246, 0.8) 46%,
+          rgba(59, 130, 246, 0.8) 54%,
+          transparent 54%,
+          transparent 100%
+        );
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+  }
+
+  &.collapsed {
+    height: 56px;
+    width: 300px;
+
+    @media (max-width: 480px) {
+      width: 100%;
+      height: 56px;
+    }
+  }
+
+  .error-message {
+    background: #fee;
+    color: #c00;
+    padding: 12px;
+    margin: 8px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .error-icon {
+      font-size: 1.2em;
+    }
+  }
+}

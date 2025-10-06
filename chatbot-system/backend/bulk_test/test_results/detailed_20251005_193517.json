@@ -1,0 +1,2197 @@
+[
+  {
+    "test_id": 1,
+    "question_data": {
+      "id": 1,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show me all open alerts",
+      "expected_behavior": "Should query cm_alerts with status filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "status = 'Open'",
+      "tags": [
+        "alerts",
+        "filter",
+        "status"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_1"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Based on the query results, ",
+        "chunk_index": 0,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "there are currently no open ",
+        "chunk_index": 1,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts in the system. Here's ",
+        "chunk_index": 2,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "what this means: ",
+        "chunk_index": 3,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 4,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| Status | Count | ",
+        "chunk_index": 5,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 6,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "|--------|-------| ",
+        "chunk_index": 7,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 8,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| Open | 0 | ",
+        "chunk_index": 9,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 10,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "ANALYSIS: ",
+        "chunk_index": 11,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 12,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\u2022 Current State: The alerts ",
+        "chunk_index": 13,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "table shows zero open alerts ",
+        "chunk_index": 14,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "at this time ",
+        "chunk_index": 15,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 16,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\u2022 Coverage: This query checked ",
+        "chunk_index": 17,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "specifically for alerts with 'open' ",
+        "chunk_index": 18,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "status ",
+        "chunk_index": 19,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 20,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\u2022 Completeness: The search included ",
+        "chunk_index": 21,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "all standard alert fields including ",
+        "chunk_index": 22,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "ID, type, priority, and ownership ",
+        "chunk_index": 23,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 24,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\u2022 Temporal: This represents the ",
+        "chunk_index": 25,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "current state as of the ",
+        "chunk_index": 26,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "query execution time ",
+        "chunk_index": 27,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 28,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Note: This is a point-in-time ",
+        "chunk_index": 29,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "snapshot showing no open alerts ",
+        "chunk_index": 30,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "currently in the system. Historical ",
+        "chunk_index": 31,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "or closed alerts may exist ",
+        "chunk_index": 32,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "but were not part of ",
+        "chunk_index": 33,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "this specific query. ",
+        "chunk_index": 34,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 35,
+        "id": "assistant_test_1"
+      },
+      {
+        "type": "stream_complete",
+        "id": "assistant_test_1"
+      }
+    ],
+    "start_time": 1759707317.719141,
+    "session_id": "616d43f9-bdee-4db8-a2f2-928ffb9f5e1a",
+    "end_time": 1759707331.763948,
+    "result": {
+      "test_id": 1,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show me all open alerts",
+      "status": "success",
+      "validation_status": "valid",
+      "response_time_seconds": 14.04,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 667,
+      "response_text": "Based on the query results, there are currently no open alerts in the system. Here's what this means: \n| Status | Count | \n|--------|-------| \n| Open | 0 | \nANALYSIS: \n\u2022 Current State: The alerts table shows zero open alerts at this time \n\u2022 Coverage: This query checked specifically for alerts with 'open' status \n\u2022 Completeness: The search included all standard alert fields including ID, type, priority, and ownership \n\u2022 Temporal: This represents the current state as of the query execution time \nNote: This is a point-in-time snapshot showing no open alerts currently in the system. Historical or closed alerts may exist but were not part of this specific query. \n",
+      "validation_notes": "Response appears valid",
+      "error_message": "",
+      "timestamp": "2025-10-05 19:35:17",
+      "session_id": "616d43f9-bdee-4db8-a2f2-928ffb9f5e1a"
+    }
+  },
+  {
+    "test_id": 2,
+    "question_data": {
+      "id": 2,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "List alerts from today",
+      "expected_behavior": "Should query cm_alerts with date filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "create_date",
+      "tags": [
+        "alerts",
+        "date",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_2"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me try querying without ",
+        "chunk_index": 0,
+        "id": "assistant_test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "the date filter to see ",
+        "chunk_index": 1,
+        "id": "assistant_test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "if there are any recent ",
+        "chunk_index": 2,
+        "id": "assistant_test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts. ",
+        "chunk_index": 3,
+        "id": "assistant_test_2"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 4,
+        "id": "assistant_test_2"
+      },
+      {
+        "type": "stream_complete",
+        "id": "assistant_test_2"
+      }
+    ],
+    "start_time": 1759707332.766176,
+    "session_id": "bb31d6b5-5507-4f2c-9f35-36f9bb7b5a4f",
+    "end_time": 1759707342.019028,
+    "result": {
+      "test_id": 2,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "List alerts from today",
+      "status": "content_error",
+      "validation_status": "error_detected",
+      "response_time_seconds": 9.25,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 84,
+      "response_text": "Let me try querying without the date filter to see if there are any recent alerts. \n",
+      "validation_notes": "Error message detected: 'Let me try'",
+      "error_message": "",
+      "timestamp": "2025-10-05 19:35:32",
+      "session_id": "bb31d6b5-5507-4f2c-9f35-36f9bb7b5a4f"
+    }
+  },
+  {
+    "test_id": 3,
+    "question_data": {
+      "id": 3,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show alerts with high severity",
+      "expected_behavior": "Should query cm_alerts with severity filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "severity",
+      "tags": [
+        "alerts",
+        "severity"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_3"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Here are the 10 most ",
+        "chunk_index": 0,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "recent high severity alerts: ",
+        "chunk_index": 1,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 2,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "1. Alert ID: AML_20241120225734_LAY456789\n",
+        "chunk_index": 3,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Focal Entity: LAY456789\n",
+        "chunk_index": 4,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Owner: John Doe\n",
+        "chunk_index": 5,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 6,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Created: 2025-09-02\n",
+        "chunk_index": 7,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2. Alert ID: AML_20241120231456_CIB678901\n",
+        "chunk_index": 8,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Focal Entity: CIB678901\n",
+        "chunk_index": 9,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Owner: John Doe\n",
+        "chunk_index": 10,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 11,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Created: 2025-09-02\n",
+        "chunk_index": 12,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "3. Alert ID: AML_20241120230912_SHE567890\n",
+        "chunk_index": 13,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Focal Entity: SHE567890\n",
+        "chunk_index": 14,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Owner: John Doe\n",
+        "chunk_index": 15,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 16,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Created: 2025-09-02\n",
+        "chunk_index": 17,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "4. Alert ID: AML_20241120224512_TBM345678\n",
+        "chunk_index": 18,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Focal Entity: TBM345678\n",
+        "chunk_index": 19,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Owner: John Doe\n",
+        "chunk_index": 20,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 21,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Created: 2025-09-02\n",
+        "chunk_index": 22,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "5. Alert ID: AML_20241120223045_SMF789012\n",
+        "chunk_index": 23,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Focal Entity: SMF789012\n",
+        "chunk_index": 24,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Owner: John Doe\n",
+        "chunk_index": 25,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 26,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Created: 2025-09-02\n",
+        "chunk_index": 27,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "6. Alert ID: AML_20241120221328_5738291I\n",
+        "chunk_index": 28,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Focal Entity: 5738291I\n",
+        "chunk_index": 29,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Owner: John Doe\n",
+        "chunk_index": 30,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Closed\n",
+        "chunk_index": 31,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Created: 2025-08-31\n",
+        "chunk_index": 32,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "7. Alert ID: AML_20241120220145_8529631H\n",
+        "chunk_index": 33,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Focal Entity: 8529631H\n",
+        "chunk_index": 34,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Owner: John Doe\n",
+        "chunk_index": 35,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 36,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Created: 2025-08-31\n",
+        "chunk_index": 37,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "8. Alert ID: MFRev_20241120205634_MF987654321\n",
+        "chunk_index": 38,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Focal Entity: MF987654321\n",
+        "chunk_index": 39,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Owner: Suitability Compliance Officer\n",
+        "chunk_index": 40,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 41,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Created: 2025-08-07\n",
+        "chunk_index": 42,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "9. Alert ID: MFRev_20241120204512_MF789123456\n",
+        "chunk_index": 43,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Focal Entity: MF789123456\n",
+        "chunk_index": 44,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Owner: Fund Compliance Officer\n",
+        "chunk_index": 45,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 46,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Created: 2025-08-07\n",
+        "chunk_index": 47,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "10. Alert ID: CustRev_20241120203456_6789124E ",
+        "chunk_index": 48,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 49,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "    - Focal Entity: 6789124E\n",
+        "chunk_index": 50,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "    - Owner: AML Officer\n",
+        "chunk_index": 51,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "    - Status: Open\n",
+        "chunk_index": 52,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "    - Created: 2025-08-07\n",
+        "chunk_index": 53,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Summary of these high severity ",
+        "chunk_index": 54,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts: ",
+        "chunk_index": 55,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 56,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- 9 alerts are Open, 1 is Closed\n",
+        "chunk_index": 57,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Most alerts are owned by John Doe\n",
+        "chunk_index": 58,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- All alerts have a business date of November 20, 2024\n",
+        "chunk_index": 59,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- The alerts span different types including AML, MFRev (Mutual Fund Review), and CustRev (Customer Review)\n",
+        "chunk_index": 60,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me get the total ",
+        "chunk_index": 61,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "count of high severity alerts ",
+        "chunk_index": 62,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to provide context. ",
+        "chunk_index": 63,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 64,
+        "id": "assistant_test_3"
+      },
+      {
+        "type": "stream_complete",
+        "id": "assistant_test_3"
+      }
+    ],
+    "start_time": 1759707343.020902,
+    "session_id": "4f75a30e-b645-4fbc-a3a6-a321b0944079",
+    "end_time": 1759707365.476114,
+    "result": {
+      "test_id": 3,
+      "category": "alert_summary",
+      "complexity": "simple",
+      "question": "Show alerts with high severity",
+      "status": "success",
+      "validation_status": "valid",
+      "response_time_seconds": 22.45,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1802,
+      "response_text": "Here are the 10 most recent high severity alerts: \n1. Alert ID: AML_20241120225734_LAY456789\n   - Focal Entity: LAY456789\n   - Owner: John Doe\n   - Status: Open\n   - Created: 2025-09-02\n2. Alert ID: AML_20241120231456_CIB678901\n   - Focal Entity: CIB678901\n   - Owner: John Doe\n   - Status: Open\n   - Created: 2025-09-02\n3. Alert ID: AML_20241120230912_SHE567890\n   - Focal Entity: SHE567890\n   - Owner: John Doe\n   - Status: Open\n   - Created: 2025-09-02\n4. Alert ID: AML_20241120224512_TBM345678\n   - Focal Entity: TBM345678\n   - Owner: John Doe\n   - Status: Open\n   - Created: 2025-09-02\n5. Alert ID: AML_20241120223045_SMF789012\n   - Focal Entity: SMF789012\n   - Owner: John Doe\n   - Status: Open\n   - Created: 2025-09-02\n6. Alert ID: AML_20241120221328_5738291I\n   - Focal Entity: 5738291I\n   - Owner: John Doe\n   - Status: Closed\n   - Created: 2025-08-31\n7. Alert ID: AML_20241120220145_8529631H\n   - Focal Entity: 8529631H\n   - Owner: John Doe\n   - Status: Open\n   - Created: 2025-08-31\n8. Alert ID: MFRev_20241120205634_MF987654321\n   - Focal Entity: MF987654321\n   - Owner: Suitability Compliance Officer\n   - Status: Open\n   - Created: 2025-08-07\n9. Alert ID: MFRev_20241120204512_MF789123456\n   - Focal Entity: MF789123456\n   - Owner: Fund Compliance Officer\n   - Status: Open\n   - Created: 2025-08-07\n10. Alert ID: CustRev_20241120203456_6789124E \n    - Focal Entity: 6789124E\n    - Owner: AML Officer\n    - Status: Open\n    - Created: 2025-08-07\nSummary of these high severity alerts: \n- 9 alerts are Open, 1 is Closed\n- Most alerts are owned by John Doe\n- All alerts have a business date of November 20, 2024\n- The alerts span different types including AML, MFRev (Mutual Fund Review), and CustRev (Customer Review)\nLet me get the total count of high severity alerts to provide context. \n",
+      "validation_notes": "Response appears valid",
+      "error_message": "",
+      "timestamp": "2025-10-05 19:35:43",
+      "session_id": "4f75a30e-b645-4fbc-a3a6-a321b0944079"
+    }
+  },
+  {
+    "test_id": 4,
+    "question_data": {
+      "id": 4,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show me high priority alerts created this week",
+      "expected_behavior": "Should query cm_alerts with priority and date filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "priority AND create_date",
+      "tags": [
+        "alerts",
+        "priority",
+        "date",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_4"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error. ",
+        "chunk_index": 0,
+        "id": "assistant_test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me modify the query ",
+        "chunk_index": 1,
+        "id": "assistant_test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to use the correct syntax. ",
+        "chunk_index": 2,
+        "id": "assistant_test_4"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 3,
+        "id": "assistant_test_4"
+      },
+      {
+        "type": "stream_complete",
+        "id": "assistant_test_4"
+      }
+    ],
+    "start_time": 1759707366.4825401,
+    "session_id": "d8098772-4253-43f1-9a47-c02c6b71044a",
+    "end_time": 1759707375.614209,
+    "result": {
+      "test_id": 4,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show me high priority alerts created this week",
+      "status": "content_error",
+      "validation_status": "error_detected",
+      "response_time_seconds": 9.13,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 79,
+      "response_text": "I apologize for the error. Let me modify the query to use the correct syntax. \n",
+      "validation_notes": "Error message detected: 'I apologize for the error'",
+      "error_message": "",
+      "timestamp": "2025-10-05 19:36:06",
+      "session_id": "d8098772-4253-43f1-9a47-c02c6b71044a"
+    }
+  },
+  {
+    "test_id": 5,
+    "question_data": {
+      "id": 5,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "List open alerts with total_score greater than 80",
+      "expected_behavior": "Should query cm_alerts with status and score filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "status = 'Open' AND total_score > 80",
+      "tags": [
+        "alerts",
+        "status",
+        "score",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_5"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Based on the query results, ",
+        "chunk_index": 0,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "there are currently no open ",
+        "chunk_index": 1,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts with a total score ",
+        "chunk_index": 2,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "greater than 80 in the ",
+        "chunk_index": 3,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "system. ",
+        "chunk_index": 4,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 5,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "This could mean either: ",
+        "chunk_index": 6,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 7,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "1. All high-scoring alerts have been resolved and closed\n",
+        "chunk_index": 8,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2. Current open alerts have scores below the 80 threshold\n",
+        "chunk_index": 9,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Would you like to: ",
+        "chunk_index": 10,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 11,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Check alerts with a lower score threshold\n",
+        "chunk_index": 12,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Include closed alerts in the search\n",
+        "chunk_index": 13,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- View alerts from a specific time period\n",
+        "chunk_index": 14,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Please let me know if ",
+        "chunk_index": 15,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "you'd like to modify the ",
+        "chunk_index": 16,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "search criteria. ",
+        "chunk_index": 17,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 18,
+        "id": "assistant_test_5"
+      },
+      {
+        "type": "stream_complete",
+        "id": "assistant_test_5"
+      }
+    ],
+    "start_time": 1759707376.616384,
+    "session_id": "241af36c-f833-496e-b4f4-3a1c754275ed",
+    "end_time": 1759707388.443608,
+    "result": {
+      "test_id": 5,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "List open alerts with total_score greater than 80",
+      "status": "success",
+      "validation_status": "valid",
+      "response_time_seconds": 11.83,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 463,
+      "response_text": "Based on the query results, there are currently no open alerts with a total score greater than 80 in the system. \nThis could mean either: \n1. All high-scoring alerts have been resolved and closed\n2. Current open alerts have scores below the 80 threshold\nWould you like to: \n- Check alerts with a lower score threshold\n- Include closed alerts in the search\n- View alerts from a specific time period\nPlease let me know if you'd like to modify the search criteria. \n",
+      "validation_notes": "Response appears valid",
+      "error_message": "",
+      "timestamp": "2025-10-05 19:36:16",
+      "session_id": "241af36c-f833-496e-b4f4-3a1c754275ed"
+    }
+  },
+  {
+    "test_id": 6,
+    "question_data": {
+      "id": 6,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show alerts for owner OWNER25",
+      "expected_behavior": "Should query cm_alerts with owner_id filter",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "owner_id = 'OWNER25'",
+      "tags": [
+        "alerts",
+        "owner",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_6"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Here are the alerts assigned ",
+        "chunk_index": 0,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to OWNER25: ",
+        "chunk_index": 1,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 2,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "1. Alert ID: STID1025_ACC102445\n",
+        "chunk_index": 3,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 4,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Step: Ready\n",
+        "chunk_index": 5,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Create Date: 2024-11-14\n",
+        "chunk_index": 6,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Total Score: 63\n",
+        "chunk_index": 7,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Details: Low price security was traded by account ACC1025\n",
+        "chunk_index": 8,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2. Alert ID: STID1025_ACC102446\n",
+        "chunk_index": 9,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 10,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Step: Ready\n",
+        "chunk_index": 11,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Create Date: 2024-11-14\n",
+        "chunk_index": 12,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Total Score: 63\n",
+        "chunk_index": 13,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Details: Low price security was traded by account ACC1025\n",
+        "chunk_index": 14,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "3. Alert ID: STID1025_ACC102449\n",
+        "chunk_index": 15,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 16,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Step: Ready\n",
+        "chunk_index": 17,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Create Date: 2024-11-14\n",
+        "chunk_index": 18,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Total Score: 63\n",
+        "chunk_index": 19,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Details: Low price security was traded by account ACC1025\n",
+        "chunk_index": 20,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "4. Alert ID: STID1025_ACC102499\n",
+        "chunk_index": 21,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 22,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Step: Ready\n",
+        "chunk_index": 23,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Create Date: 2024-11-14\n",
+        "chunk_index": 24,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Total Score: 63\n",
+        "chunk_index": 25,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Details: Low price security was traded by account ACC1025\n",
+        "chunk_index": 26,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "5. Alert ID: STID1025_ACC102500\n",
+        "chunk_index": 27,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 28,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Step: Ready\n",
+        "chunk_index": 29,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Create Date: 2024-11-14\n",
+        "chunk_index": 30,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Total Score: 63\n",
+        "chunk_index": 31,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Details: Low price security was traded by account ACC1025\n",
+        "chunk_index": 32,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "6. Alert ID: STID1025_ACC102447\n",
+        "chunk_index": 33,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Status: Open\n",
+        "chunk_index": 34,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Step: Ready\n",
+        "chunk_index": 35,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Create Date: 2024-11-14\n",
+        "chunk_index": 36,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Total Score: 63\n",
+        "chunk_index": 37,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "   - Details: Low price security was traded by account ACC1025\n",
+        "chunk_index": 38,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Summary: ",
+        "chunk_index": 39,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 40,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Total Alerts: 6\n",
+        "chunk_index": 41,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- All alerts are currently Open and in Ready step\n",
+        "chunk_index": 42,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- All alerts have a total score of 63\n",
+        "chunk_index": 43,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- All alerts are related to low price security trading in account ACC1025\n",
+        "chunk_index": 44,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- All alerts were created on November 14, 2024\n",
+        "chunk_index": 45,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Common characteristics: ",
+        "chunk_index": 46,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 47,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Alert Region: REG1\n",
+        "chunk_index": 48,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Alert Group: GROUP1\n",
+        "chunk_index": 49,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Organization: ORG1 (ID: 125)\n",
+        "chunk_index": 50,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Focus: Trade\n",
+        "chunk_index": 51,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Alert Type: tradereview\n",
+        "chunk_index": 52,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "- Focal Entity: STID1025\n",
+        "chunk_index": 53,
+        "id": "assistant_test_6"
+      },
+      {
+        "type": "stream_complete",
+        "id": "assistant_test_6"
+      }
+    ],
+    "start_time": 1759707389.44644,
+    "session_id": "ac4f945d-26ef-4145-846d-aa5db34a7596",
+    "end_time": 1759707406.158453,
+    "result": {
+      "test_id": 6,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "Show alerts for owner OWNER25",
+      "status": "success",
+      "validation_status": "valid",
+      "response_time_seconds": 16.71,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1524,
+      "response_text": "Here are the alerts assigned to OWNER25: \n1. Alert ID: STID1025_ACC102445\n   - Status: Open\n   - Step: Ready\n   - Create Date: 2024-11-14\n   - Total Score: 63\n   - Details: Low price security was traded by account ACC1025\n2. Alert ID: STID1025_ACC102446\n   - Status: Open\n   - Step: Ready\n   - Create Date: 2024-11-14\n   - Total Score: 63\n   - Details: Low price security was traded by account ACC1025\n3. Alert ID: STID1025_ACC102449\n   - Status: Open\n   - Step: Ready\n   - Create Date: 2024-11-14\n   - Total Score: 63\n   - Details: Low price security was traded by account ACC1025\n4. Alert ID: STID1025_ACC102499\n   - Status: Open\n   - Step: Ready\n   - Create Date: 2024-11-14\n   - Total Score: 63\n   - Details: Low price security was traded by account ACC1025\n5. Alert ID: STID1025_ACC102500\n   - Status: Open\n   - Step: Ready\n   - Create Date: 2024-11-14\n   - Total Score: 63\n   - Details: Low price security was traded by account ACC1025\n6. Alert ID: STID1025_ACC102447\n   - Status: Open\n   - Step: Ready\n   - Create Date: 2024-11-14\n   - Total Score: 63\n   - Details: Low price security was traded by account ACC1025\nSummary: \n- Total Alerts: 6\n- All alerts are currently Open and in Ready step\n- All alerts have a total score of 63\n- All alerts are related to low price security trading in account ACC1025\n- All alerts were created on November 14, 2024\nCommon characteristics: \n- Alert Region: REG1\n- Alert Group: GROUP1\n- Organization: ORG1 (ID: 125)\n- Focus: Trade\n- Alert Type: tradereview\n- Focal Entity: STID1025\n",
+      "validation_notes": "Response appears valid",
+      "error_message": "",
+      "timestamp": "2025-10-05 19:36:29",
+      "session_id": "ac4f945d-26ef-4145-846d-aa5db34a7596"
+    }
+  },
+  {
+    "test_id": 7,
+    "question_data": {
+      "id": 7,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "List trade review alerts that are in progress",
+      "expected_behavior": "Should query cm_alerts with alert_type and status filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "alert_type_id AND status",
+      "tags": [
+        "alerts",
+        "type",
+        "status",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_7"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Based on the query results, ",
+        "chunk_index": 0,
+        "id": "assistant_test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "there are currently no trade ",
+        "chunk_index": 1,
+        "id": "assistant_test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "review alerts in progress (with ",
+        "chunk_index": 2,
+        "id": "assistant_test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "'Open' status) in the system. ",
+        "chunk_index": 3,
+        "id": "assistant_test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 4,
+        "id": "assistant_test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Let me modify the query ",
+        "chunk_index": 5,
+        "id": "assistant_test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to check for any trade ",
+        "chunk_index": 6,
+        "id": "assistant_test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "review alerts regardless of status ",
+        "chunk_index": 7,
+        "id": "assistant_test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "to provide more context: ",
+        "chunk_index": 8,
+        "id": "assistant_test_7"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 9,
+        "id": "assistant_test_7"
+      },
+      {
+        "type": "stream_complete",
+        "id": "assistant_test_7"
+      }
+    ],
+    "start_time": 1759707407.160835,
+    "session_id": "05f252e4-d206-47b0-8ed0-19a309bfc947",
+    "end_time": 1759707417.963517,
+    "result": {
+      "test_id": 7,
+      "category": "alert_summary",
+      "complexity": "medium",
+      "question": "List trade review alerts that are in progress",
+      "status": "content_error",
+      "validation_status": "error_detected",
+      "response_time_seconds": 10.8,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 228,
+      "response_text": "Based on the query results, there are currently no trade review alerts in progress (with 'Open' status) in the system. \nLet me modify the query to check for any trade review alerts regardless of status to provide more context: \n",
+      "validation_notes": "Error message detected: 'Let me modify the query'",
+      "error_message": "",
+      "timestamp": "2025-10-05 19:36:47",
+      "session_id": "05f252e4-d206-47b0-8ed0-19a309bfc947"
+    }
+  },
+  {
+    "test_id": 8,
+    "question_data": {
+      "id": 8,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Show me alerts that were escalated in the last 30 days with critical severity",
+      "expected_behavior": "Should query cm_alerts with date range and severity filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "last_update_date AND severity",
+      "tags": [
+        "alerts",
+        "date",
+        "severity",
+        "escalation"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_8"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_8"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error ",
+        "chunk_index": 0,
+        "id": "assistant_test_8"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in my query. Let me ",
+        "chunk_index": 1,
+        "id": "assistant_test_8"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "modify it to use the ",
+        "chunk_index": 2,
+        "id": "assistant_test_8"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "correct syntax. ",
+        "chunk_index": 3,
+        "id": "assistant_test_8"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 4,
+        "id": "assistant_test_8"
+      },
+      {
+        "type": "stream_complete",
+        "id": "assistant_test_8"
+      }
+    ],
+    "start_time": 1759707418.9653351,
+    "session_id": "e317f8bd-c665-400c-aef3-7349741038f7",
+    "end_time": 1759707430.4439209,
+    "result": {
+      "test_id": 8,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Show me alerts that were escalated in the last 30 days with critical severity",
+      "status": "content_error",
+      "validation_status": "error_detected",
+      "response_time_seconds": 11.48,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 84,
+      "response_text": "I apologize for the error in my query. Let me modify it to use the correct syntax. \n",
+      "validation_notes": "Error message detected: 'I apologize for the error'",
+      "error_message": "",
+      "timestamp": "2025-10-05 19:36:58",
+      "session_id": "e317f8bd-c665-400c-aef3-7349741038f7"
+    }
+  },
+  {
+    "test_id": 9,
+    "question_data": {
+      "id": 9,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Find alerts created between Nov 1 and Nov 30, 2024 with status Open or Acknowledged",
+      "expected_behavior": "Should query cm_alerts with date range and multiple status filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "create_date BETWEEN AND status IN",
+      "tags": [
+        "alerts",
+        "date_range",
+        "status",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_9"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_9"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "I apologize for the error ",
+        "chunk_index": 0,
+        "id": "assistant_test_9"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "in my query. Let me ",
+        "chunk_index": 1,
+        "id": "assistant_test_9"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "modify the query to correctly ",
+        "chunk_index": 2,
+        "id": "assistant_test_9"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "fetch the alerts. ",
+        "chunk_index": 3,
+        "id": "assistant_test_9"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 4,
+        "id": "assistant_test_9"
+      },
+      {
+        "type": "stream_complete",
+        "id": "assistant_test_9"
+      }
+    ],
+    "start_time": 1759707431.448271,
+    "session_id": "7b884d4c-4a5c-43d3-a04e-2aaedaaea0ed",
+    "end_time": 1759707444.402127,
+    "result": {
+      "test_id": 9,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Find alerts created between Nov 1 and Nov 30, 2024 with status Open or Acknowledged",
+      "status": "content_error",
+      "validation_status": "error_detected",
+      "response_time_seconds": 12.95,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 95,
+      "response_text": "I apologize for the error in my query. Let me modify the query to correctly fetch the alerts. \n",
+      "validation_notes": "Error message detected: 'I apologize for the error'",
+      "error_message": "",
+      "timestamp": "2025-10-05 19:37:11",
+      "session_id": "7b884d4c-4a5c-43d3-a04e-2aaedaaea0ed"
+    }
+  },
+  {
+    "test_id": 10,
+    "question_data": {
+      "id": 10,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Show me alerts with multiple scenarios and total_score less than 70",
+      "expected_behavior": "Should query cm_alerts with has_multiple_scenario and score filters",
+      "expected_tools": [
+        "query_postgresql_cm_alerts"
+      ],
+      "expected_filters": "has_multiple_scenario = true AND total_score < 70",
+      "tags": [
+        "alerts",
+        "scenarios",
+        "score",
+        "filter"
+      ]
+    },
+    "messages": [
+      {
+        "type": "message_received",
+        "id": "test_10"
+      },
+      {
+        "type": "workflow_progress",
+        "node": "supervisor",
+        "id": "test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Here are the alerts with ",
+        "chunk_index": 0,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "multiple scenarios and total score ",
+        "chunk_index": 1,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "less than 70: ",
+        "chunk_index": 2,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 3,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| Alert ID | Focal ",
+        "chunk_index": 4,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Entity | Total Score | ",
+        "chunk_index": 5,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "Priority | Status | Created ",
+        "chunk_index": 6,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "At | ",
+        "chunk_index": 7,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 8,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "|----------|--------------|-------------|----------|---------|------------| ",
+        "chunk_index": 9,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 10,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| STID1025_ACC102445 | STID1025 | ",
+        "chunk_index": 11,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "63 | None | Open ",
+        "chunk_index": 12,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| 2024-11-14 | ",
+        "chunk_index": 13,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 14,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| STID1025_ACC102446 | STID1025 | ",
+        "chunk_index": 15,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "63 | None | Open ",
+        "chunk_index": 16,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| 2024-11-14 | ",
+        "chunk_index": 17,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 18,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| STID1025_ACC102449 | STID1025 | ",
+        "chunk_index": 19,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "63 | None | Open ",
+        "chunk_index": 20,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| 2024-11-14 | ",
+        "chunk_index": 21,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 22,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| STID1025_ACC102499 | STID1025 | ",
+        "chunk_index": 23,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "63 | priorityValue | Open ",
+        "chunk_index": 24,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| 2024-11-14 | ",
+        "chunk_index": 25,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 26,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| STID1025_ACC102500 | STID1025 | ",
+        "chunk_index": 27,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "63 | priorityValue | Open ",
+        "chunk_index": 28,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| 2024-11-14 | ",
+        "chunk_index": 29,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 30,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| STID1025_ACC102447 | STID1025 | ",
+        "chunk_index": 31,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "63 | None | Open ",
+        "chunk_index": 32,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| 2024-11-14 | ",
+        "chunk_index": 33,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 34,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| STID1021_ACC1021 | STID1021 | ",
+        "chunk_index": 35,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "69 | High | Open ",
+        "chunk_index": 36,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| 2025-01-03 | ",
+        "chunk_index": 37,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 38,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| STID1021_TRD1020 | STID1021 | ",
+        "chunk_index": 39,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "69 | High | Open ",
+        "chunk_index": 40,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "| 2025-08-07 | ",
+        "chunk_index": 41,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 42,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "ANALYSIS: ",
+        "chunk_index": 43,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 44,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\u2022 Distribution: Found 8 total ",
+        "chunk_index": 45,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts matching the criteria ",
+        "chunk_index": 46,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 47,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\u2022 Score Distribution: 6 alerts ",
+        "chunk_index": 48,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(75%) have score of 63, ",
+        "chunk_index": 49,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2 alerts (25%) have score ",
+        "chunk_index": 50,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "of 69 ",
+        "chunk_index": 51,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 52,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\u2022 Entity Concentration: STID1025 accounts ",
+        "chunk_index": 53,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "for 6 alerts (75%), STID1021 ",
+        "chunk_index": 54,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "accounts for 2 alerts (25%) ",
+        "chunk_index": 55,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 56,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\u2022 Priority Pattern: 4 alerts ",
+        "chunk_index": 57,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "(50%) have no priority set, ",
+        "chunk_index": 58,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "2 (25%) are marked as ",
+        "chunk_index": 59,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\"priorityValue\", and 2 (25%) are ",
+        "chunk_index": 60,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\"High\" priority ",
+        "chunk_index": 61,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 62,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\u2022 Temporal: All alerts for ",
+        "chunk_index": 63,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "STID1025 were created on the ",
+        "chunk_index": 64,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "same day (2024-11-14), while STID1021 ",
+        "chunk_index": 65,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "alerts span from January to ",
+        "chunk_index": 66,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "August 2025 ",
+        "chunk_index": 67,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 68,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\u2022 Status: 100% of alerts ",
+        "chunk_index": 69,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "are in \"Open\" status ",
+        "chunk_index": 70,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_chunk",
+        "content": "\n",
+        "chunk_index": 71,
+        "id": "assistant_test_10"
+      },
+      {
+        "type": "stream_complete",
+        "id": "assistant_test_10"
+      }
+    ],
+    "start_time": 1759707445.404351,
+    "session_id": "df903a06-1f82-444b-90e4-e29c384be826",
+    "end_time": 1759707468.405511,
+    "result": {
+      "test_id": 10,
+      "category": "alert_summary",
+      "complexity": "high",
+      "question": "Show me alerts with multiple scenarios and total_score less than 70",
+      "status": "success",
+      "validation_status": "valid",
+      "response_time_seconds": 23.0,
+      "tool_used": "",
+      "filter_applied": "",
+      "response_length": 1348,
+      "response_text": "Here are the alerts with multiple scenarios and total score less than 70: \n| Alert ID | Focal Entity | Total Score | Priority | Status | Created At | \n|----------|--------------|-------------|----------|---------|------------| \n| STID1025_ACC102445 | STID1025 | 63 | None | Open | 2024-11-14 | \n| STID1025_ACC102446 | STID1025 | 63 | None | Open | 2024-11-14 | \n| STID1025_ACC102449 | STID1025 | 63 | None | Open | 2024-11-14 | \n| STID1025_ACC102499 | STID1025 | 63 | priorityValue | Open | 2024-11-14 | \n| STID1025_ACC102500 | STID1025 | 63 | priorityValue | Open | 2024-11-14 | \n| STID1025_ACC102447 | STID1025 | 63 | None | Open | 2024-11-14 | \n| STID1021_ACC1021 | STID1021 | 69 | High | Open | 2025-01-03 | \n| STID1021_TRD1020 | STID1021 | 69 | High | Open | 2025-08-07 | \nANALYSIS: \n\u2022 Distribution: Found 8 total alerts matching the criteria \n\u2022 Score Distribution: 6 alerts (75%) have score of 63, 2 alerts (25%) have score of 69 \n\u2022 Entity Concentration: STID1025 accounts for 6 alerts (75%), STID1021 accounts for 2 alerts (25%) \n\u2022 Priority Pattern: 4 alerts (50%) have no priority set, 2 (25%) are marked as \"priorityValue\", and 2 (25%) are \"High\" priority \n\u2022 Temporal: All alerts for STID1025 were created on the same day (2024-11-14), while STID1021 alerts span from January to August 2025 \n\u2022 Status: 100% of alerts are in \"Open\" status \n",
+      "validation_notes": "Response appears valid",
+      "error_message": "",
+      "timestamp": "2025-10-05 19:37:25",
+      "session_id": "df903a06-1f82-444b-90e4-e29c384be826"
+    }
+  }
+]
