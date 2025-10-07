@@ -2,6 +2,20 @@
 
 FROM node:18-alpine AS builder
 
+# Accept build arguments from Railway
+ARG VITE_API_BASE_URL
+ARG VITE_WS_URL
+ARG VITE_API_PREFIX
+ARG VITE_APP_NAME
+ARG VITE_ENVIRONMENT
+
+# Make them available as environment variables during build
+ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
+ENV VITE_WS_URL=$VITE_WS_URL
+ENV VITE_API_PREFIX=$VITE_API_PREFIX
+ENV VITE_APP_NAME=$VITE_APP_NAME
+ENV VITE_ENVIRONMENT=$VITE_ENVIRONMENT
+
 WORKDIR /app
 
 # Copy package files
