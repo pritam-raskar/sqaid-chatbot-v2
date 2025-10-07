@@ -63,8 +63,10 @@ async def lifespan(app: FastAPI):
     # Try Anthropic first
     try:
         from app.llm.providers.anthropic_provider import AnthropicProvider
-        anthropic_key = get_settings().anthropic_api_key if hasattr(get_settings(), 'anthropic_api_key') else None
-        logger.info(f"Checking Anthropic API key: has_attr={hasattr(get_settings(), 'anthropic_api_key')}, key_length={len(anthropic_key) if anthropic_key else 0}")
+        import os
+        # Try getting from environment directly first (Pydantic might not be picking it up)
+        anthropic_key = os.getenv('ANTHROPIC_API_KEY') or (get_settings().anthropic_api_key if hasattr(get_settings(), 'anthropic_api_key') else None)
+        logger.info(f"Checking Anthropic API key: env_var={bool(os.getenv('ANTHROPIC_API_KEY'))}, has_attr={hasattr(get_settings(), 'anthropic_api_key')}, key_length={len(anthropic_key) if anthropic_key else 0}")
         if anthropic_key and anthropic_key.strip():
             llm_provider = AnthropicProvider(
                 api_key=anthropic_key,
