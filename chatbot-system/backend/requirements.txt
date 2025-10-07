@@ -1,63 +1,99 @@
-# Core Framework
-fastapi==0.109.0
-uvicorn[standard]==0.27.0
-websockets==12.0
-
-# LLM and AI Orchestration
-langchain==0.1.0
-langchain-core>=0.1.7,<0.2
-langchain-community>=0.0.28  # For SQL Agent toolkit
-langchain-anthropic>=0.3.21  # Anthropic provider for LangChain
-langgraph>=0.0.35  # Improved StateGraph and multi-agent support
-pydantic>=2.10.0
-pydantic-settings>=2.1.0
-numpy==1.26.3
-scikit-learn==1.4.0
-
-# Database Connectors
-sqlalchemy>=2.0.36
-oracledb==2.0.0
-asyncpg>=0.30.0
-redis==5.0.1
-
-# HTTP and Async
-httpx==0.26.0
 aiofiles==23.2.1
-tenacity==8.2.3
-zeep==4.2.1
-aiohttp>=3.9.0
-
-# Configuration
-pyyaml==6.0.1
-python-dotenv==1.0.0
-watchdog==3.0.0
-
-# Development Tools
+aiohappyeyeballs==2.6.1
+aiohttp==3.12.15
+aiosignal==1.4.0
+annotated-types==0.7.0
+anthropic==0.69.0
+anyio==4.11.0
+astroid==3.0.3
+asyncpg==0.30.0
+attrs==25.3.0
+bcrypt==5.0.0
 black==23.12.1
+certifi==2025.8.3
+cffi==2.0.0
+charset-normalizer==3.4.3
+click==8.3.0
+coverage==7.10.7
+cryptography==46.0.2
+dataclasses-json==0.6.7
+dill==0.4.0
+distro==1.9.0
+docstring_parser==0.17.0
+ecdsa==0.19.1
+fastapi==0.109.0
+frozenlist==1.7.0
+h11==0.16.0
+httpcore==1.0.9
+httptools==0.6.4
+httpx==0.26.0
+idna==3.10
+iniconfig==2.1.0
+isodate==0.7.2
+isort==5.13.2
+jiter==0.11.0
+joblib==1.5.2
+jsonpatch==1.33
+jsonpointer==3.0.0
+langchain==0.1.0
+langchain-community==0.0.10
+langchain-core==0.1.23
+langgraph==0.0.20
+langsmith==0.0.87
+lxml==6.0.2
+marshmallow==3.26.1
+mccabe==0.7.0
+multidict==6.6.4
+mypy_extensions==1.1.0
+numpy==1.26.3
+oracledb==2.0.0
+packaging==23.2
+passlib==1.7.4
+pathspec==0.12.1
+platformdirs==4.4.0
+pluggy==1.6.0
+propcache==0.3.2
+psycopg2==2.9.10
+pyasn1==0.6.1
+pycparser==2.23
+pydantic==2.11.9
+pydantic-settings==2.11.0
+pydantic_core==2.33.2
 pylint==3.0.3
 pytest==7.4.4
 pytest-asyncio==0.21.1
 pytest-cov==4.1.0
 pytest-mock==3.12.0
-websocket-client==1.7.0
-
-# Security
-python-jose[cryptography]==3.3.0
-passlib[bcrypt]==1.7.4
-python-multipart==0.0.6
-
-# Utilities
+python-dotenv==1.0.0
+python-jose==3.3.0
 python-json-logger==2.0.7
-tqdm>=4.67.0  # Progress bar for bulk testing
-
-# LLM Provider SDKs
-anthropic>=0.69.0  # Official Anthropic SDK (Claude)
-# openai==1.10.0  # Official OpenAI SDK (uncomment if needed)
-# litellm==1.17.0  # Unified LLM interface (100+ providers)
-
-# Optional Observability (for production)
-# sentry-sdk[fastapi]==1.40.0  # Error tracking
-# prometheus-client==0.19.0  # Metrics
-# opentelemetry-api==1.22.0  # Distributed tracing
-# opentelemetry-sdk==1.22.0
-# opentelemetry-instrumentation-fastapi==0.43b0
+python-multipart==0.0.6
+pytz==2025.2
+PyYAML==6.0.1
+redis==5.0.1
+requests==2.32.5
+requests-file==2.1.0
+requests-toolbelt==1.0.0
+rsa==4.9.1
+scikit-learn==1.4.0
+scipy==1.16.2
+six==1.17.0
+sniffio==1.3.1
+SQLAlchemy==2.0.43
+starlette==0.35.1
+tenacity==8.2.3
+threadpoolctl==3.6.0
+tomlkit==0.13.3
+tqdm==4.67.1
+typing-inspect==0.9.0
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+urllib3==2.5.0
+uvicorn==0.27.0
+uvloop==0.21.0
+watchdog==3.0.0
+watchfiles==1.1.0
+websocket-client==1.7.0
+websockets==12.0
+yarl==1.20.1
+zeep==4.2.1
