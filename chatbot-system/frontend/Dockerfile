@@ -10,8 +10,11 @@ COPY package.json ./
 # Install dependencies
 RUN npm install
 
-# Copy application code
+# Copy application code (excluding .env via .dockerignore)
 COPY . .
+
+# Debug: List env vars during build to verify Railway variables are present
+RUN echo "Build-time VITE_WS_URL: ${VITE_WS_URL}"
 
 # Build the application
 RUN npm run build
