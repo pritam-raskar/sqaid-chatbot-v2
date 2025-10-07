@@ -2,6 +2,20 @@
 
 FROM python:3.11-slim
 
+# Accept Railway environment variables as build arguments (required for build-time access)
+ARG ANTHROPIC_API_KEY
+ARG ANTHROPIC_MODEL
+ARG ANTHROPIC_BASE_URL
+ARG ANTHROPIC_TIMEOUT
+ARG ANTHROPIC_MAX_RETRIES
+
+# Make them available as environment variables at runtime
+ENV ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY \
+    ANTHROPIC_MODEL=$ANTHROPIC_MODEL \
+    ANTHROPIC_BASE_URL=$ANTHROPIC_BASE_URL \
+    ANTHROPIC_TIMEOUT=$ANTHROPIC_TIMEOUT \
+    ANTHROPIC_MAX_RETRIES=$ANTHROPIC_MAX_RETRIES
+
 WORKDIR /app
 
 # Install system dependencies
