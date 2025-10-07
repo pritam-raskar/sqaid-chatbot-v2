@@ -23,7 +23,7 @@ const ChatContainer: React.FC<ChatContainerProps> = ({
   pageContext,
   onAction,
   initialSessionId,
-  wsUrl = 'ws://localhost:8000/ws/chat'
+  wsUrl = import.meta.env.VITE_WS_URL || 'ws://localhost:8000/ws/chat'
 }) => {
   // Step 1: State Management
   const [messages, setMessages] = useState<Message[]>([]);
