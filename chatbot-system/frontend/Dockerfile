@@ -25,11 +25,13 @@ RUN apk add --no-cache gettext
 # Copy built files to nginx
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy nginx configuration template
+# Copy nginx configuration template and startup script
 COPY nginx.conf /etc/nginx/templates/default.conf.template
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
 
 # Expose port (Railway uses $PORT)
 EXPOSE 80
 
-# Start nginx with envsubst for PORT variable
-CMD /bin/sh -c "envsubst '\$PORT' < /etc/nginx/templates/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+# Start nginx using startup script
+CMD ["/start.sh"]
