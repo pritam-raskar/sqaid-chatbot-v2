@@ -64,6 +64,7 @@ async def lifespan(app: FastAPI):
     try:
         from app.llm.providers.anthropic_provider import AnthropicProvider
         anthropic_key = get_settings().anthropic_api_key if hasattr(get_settings(), 'anthropic_api_key') else None
+        logger.info(f"Checking Anthropic API key: has_attr={hasattr(get_settings(), 'anthropic_api_key')}, key_length={len(anthropic_key) if anthropic_key else 0}")
         if anthropic_key and anthropic_key.strip():
             llm_provider = AnthropicProvider(
                 api_key=anthropic_key,
