@@ -146,7 +146,9 @@ class ToolInitializer:
         """
         try:
             # Extract endpoint path from full URL
-            endpoint_path = endpoint_def.url.split(endpoint_loader.config.default_base_url)[-1]
+            from urllib.parse import urlparse
+            parsed_url = urlparse(endpoint_def.url)
+            endpoint_path = parsed_url.path if parsed_url.path else endpoint_def.url
 
             # Create configured REST tool for this endpoint
             tool = ConfiguredRESTTool(

@@ -58,11 +58,9 @@ class ConfiguredRESTTool(BaseTool):
                     body: Optional[str] = None, run_manager=None) -> str:
         """Execute REST API call with pre-configured endpoint"""
         try:
-            # Use configured values if not provided
-            if not endpoint:
-                endpoint = self.endpoint_url
-            if not method:
-                method = self.http_method
+            # Always use pre-configured endpoint and method (ignore LLM's suggestions)
+            endpoint = self.endpoint_url
+            method = self.http_method
 
             # Initialize adapter if not set
             if not self.api_adapter:
@@ -107,7 +105,7 @@ class ConfiguredRESTTool(BaseTool):
 
             # Call API
             if method.upper() == "GET":
-                response = await self.api_adapter.query(endpoint, params=query_params)
+                response = await self.api_adapter.get(endpoint, params=query_params)
             elif method.upper() in ["POST", "PUT", "PATCH"]:
                 response = await self.api_adapter.execute(
                     endpoint,
@@ -169,9 +167,8 @@ class ConfiguredSOAPTool(BaseTool):
     async def _arun(self, action: str = "", parameters: str = "", run_manager=None) -> str:
         """Execute SOAP call with pre-configured operation"""
         try:
-            # Use configured operation if not provided
-            if not action:
-                action = self.operation_name
+            # Always use pre-configured operation (ignore LLM's suggestions)
+            action = self.operation_name
 
             if not self.soap_adapter:
                 return "Error: SOAP adapter not configured"
@@ -201,7 +198,7 @@ class ConfiguredSOAPTool(BaseTool):
                     logger.info(f"Generated SOAP params: {params}")
 
             # Call SOAP service
-            response = await self.soap_adapter.query(action, **params)
+            response = await self.soap_adapter.call_method(action, **params)
 
             # Format response
             if isinstance(response, dict) or isinstance(response, list):

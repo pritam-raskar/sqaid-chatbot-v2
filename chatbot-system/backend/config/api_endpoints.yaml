@@ -7,87 +7,348 @@ endpoints:
   # CASE MANAGEMENT ENDPOINTS
   # ========================================================================
 
-  - name: "search_cases"
-    description: "Search for cases, tickets, bugs, or issues based on criteria like status, priority, assigned user, date range, or keywords. Use this when user wants to find, list, or filter cases."
-    url: "${BASE_URL}/api/v1/cases/search"
-    method: "POST"
-    requires_auth: true
+  - name: "get_alerts"
+    description: "Retrieve a list of alerts with summary information including alert details, status, scores, ownership, workflow steps, organization details, and associated entities. Returns comprehensive alert data with all fields such as alert ID, type, dates, focal entity, region, scores, owner information, workflow status, custom fields, and reason details. Use this when user asks about alerts, wants to see alert lists, query alert information, check alert status, view alert details, find alerts by any criteria, or needs information about alert scores, owners, regions, organizations, or related entities like customers, accounts, or trades."
+    url: "${BASE_URL}/alerts/active"
+    method: "GET"
+    requires_auth: false
 
     # Parameter metadata for FilterGenerator (natural language support)
     parameter_metadata:
       status:
         type: "string"
-        possible_values: ["open", "closed", "pending", "in_progress", "resolved"]
+        possible_values: ["Open", "Closed"]
         case_sensitive: false
-        description: "Case status filter"
+        description: "Alert status filter - whether alert is currently open or closed"
       priority:
         type: "string"
-        possible_values: ["low", "medium", "high", "critical"]
+        possible_values: ["Critical", "High", "Medium", "Low"]
         case_sensitive: false
-        description: "Priority level filter"
-      assigned_to:
+        description: "Alert priority level filter"
+      alert_type_id:
         type: "string"
-        description: "User ID or email of person assigned to the case"
-      date_from:
+        description: "Alert type identifier (e.g., 'tradereview', 'suspicious_activity')"
+      owner_id:
+        type: "string"
+        description: "User ID of the alert owner or person responsible"
+      owner_name:
+        type: "string"
+        description: "Name of the alert owner"
+      focal_entity:
+        type: "string"
+        description: "Primary entity or subject of the alert (e.g., trade ID, account ID, customer ID)"
+      focus:
+        type: "string"
+        possible_values: ["Trade", "Account", "Customer", "Transaction"]
+        description: "Focus area of the alert"
+      alert_region:
+        type: "string"
+        description: "Geographic or business region where alert originated"
+      org_unit_id:
+        type: "string"
+        description: "Organizational unit identifier"
+      org_family:
+        type: "string"
+        description: "Organization family or hierarchy"
+      total_score_min:
+        type: "numeric"
+        range: [0, 1000]
+        description: "Minimum alert risk score threshold"
+      total_score_max:
+        type: "numeric"
+        range: [0, 1000]
+        description: "Maximum alert risk score threshold"
+      alert_step_id:
+        type: "string"
+        description: "Current workflow step identifier"
+      alert_step_name:
+        type: "string"
+        description: "Current workflow step name"
+      is_active:
+        type: "boolean"
+        description: "Filter for active or inactive alerts"
+      is_case_created:
+        type: "boolean"
+        description: "Filter alerts by whether a case has been created"
+      is_deleted:
+        type: "boolean"
+        description: "Include or exclude deleted alerts"
+      is_consolidated:
+        type: "boolean"
+        description: "Filter for consolidated alerts"
+      has_multiple_scenario:
+        type: "boolean"
+        description: "Filter alerts with multiple scenarios"
+      create_date_from:
         type: "date"
-        description: "Start date for case search (YYYY-MM-DD)"
-      date_to:
+        description: "Start date for alert creation date search (YYYY-MM-DD)"
+      create_date_to:
         type: "date"
-        description: "End date for case search (YYYY-MM-DD)"
+        description: "End date for alert creation date search (YYYY-MM-DD)"
+      business_date_from:
+        type: "date"
+        description: "Start date for business date search (YYYY-MM-DD)"
+      business_date_to:
+        type: "date"
+        description: "End date for business date search (YYYY-MM-DD)"
+      last_update_date_from:
+        type: "datetime"
+        description: "Start datetime for last update filter"
+      last_update_date_to:
+        type: "datetime"
+        description: "End datetime for last update filter"
+      customer_id:
+        type: "string"
+        description: "Customer identifier from custom fields"
+      account_id:
+        type: "string"
+        description: "Account identifier from custom fields"
+      transaction_id:
+        type: "string"
+        description: "Transaction identifier"
+      branch_id:
+        type: "string"
+        description: "Branch identifier"
+      representative_id:
+        type: "string"
+        description: "Representative or advisor identifier"
       keyword:
         type: "string"
-        description: "Search keyword in title or description"
+        description: "Search keyword in alert details, description, or focal entity"
       limit:
         type: "integer"
-        description: "Maximum number of results"
+        description: "Maximum number of results to return"
         default: 50
+      offset:
+        type: "integer"
+        description: "Number of results to skip for pagination"
+        default: 0
+      sort_by:
+        type: "string"
+        possible_values: ["create_date", "total_score", "last_update_date", "business_date", "alert_id"]
+        description: "Field to sort results by"
+        default: "create_date"
+      sort_order:
+        type: "string"
+        possible_values: ["asc", "desc"]
+        description: "Sort order - ascending or descending"
+        default: "desc"
 
     parameters:
       - name: "status"
         type: "string"
-        description: "Case status (open, closed, pending, in_progress, resolved)"
+        description: "Alert status (Open, Closed)"
         required: false
         in: "body"
       - name: "priority"
         type: "string"
-        description: "Case priority (low, medium, high, critical)"
+        description: "Alert priority level (Critical, High, Medium, Low)"
         required: false
         in: "body"
-      - name: "assigned_to"
+      - name: "alert_type_id"
         type: "string"
-        description: "User ID, email, or name of person assigned to the case"
+        description: "Alert type identifier to filter by specific alert types"
         required: false
         in: "body"
-      - name: "date_from"
-        type: "date"
-        description: "Start date for case search (YYYY-MM-DD)"
+      - name: "owner_id"
+        type: "string"
+        description: "User ID of the alert owner"
         required: false
         in: "body"
-      - name: "date_to"
+      - name: "owner_name"
+        type: "string"
+        description: "Name of the alert owner for text search"
+        required: false
+        in: "body"
+      - name: "focal_entity"
+        type: "string"
+        description: "Primary entity the alert is focused on (trade ID, customer ID, etc.)"
+        required: false
+        in: "body"
+      - name: "focus"
+        type: "string"
+        description: "Focus area of the alert (Trade, Account, Customer, Transaction)"
+        required: false
+        in: "body"
+      - name: "alert_region"
+        type: "string"
+        description: "Geographic or business region filter"
+        required: false
+        in: "body"
+      - name: "org_unit_id"
+        type: "string"
+        description: "Organizational unit identifier"
+        required: false
+        in: "body"
+      - name: "org_family"
+        type: "string"
+        description: "Organization family or hierarchy classification"
+        required: false
+        in: "body"
+      - name: "total_score_min"
+        type: "number"
+        description: "Minimum alert risk score (0-1000)"
+        required: false
+        in: "body"
+      - name: "total_score_max"
+        type: "number"
+        description: "Maximum alert risk score (0-1000)"
+        required: false
+        in: "body"
+      - name: "alert_step_id"
+        type: "string"
+        description: "Current workflow step identifier"
+        required: false
+        in: "body"
+      - name: "alert_step_name"
+        type: "string"
+        description: "Current workflow step name"
+        required: false
+        in: "body"
+      - name: "is_active"
+        type: "boolean"
+        description: "Filter for active (true) or inactive (false) alerts"
+        required: false
+        in: "body"
+      - name: "is_case_created"
+        type: "boolean"
+        description: "Filter alerts where a case has been created (true) or not (false)"
+        required: false
+        in: "body"
+      - name: "is_deleted"
+        type: "boolean"
+        description: "Include deleted alerts (true) or exclude them (false)"
+        required: false
+        default: false
+        in: "body"
+      - name: "is_consolidated"
+        type: "boolean"
+        description: "Filter for consolidated alerts"
+        required: false
+        in: "body"
+      - name: "has_multiple_scenario"
+        type: "boolean"
+        description: "Filter alerts with multiple scenarios"
+        required: false
+        in: "body"
+      - name: "create_date_from"
         type: "date"
-        description: "End date for case search (YYYY-MM-DD)"
+        description: "Start date for alert creation date range (YYYY-MM-DD)"
+        required: false
+        in: "body"
+      - name: "create_date_to"
+        type: "date"
+        description: "End date for alert creation date range (YYYY-MM-DD)"
+        required: false
+        in: "body"
+      - name: "business_date_from"
+        type: "date"
+        description: "Start date for business date range (YYYY-MM-DD)"
+        required: false
+        in: "body"
+      - name: "business_date_to"
+        type: "date"
+        description: "End date for business date range (YYYY-MM-DD)"
+        required: false
+        in: "body"
+      - name: "last_update_date_from"
+        type: "datetime"
+        description: "Start datetime for last update filter (ISO 8601 format)"
+        required: false
+        in: "body"
+      - name: "last_update_date_to"
+        type: "datetime"
+        description: "End datetime for last update filter (ISO 8601 format)"
+        required: false
+        in: "body"
+      - name: "customer_id"
+        type: "string"
+        description: "Customer identifier to find alerts related to specific customer"
+        required: false
+        in: "body"
+      - name: "account_id"
+        type: "string"
+        description: "Account number or identifier"
+        required: false
+        in: "body"
+      - name: "transaction_id"
+        type: "string"
+        description: "Transaction identifier"
+        required: false
+        in: "body"
+      - name: "branch_id"
+        type: "string"
+        description: "Branch identifier"
+        required: false
+        in: "body"
+      - name: "representative_id"
+        type: "string"
+        description: "Representative or financial advisor identifier"
         required: false
         in: "body"
       - name: "keyword"
         type: "string"
-        description: "Search keyword in title or description"
+        description: "Search keyword to find in alert details, description, or focal entity"
         required: false
         in: "body"
       - name: "limit"
         type: "integer"
-        description: "Maximum number of results"
+        description: "Maximum number of results to return (default: 50)"
         required: false
         default: 50
         in: "body"
+      - name: "offset"
+        type: "integer"
+        description: "Number of results to skip for pagination (default: 0)"
+        required: false
+        default: 0
+        in: "body"
+      - name: "sort_by"
+        type: "string"
+        description: "Field to sort results by (create_date, total_score, last_update_date, business_date, alert_id)"
+        required: false
+        default: "create_date"
+        in: "body"
+      - name: "sort_order"
+        type: "string"
+        description: "Sort order: 'asc' for ascending, 'desc' for descending (default: desc)"
+        required: false
+        default: "desc"
+        in: "body"
+
     response_format:
       type: "array"
       item_schema:
-        case_id: "string"
-        title: "string"
+        id: "string"
+        alertId: "string"
+        createDate: "date"
+        lastUpdateDate: "datetime"
+        totalScore: "number"
+        createdBy: "string"
+        businessDate: "date"
+        focalEntity: "string"
+        focus: "string"
+        alertTypeId: "string"
+        alertRegion: "string"
+        alertGroupId: "string"
+        isConsolidated: "boolean"
+        isActive: "boolean"
+        hasMultipleScenario: "boolean"
+        isDeleted: "boolean"
+        orgUnitId: "string"
+        orgFamily: "string"
+        previousOrgUnitId: "string"
+        isOrgUnitUpdated: "boolean"
+        isRelatedAlert: "boolean"
+        ownerId: "string"
+        ownerName: "string"
         status: "string"
-        priority: "string"
-        assigned_to: "string"
-        created_at: "datetime"
+        alertStepId: "string"
+        alertStepName: "string"
+        isCaseCreated: "boolean"
+        details: "string"
+        reasonDetails: "object"
+        customFields: "object"
 
   - name: "get_case_details"
     description: "Get detailed information about a specific case by ID, including full description, comments, attachments, and history. Use this when user asks about a specific case."
@@ -282,7 +543,7 @@ authentication:
   token_prefix: "Bearer"  # Prefix for token (e.g., "Bearer <token>")
 
 # Base URL Configuration
-base_url_env_var: "API_BASE_URL"  # Environment variable for base URL
+base_url_env_var: "REST_API_BASE_URL"  # Environment variable for base URL
 default_base_url: "http://localhost:8000"  # Fallback base URL
 
 # Global Settings

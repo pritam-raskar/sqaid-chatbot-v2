@@ -54,7 +54,13 @@ class DatabaseConfig(BaseModel):
     """Configuration for a single database"""
     connection_env_vars: Dict[str, str]
     default_schema: Optional[str] = None  # Default schema for this database
-    tables: List[TableDefinition]
+    tables: Optional[List[TableDefinition]] = None  # Optional tables list
+
+    def __init__(self, **data):
+        # Convert None to empty list for tables
+        if data.get('tables') is None:
+            data['tables'] = []
+        super().__init__(**data)
 
 
 class DatabaseSchemaConfig(BaseModel):

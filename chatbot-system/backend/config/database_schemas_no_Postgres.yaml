@@ -1,0 +1,57 @@
+# Database Schema Configuration
+# Define tables with semantic descriptions for LLM understanding
+
+databases:
+  # ========================================================================
+  # ORACLE DATABASE
+  # ========================================================================
+  oracle:
+    connection_env_vars:
+      host: "ORACLE_HOST"
+      port: "ORACLE_PORT"
+      service_name: "ORACLE_SERVICE_NAME"
+      user: "ORACLE_USER"
+      password: "ORACLE_PASSWORD"
+
+    # Default schema for Oracle (optional - if not specified, uses default schema for the user)
+    default_schema: "SECURITY"
+
+    views:
+      - name: "alert_positions"
+        schema: "SECURITY"  # Oracle schema name
+        description: "Geographic positions and locations of security alerts, including latitude, longitude, and timestamp. Use this when user asks about alert locations, coordinates, positions, or where alerts occurred."
+        keywords: ["position", "location", "coordinates", "latitude", "longitude", "alert location", "geography", "where"]
+        primary_key: "alert_id"
+        searchable_columns: ["alert_id", "lat", "lon", "timestamp"]
+        common_joins:
+          - table: "alerts"
+            schema: "SECURITY"
+            join_on: "alert_id"
+            description: "Join with alerts table to get alert details"
+        column_metadata:
+          alert_id:
+            type: "bigint"
+            description: "Unique sequential identifier for the alert record"
+            nullable: false
+
+
+  # ========================================================================
+  # POSTGRESQL DATABASE
+  # ========================================================================
+  postgresql:
+    connection_env_vars:
+      host: "POSTGRES_HOST"
+      port: "POSTGRES_PORT"
+      database: "POSTGRES_DB"
+      user: "POSTGRES_USER"
+      password: "POSTGRES_PASSWORD"
+
+    # Default schema for PostgreSQL (defaults to 'public' if not specified)
+    default_schema: "public"
+
+    tables:
+
+# Global Database Settings
+query_timeout: 30
+max_results_default: 100
+enable_query_logging: true
