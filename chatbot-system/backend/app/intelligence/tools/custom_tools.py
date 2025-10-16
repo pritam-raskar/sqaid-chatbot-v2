@@ -107,7 +107,7 @@ class ConfiguredRESTTool(BaseTool):
 
             # Call API
             if method.upper() == "GET":
-                response = await self.api_adapter.query(endpoint, params=query_params)
+                response = await self.api_adapter.get(endpoint, params=query_params)
             elif method.upper() in ["POST", "PUT", "PATCH"]:
                 response = await self.api_adapter.execute(
                     endpoint,
