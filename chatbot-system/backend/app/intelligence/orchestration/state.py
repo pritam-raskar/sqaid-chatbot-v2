@@ -307,9 +307,13 @@ class StateHelper:
         # Advance to next step
         next_idx = current_idx + 1
 
+        # Determine if there are more steps to continue
+        has_more_steps = next_idx < len(plan["steps"])
+
         return {
             "execution_plan": plan,
-            "current_step_index": next_idx
+            "current_step_index": next_idx,
+            "should_continue": has_more_steps
         }
 
     @staticmethod
