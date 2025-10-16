@@ -398,7 +398,7 @@ authentication:
 
 # Base URL Configuration
 base_url_env_var: "REST_API_BASE_URL"  # Environment variable for base URL
-default_base_url: "http://localhost:8000"  # Fallback base URL
+default_base_url: "http://52.55.66.63:8081"  # Fallback base URL
 
 # Global Settings
 timeout: 30  # Request timeout in seconds
