@@ -7,200 +7,337 @@ endpoints:
   # CASE MANAGEMENT ENDPOINTS
   # ========================================================================
 
-  - name: "search_cases"
-    description: "Search for cases, tickets, bugs, or issues based on criteria like status, priority, assigned user, date range, or keywords. Use this when user wants to find, list, or filter cases."
-    url: "${BASE_URL}/api/v1/cases/search"
-    method: "POST"
+  - name: "get_case_alerts"
+    description: "Retrieve all alerts associated with a specific case ID. This endpoint returns detailed alert information for alerts that belong to a particular case, including risk scores, scenario analysis, customer profiles, account information, financial advisor details, AML checks, transaction patterns, and compliance review history. This endpoint is CASE-CENTRIC and requires a case ID to fetch its associated alerts. Use this endpoint when the user asks about: 'alerts in case X', 'what alerts are in this case', 'show me alerts for case 12345', 'alert details for a specific case', 'what triggered this case', or 'alerts associated with case number ABC'. DO NOT use this endpoint to get a single alert by alert ID alone (use a different endpoint for that). DO NOT use this for listing multiple cases. This endpoint requires the case ID as a path parameter which will be replaced at runtime."
+    url: "${BASE_URL}/cases/{caseId}/alerts"
+    method: "GET"
+    requires_auth: true
+
+    # Parameter metadata for FilterGenerator (natural language support)
+    parameter_metadata:
+      caseId:
+        type: "string"
+        description: "Case identifier - REQUIRED path parameter that identifies which case's alerts to retrieve"
+        required: true
+      status:
+        type: "string"
+        possible_values: ["Open", "Closed", "In Progress", "Under Review", "Resolved"]
+        case_sensitive: false
+        description: "Filter alerts by status"
+      priority:
+        type: "string"
+        possible_values: ["Low", "Medium", "High", "Critical"]
+        case_sensitive: false
+        description: "Filter alerts by priority level"
+      alertTypeId:
+        type: "string"
+        description: "Filter by alert type identifier (e.g., customer-review, transaction-monitoring)"
+      focalEntity:
+        type: "string"
+        possible_values: ["Customer", "Account", "Transaction", "Branch", "Representative"]
+        description: "Filter by focal entity type"
+      isActive:
+        type: "boolean"
+        description: "Filter active vs inactive alerts"
+        default: true
+      limit:
+        type: "integer"
+        description: "Maximum number of alerts to return"
+        default: 50
+      offset:
+        type: "integer"
+        description: "Number of alerts to skip for pagination"
+        default: 0
+
+    parameters:
+      - name: "caseId"
+        type: "string"
+        description: "Case identifier - REQUIRED path parameter to identify which case's alerts to retrieve"
+        required: true
+        in: "path"
+      - name: "status"
+        type: "string"
+        description: "Filter alerts by status (Open, Closed, In Progress, Under Review, Resolved)"
+        required: false
+        in: "query"
+      - name: "priority"
+        type: "string"
+        description: "Filter alerts by priority level (Low, Medium, High, Critical)"
+        required: false
+        in: "query"
+      - name: "alertTypeId"
+        type: "string"
+        description: "Filter by alert type identifier"
+        required: false
+        in: "query"
+      - name: "focalEntity"
+        type: "string"
+        description: "Filter by focal entity type (Customer, Account, Transaction, Branch, Representative)"
+        required: false
+        in: "query"
+      - name: "isActive"
+        type: "boolean"
+        description: "Filter active vs inactive alerts"
+        required: false
+        default: true
+        in: "query"
+      - name: "limit"
+        type: "integer"
+        description: "Maximum number of alerts to return"
+        required: false
+        default: 50
+        in: "query"
+      - name: "offset"
+        type: "integer"
+        description: "Number of alerts to skip for pagination"
+        required: false
+        default: 0
+        in: "query"
+
+    response_format:
+      type: "array"
+      item_schema:
+        id: "string"
+        alertId: "string"
+        createDate: "datetime"
+        lastUpdateDate: "datetime"
+        totalScore: "number"
+        createdBy: "string"
+        businessDate: "datetime"
+        focalEntity: "string"
+        focus: "string"
+        alertTypeId: "string"
+        alertRegion: "string"
+        alertGroupId: "string"
+        isConsolidated: "boolean"
+        isActive: "boolean"
+        hasMultipleScenario: "boolean"
+        isDeleted: "boolean"
+        orgUnitId: "string"
+        orgFamily: "string"
+        previousOrgUnitId: "string"
+        isOrgUnitUpdated: "boolean"
+        isRelatedAlert: "boolean"
+        ownerId: "string"
+        ownerName: "string"
+        status: "string"
+        alertStepId: "string"
+        alertStepName: "string"
+        isCaseCreated: "boolean"
+        details: "string"
+        pivot: "string"
+        accountId: "string"
+        transactionId: "string"
+        customerId: "string"
+        houseHoldId: "string"
+        priority: "string"
+        tag: "string"
+        branchId: "string"
+        representativeId: "string"
+        buildingBlock: "string"
+        representativeName: "string"
+        lastStepUpdatedDate: "datetime"
+        dueIn: "string"
+        deadLine: "datetime"
+        branchName: "string"
+        customerName: "string"
+        accountName: "string"
+        scenarioModelIds: "string"
+        scenarioModelNames: "string"
+        alertTypeName: "string"
+        alertSource: "string"
+        reasonDetails: "object"
+        customFields: "object"
+        createdAt: "datetime"
+        updatedAt: "datetime"
+      description: "Array of alerts belonging to the specified case. Each alert includes comprehensive detail with nested reasonDetails (scenarios with risk scores, thresholds, actual values) and customFields (customer profile, account info, financial advisor details, risk assessment, review history, AML checks, transaction patterns)"
+
+  - name: "list_all_cases"
+    description: "Retrieve a comprehensive list of all cases with summary-level information including case metadata, workflow details, customer/account associations, and risk indicators. This endpoint provides overview data across multiple cases and should be used when the user asks questions about multiple cases, case overviews, case listings, or general case information. DO NOT use this endpoint for detailed single-case queries or when the user needs alert-specific information associated with individual cases. Best for: browsing cases, comparing multiple cases, getting case summaries, viewing case portfolios, filtering by case attributes (status, priority, type, region, organization), or analyzing case distributions."
+    url: "${BASE_URL}/cases"
+    method: "GET"
     requires_auth: true
 
     # Parameter metadata for FilterGenerator (natural language support)
     parameter_metadata:
       status:
         type: "string"
-        possible_values: ["open", "closed", "pending", "in_progress", "resolved"]
+        possible_values: ["Open", "Closed", "In Progress", "Pending", "Resolved"]
         case_sensitive: false
-        description: "Case status filter"
+        description: "Filter cases by current status"
       priority:
         type: "string"
-        possible_values: ["low", "medium", "high", "critical"]
+        possible_values: ["LOW", "MEDIUM", "HIGH", "CRITICAL"]
         case_sensitive: false
-        description: "Priority level filter"
-      assigned_to:
+        description: "Filter by case priority level"
+      caseType:
         type: "string"
-        description: "User ID or email of person assigned to the case"
-      date_from:
-        type: "date"
-        description: "Start date for case search (YYYY-MM-DD)"
-      date_to:
-        type: "date"
-        description: "End date for case search (YYYY-MM-DD)"
-      keyword:
+        description: "Filter by case type or category (e.g., account-review, transaction-monitoring)"
+      orgFamily:
         type: "string"
-        description: "Search keyword in title or description"
+        description: "Filter by organization family (e.g., RETAIL_BANKING, CORPORATE_BANKING)"
+      businessRegion:
+        type: "string"
+        description: "Filter by business region (e.g., North America, Europe, Asia Pacific)"
+      isActive:
+        type: "boolean"
+        description: "Filter active vs inactive cases"
+        default: true
+      ownerId:
+        type: "string"
+        description: "Filter by case owner ID"
+      customerId:
+        type: "string"
+        description: "Filter by customer ID"
+      accountId:
+        type: "string"
+        description: "Filter by account ID"
+      focalEntity:
+        type: "string"
+        possible_values: ["customer", "account", "transaction", "branch", "representative"]
+        description: "Filter by focal entity type"
       limit:
         type: "integer"
-        description: "Maximum number of results"
-        default: 50
+        description: "Maximum number of cases to return"
+        default: 100
+      offset:
+        type: "integer"
+        description: "Number of cases to skip for pagination"
+        default: 0
 
     parameters:
       - name: "status"
         type: "string"
-        description: "Case status (open, closed, pending, in_progress, resolved)"
+        description: "Filter cases by current status (Open, Closed, In Progress, Pending, Resolved)"
         required: false
-        in: "body"
+        in: "query"
       - name: "priority"
         type: "string"
-        description: "Case priority (low, medium, high, critical)"
+        description: "Filter by case priority level (LOW, MEDIUM, HIGH, CRITICAL)"
         required: false
-        in: "body"
-      - name: "assigned_to"
+        in: "query"
+      - name: "caseType"
         type: "string"
-        description: "User ID, email, or name of person assigned to the case"
+        description: "Filter by case type or category"
         required: false
-        in: "body"
-      - name: "date_from"
-        type: "date"
-        description: "Start date for case search (YYYY-MM-DD)"
-        required: false
-        in: "body"
-      - name: "date_to"
-        type: "date"
-        description: "End date for case search (YYYY-MM-DD)"
-        required: false
-        in: "body"
-      - name: "keyword"
+        in: "query"
+      - name: "orgFamily"
         type: "string"
-        description: "Search keyword in title or description"
+        description: "Filter by organization family"
         required: false
-        in: "body"
+        in: "query"
+      - name: "businessRegion"
+        type: "string"
+        description: "Filter by business region"
+        required: false
+        in: "query"
+      - name: "isActive"
+        type: "boolean"
+        description: "Filter active vs inactive cases"
+        required: false
+        default: true
+        in: "query"
+      - name: "ownerId"
+        type: "string"
+        description: "Filter by case owner ID"
+        required: false
+        in: "query"
+      - name: "customerId"
+        type: "string"
+        description: "Filter by customer ID"
+        required: false
+        in: "query"
+      - name: "accountId"
+        type: "string"
+        description: "Filter by account ID"
+        required: false
+        in: "query"
+      - name: "focalEntity"
+        type: "string"
+        description: "Filter by focal entity type (customer, account, transaction, branch, representative)"
+        required: false
+        in: "query"
       - name: "limit"
         type: "integer"
-        description: "Maximum number of results"
+        description: "Maximum number of cases to return"
         required: false
-        default: 50
-        in: "body"
+        default: 100
+        in: "query"
+      - name: "offset"
+        type: "integer"
+        description: "Number of cases to skip for pagination"
+        required: false
+        default: 0
+        in: "query"
+
     response_format:
       type: "array"
       item_schema:
-        case_id: "string"
-        title: "string"
-        status: "string"
-        priority: "string"
-        assigned_to: "string"
-        created_at: "datetime"
-
-  - name: "get_case_details"
-    description: "Get detailed information about a specific case by ID, including full description, comments, attachments, and history. Use this when user asks about a specific case."
-    url: "${BASE_URL}/api/v1/cases/{case_id}"
-    method: "GET"
-    requires_auth: true
-
-    # Parameter metadata for FilterGenerator (natural language support)
-    parameter_metadata:
-      case_id:
-        type: "string"
-        description: "Unique case identifier or case number"
-        required: true
-      include_comments:
-        type: "boolean"
-        description: "Include case comments"
-        default: true
-      include_history:
-        type: "boolean"
-        description: "Include case history"
-        default: false
-
-    parameters:
-      - name: "case_id"
-        type: "string"
-        description: "Unique case identifier or case number"
-        required: true
-        in: "path"
-      - name: "include_comments"
-        type: "boolean"
-        description: "Include case comments"
-        required: false
-        default: true
-        in: "query"
-      - name: "include_history"
-        type: "boolean"
-        description: "Include case history"
-        required: false
-        default: false
-        in: "query"
-    response_format:
-      type: "object"
-      schema:
-        case_id: "string"
+        caseId: "integer"
+        caseNumber: "string"
         title: "string"
         description: "string"
         status: "string"
         priority: "string"
-        assigned_to: "string"
-        created_at: "datetime"
-        updated_at: "datetime"
-        comments: "array"
-        history: "array"
+        caseType: "string"
+        resolution: "string"
+        orgUnitId: "string"
+        orgUnitKey: "string"
+        previousOrgUnitId: "string"
+        isOrgUnitUpdated: "boolean"
+        orgKey: "string"
+        orgFamily: "string"
+        ownerId: "string"
+        ownerName: "string"
+        assignedTo: "string"
+        customerId: "string"
+        accountId: "string"
+        branchId: "string"
+        householdId: "string"
+        totalScore: "number"
+        businessRegion: "string"
+        caseGroupId: "string"
+        buildingBlock: "string"
+        workflowId: "integer"
+        currentStepId: "integer"
+        currentStepName: "string"
+        lastStepUpdatedDate: "datetime"
+        isActive: "boolean"
+        isDeleted: "boolean"
+        isConsolidated: "boolean"
+        isRelatedCase: "boolean"
+        createdAt: "datetime"
+        updatedAt: "datetime"
+        closedAt: "datetime"
+        dueDate: "datetime"
+        businessDate: "datetime"
+        deadline: "datetime"
+        createdBy: "string"
+        updatedBy: "string"
+        closedBy: "string"
+        externalCaseId: "string"
+        parentCaseId: "string"
+        tags: "string"
+        notes: "string"
+        focalEntity: "string"
+        dueIn: "string"
+        customerName: "string"
+        accountName: "string"
+        transactionId: "string"
+        branchName: "string"
+        representativeId: "string"
+        representativeName: "string"
+        scenarioModelIds: "string"
+        scenarioModelNames: "string"
+        hasMultipleScenario: "boolean"
+        watchListId: "string"
+        focus: "string"
+        pivot: "string"
+        reasonDetails: "object"
+        customFields: "object"
+        workflowInfo: "object"
+        metadata: "object"
 
-  - name: "create_case"
-    description: "Create a new case, ticket, bug report, or issue with title and description. Use this when user wants to create, submit, or report a new case."
-    url: "${BASE_URL}/api/v1/cases"
-    method: "POST"
-    requires_auth: true
-    parameters:
-      - name: "title"
-        type: "string"
-        description: "Case title or summary"
-        required: true
-        in: "body"
-      - name: "description"
-        type: "string"
-        description: "Detailed case description"
-        required: true
-        in: "body"
-      - name: "priority"
-        type: "string"
-        description: "Case priority (low, medium, high, critical)"
-        required: false
-        default: "medium"
-        in: "body"
-      - name: "assigned_to"
-        type: "string"
-        description: "User ID or email to assign the case to"
-        required: false
-        in: "body"
-      - name: "category"
-        type: "string"
-        description: "Case category or type"
-        required: false
-        in: "body"
-
-  - name: "update_case"
-    description: "Update an existing case with new information, change status, priority, or assignment. Use this when user wants to modify, update, or change a case."
-    url: "${BASE_URL}/api/v1/cases/{case_id}"
-    method: "PUT"
-    requires_auth: true
-    parameters:
-      - name: "case_id"
-        type: "string"
-        description: "Case ID to update"
-        required: true
-        in: "path"
-      - name: "status"
-        type: "string"
-        description: "New case status"
-        required: false
-        in: "body"
-      - name: "priority"
-        type: "string"
-        description: "New priority level"
-        required: false
-        in: "body"
-      - name: "assigned_to"
-        type: "string"
-        description: "New assignee user ID or email"
-        required: false
-        in: "body"
 
   # ========================================================================
   # USER MANAGEMENT ENDPOINTS
@@ -252,28 +389,6 @@ endpoints:
   # STATISTICS & REPORTING ENDPOINTS
   # ========================================================================
 
-  - name: "get_case_statistics"
-    description: "Get statistics, metrics, counts, or analytics about cases such as total cases, open cases, closed cases, by priority, or by status. Use this for dashboard data or reporting."
-    url: "${BASE_URL}/api/v1/statistics/cases"
-    method: "GET"
-    requires_auth: true
-    parameters:
-      - name: "date_from"
-        type: "date"
-        description: "Start date for statistics"
-        required: false
-        in: "query"
-      - name: "date_to"
-        type: "date"
-        description: "End date for statistics"
-        required: false
-        in: "query"
-      - name: "group_by"
-        type: "string"
-        description: "Group results by: status, priority, assignee, category"
-        required: false
-        in: "query"
-
 # Authentication Configuration
 authentication:
   type: "bearer"  # Options: bearer, basic, api_key, oauth2
@@ -282,7 +397,7 @@ authentication:
   token_prefix: "Bearer"  # Prefix for token (e.g., "Bearer <token>")
 
 # Base URL Configuration
-base_url_env_var: "API_BASE_URL"  # Environment variable for base URL
+base_url_env_var: "REST_API_BASE_URL"  # Environment variable for base URL
 default_base_url: "http://localhost:8000"  # Fallback base URL
 
 # Global Settings
