@@ -15,9 +15,9 @@ logger = logging.getLogger(__name__)
 
 class RESTAPIInput(BaseModel):
     """Input schema for REST API tool"""
-    endpoint: str = Field(..., description="API endpoint path (e.g., /api/cases)")
-    method: str = Field("GET", description="HTTP method (GET, POST, PUT, DELETE)")
-    params: Optional[str] = Field(None, description="Query parameters as JSON string")
+    endpoint: str = Field("", description="API endpoint path - leave empty to use pre-configured endpoint")
+    method: str = Field("", description="HTTP method - leave empty to use pre-configured method")
+    params: Optional[str] = Field(None, description="Query parameters as JSON string or natural language filter description")
     body: Optional[str] = Field(None, description="Request body as JSON string (for POST/PUT)")
 
 
